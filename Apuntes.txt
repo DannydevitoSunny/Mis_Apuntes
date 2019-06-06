@@ -1,0 +1,273 @@
+﻿FECHA 06-06-19
+CLIENTE :YO -------SERVIDOR: VICTIMA
+-Actividades finales BD
+-Actividades 2 puntos BD
+
+-acabar ARRASTAR Y SOLTAR
+
+---RECUPERACION BASE DATOS
+--xamarin
+
+C O S A S   I N T E R E S A N T E S   EN   C#{
+
+@@@@@@@@@@@@ MI   P R O P I O    SET-INTERVAL @@@@@@@@@@@@@@@
+
+	hilo1.join()----> la ejecuccion espera a que el hilo termine.
+
+	Thread hilo1 = new Thread();
+	valor = 1000;
+	verdad = true
+	public void setInterval (mifuncion,valor){
+		while (verdad = true) {
+
+			hilo1.sleep(valor);
+			mifuncion();	 
+		}
+	}
+
+
+	
+	string ruta =@"C:/Home/Usuario..."----->Si ponemos '@' eso nos permite evitar poner doble barra en las rutas
+	EN C# SE SUELE EMPLEAR DOBLE CAMELCASE EJEMPLO; NuevaVariable;
+	+ --> nos permite escribir en varias lineas: consoleWriteLine("Hola"+"adios");
+	catch(Exeption e){ Console.WriteLine(e.Mesagge)}-->nos dice el tipo de error;
+Restriccion: catch(Exeption e) when (e.GetType() != typeof(FormatExeption))
+	int.Parse(Console.ReadLine())--->tambien sirve pra decimal curiosamente;
+	Random aleatorio =  new Random(); aleatorio  = aleatorio.Next(1,100); /aleatorio.NextDouble(); 
+	float decima = 4.25F
+	using System.Threading;  Thread.Sleep(1000); --> FUNCIONA!!!, nose como pararlo,
+	valor = (condicion) ? (si verdad) : (si mentira);
+	public static int MetodoDevolver(int a, int b) => a+b; ----> notacion corta para return;
+	
+	SUPER()---> es como this, hace referencia a la clase padre, en este caso estariamos incovando el constructor padre
+	SUPER.metodoPadre()---> asi llamamos el metodo de clase padre directamente = ClasePadre.metodoPadre()
+	
+	TIPO MODIFICADORES DE ACCESO:
+		-STATIC puede ser invocado sin inicializar objeto
+		-PUBLIC puede llamarse en cualquier parte, y necesita una instancia
+		-PROTECTED necesita instancia y solo puede ser invocado desde la misma clase o herencia
+		-PRIVATE solo puede ser invocado dentro de la misma clase
+	
+	public virtual void mi_funcion()--->virtual simboliza que el metodo puede ser sobre escrito con override
+	public override void mi_funcion()--->sobrecarga del metodo anterior con override/virtual
+	sealed ---> no permite herencia, se puede añadir a un metodo o clase
+	new ----> fuerza la sobrecarga de un metodo, incluso si no es virtual
+	
+	Si clase padre e hijo comparten el mismo metodo, prevalece el del hijo;
+	
+	€€€€€€€----get/set---€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+
+	private int nombre
+
+	set int Nombre{
+
+		aqui podemos programar condicionales, switches, bucles .....
+		y al final:
+		this.nombre = value
+	}
+	get{
+		
+
+		return this.nombre;
+	}
+	
+	persona.Nombre = 'Paco'----> realmente cambiamos el => 'private nombre'
+	
+	€€€€€€€----DELEGATE---€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+
+	public void delegate miDelegado(string a, int b)----->>funcion que hace referencia a otras funciones del mismo tipo.
+	
+	miDelegado funcion_referencia = new miDelegado(Clase.funcion);----> hacemos referencia a la funcion del mismo tipo.
+
+	funcion_referencia ("hola",10);----> llamamos la funcion referenciada;
+	
+	€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+
+
+		----------------------------------------------------------------------------------------------
+		€€€€€€€€€€€€€€€€ I N T E R F A C E S €€€€€€€€€€€€€€€€€€€€€€€€
+
+	Interface   MI_Interfaz  { void metodo1(); int metodo2(); double metodo3(); string metodo4()}; --> declaramos los metodos a usar
+	MI_Interfaz   funcion_polimorfismo = new  Clase1()   --> inicializamos la Interfaz con distintas clases que tengas los metodos llamados igual, todas deben heredar de interface;
+	--Ejemplo:
+		switch (numero){
+			case 1 : funcion_polimosrfismo = new Clase1();break;
+			case 2: funcion_polimosrfismo = new Clase2();break;
+
+			}
+
+		funcion_polimorfismo.metodo1();
+
+		Una vez instanciamos una clase como interfaz, todoas las funciones de la interfaz funcionan como esa clase.
+		
+		(Sirven sobre todo para hacer polimorfismo );
+
+
+	      €€€€€€€€€€€ IE N U M E R A B L E / IE N U M E R A T O R    €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+		
+		public class Tienda : IEnumerable
+		{
+		
+			public IEnumerator void Funcion_para_enumerar(){
+				return lista_vehiculos.GetEnumerator();
+			}
+
+		}
+
+		--->Para contar elementos en un vector  o una lista podemos usar el "foreach", pero si tenemos
+		--->que listar objetos, dentro de objetos, el "foreach" nos da un error, por eso empleamos la estructura anterior
+		---> de esa manera el "foreach" si funciona!!!
+
+
+
+}
+
+
+@@@@@@@@@@@@@@@@@@ TASK, AWAIT, ASYNC @@@@@@@@@@@@@
+
+	public  async Task Mi_Funcion(){
+	
+		int variable = 0;
+		await Task.Run( () => {
+			hacer_cosas_mucho_tiempo();
+		}
+		
+		Console.WriteLine($'La variable vale {variable} ');
+	}
+	
+
+
+
+
+
+######---------------------€€€€€--J A V A S C R I P T ----€€€€€€€€€€€---------------------############################################
+Cosas  avanzadas de Javascript:
+	<condicion> ? <haz esto> : <sino esto>
+	var verdad = true;   console.log(!verdad)---->devolvera false;
+	var miFuncion =   ()=>{   <aqui va mi funcion>  };
+	var miVariable = 10 || [ ]  --> es igual a 10 o vector;
+	-Prototype.Clase.metodo = function(){}
+	-Prototype.Clase.atributo = function(){}
+	-funcion.call(miObjeto);
+	-funcion (x, y, callback)--> callback nos permite pasar una funcion como parametro;
+	var vector_asosiativo = [] ;
+	var vector_asosiativo[0] = {"nombre":"Rus", "Edad" : "23"};
+	var vector_asosiativo[1] = {"nombre":"Kratos", "Edad" : "43"};
+	El triple === comprar si son iguales y encima si son el mismo tipo de dato;
+	var texto = 'hola'; console.log("este es el texto {texto})",texto);
+	argument--->> me lo tengo que mirar!!!!! <<<-----------------!!!!
+	var elemento = '<img src = " '+mi_imagen.getAttribute("src")+ ' " ';--->getAtribute() funcion para cojer atributos;
+	document.getElementById('uno').checkValidity(); ----> comprueba las condiciones como: max, min, pattern, email, number etc.....
+		-- los metodos los consultamos en internet para checkValidity de cada uno de los tipos de campos de ejemplo de arriba;
+	elemento.setCustomValidity('El campo no debe tener numeros') ----> mensaje de error personalizado!!;
+
+
+
+	€€€€€€€€€€€€--N O T A C I O N    C H U L A S-- €€€€€€€€€€€€€€€
+
+	----> Declaramos 3 funciones cada una con un return true/false---
+
+	funcion_1(){return true} ---€€€€--- funcion_2(){return true} ---€€€€---- funcion_3(){return true}
+
+	funcion comprobar(){ 
+		if(  funcion_1()  &&  funcion_2()  &&  funcion_3()  ){
+
+			alert(" las 3 funciones son verdad");
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Y2MATE---> para musica y video!!!!!!!!
+
+CRC
+VIRTUE WORDPRESS TEMA
+style.scc
+functions.php
+
+vectores asosiativos y vectores multidimensionales
+
+
+Un framework da acceso a todo, osea, hasta podemos romperlo
+Api: solo da acceso a la parte que el ususario vaya a usar
+
+depemdencia funcional A->B
+dependencia completa funcional A=>B
+dependencia transitiva  A->B->C->A
+
+
+Contenido RSS
+
+उಟऊँऔؚ॒ओी॒ऩऔः؛೚उज
+؛ऎ॔থॼऔؚ॒10
+ग ढ
+ী
+श॒
+ु೚മठऒऎ
+؛ॡঞ४ॵॺढ़شॻमઞणऊ
+؛इऊछटधઓउु
+؛उ ಟ ऊँ औؚ॒ ओी॒ ऩऔ ः ؛೚उ ज ऎ॔ থॼ औؚ॒ 10ग ढী श॒ु ೚ മ ठ ऒ ऎ؛  ॡ ঞ४ ॵॺ ढ़شॻम ઞ ण ऊ؛इ ऊ छ टध ઓ उु ः ऽ パ ス ポ ー ト ま た は 外  国 人 登 録 証 に 書 い て あ る と お り、フ ル ネ ー ム で 書 い て く だ さ い 。 「 ふ り が な 」 は 平 仮 名 で 書 い て く だ さ  い。 ߷ ऄ अ आ इ ई उ ऊ ऋ ऌ ऍ ऎ ए ऐ ऑ ऒ ओ औ क ख ग घ ङ च छ ज झ ञ ट ठ ड ढ ण त थ द ध न ऩ प फ ब भ म य र ऱ ल ळ ऴ व श ष स ह ॐ क़ ख़ ग़ ज़ ड़ ढ़ फ़ य़ ॠ ॡ । ॥ ० १ २ ३ ४ ५ ६ ७ ८ ९ ॲ ॻ ॼ ॽ ॾ ॿ অ আ ই ঈ উ ঊ ঋ ঌ এ ঐ ও ঔ ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম য র ল শ ষ স হ ঽ ৎ ড় ঢ় ৪ ৫ ৬ ৭ ৮ ৯ ৰ ৱ ৲ ৳  ৶ ৷ ৸ ৹ ৺ ਅ ਆ 本 書 的 主 幹 － 中 文 部 分 － 是 由 華 語 教 育 專 家 、 國 立 政 治 大 學 副 教 授 劉 紀 華 女 士 所 執 筆 編 寫 。 西 文 部 分 ，則 由 旅 居 西 班 牙 的 馬 德 里 大 學 文 學 博 士 胡 萍 士 女 士 翻 譯 。 他 憑 富 0 的 專 業 知 識 以 及 多 年 的 教 學 經 驗 ，使 本 書 內 容 充 實 完 備 
+
+你看到的切都是谎言所以在这里你是生命中的死人切都没有你因缺乏感觉区而值得
+
+ઝ ઞ ટ ઠ ડ ઢ ણ ત થ દ ધ ન પ ફ બ ભ મ ય ર લ ળ વ શ ષ સ હ ઽ ૐ ૠ ૡ ૧ ૨ ૩ ૪ ૫ ૬ ૭ ૮ ૯ ૱ ଅ ଆ ଇ ଈ ଉଊ ଋ ଌ ଏ ଐ ଓ ଔ କ ଖ ଗ ଘ ଙ ଚ ଛ ଜ ଝ ଞ ଟ ଡ ଢ ଣ ତ ଥ ଦ ଧ ନ ପ ଫ ବ ଭ ମ ଯ ର ଲ ଳ ଵ ଶ ଷ ସ ହ ଽ ଡ଼ ଢ଼ ୟ ୠ ୡ ୦ ୧ ୨ ୩ ୪ ୫ ୬ ୭ ୮ ୯ ୰ ୱ ஃ அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ க ங ச ஜ ஞ ட ண த ந ன ப ம ய ர ற ல ள ழ வ ஶ  ऊ؛इ ऊ छ
+ ߷ ऄ अ आ इ ई उ ऊ ऋ ऌ ऍ ऎ ए ऐ ऑ ऒ ओ औ क ख ग घ ङ च छ ज झ ञ ट ठ ड ढ ण त थ द ध न ऩ प फ ब भ म य र ऱ ल ळ ऴ व श ष स ह ॐ क़ ख़ ग़ ज़ ड़ ढ़ फ़ य़ ॠ ॡ । ॥ ० १ २ ३ ४ ५ ६ ७ ८ ९ ॲ ॻ ॼ ॽ ॾ ॿ অ আ ই ঈ উ ঊ ঋ ঌ এ ঐ ও ঔ ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম য র ল শ ষ স হ ঽ ৎ ড় ঢ় য় ৠ ৡ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯ ৰ ৱ ৲ ৳ ৴ ৵ ৶ ৷ ৸ ৹ ৺ ਅ ਆ ਇ ਈ ਉ ਊ ਏ ਐ ਓ ਔ ਕ ਖ ਗ ਘ ਙ ਚ ਛ ਜ ਝ ਞ ਟ ਠ ਡ ਢ ਣ ਤ ਥ ਦ ਧ ਨ ਪ ਫ ਬ ਭ ਮ ਯ ਰ ਲ ਲ਼ ਵ ਸ਼ ਸ ਹ ਖ਼ ਗ਼ ਜ਼ ੜ ਫ਼ ੦ ੧ ੨ ੩ ੪ ੫ ੬ ੭ ੮ ੯ ੲ ੳ ੴ અ આ ઇ ઈ ઉ ઊ ઋ ઌ ઍ એ ઐ ઑ ઓ ઔ ક ખ ગ ઘ ઙ ચ છ જ ઝ ઞ ટ ઠ ડ ઢ ણ ત થ દ ધ ન પ ફ બ ભ મ ય ર લ ળ વ શ ષ સ હ ઽ ૐ ૠ ૡ ૧ ૨ ૩ ૪ ૫ ૬ ૭ ૮ ૯ ૱ ଅ ଆ ଇ ଈ ଉ ଊ ଋ ଌ ଏ ଐ ଓ ଔ କ ଖ ଗ ଘ ଙ ଚ ଛ ଜ ଝ ଞ ଟ ଡ ଢ ଣ ତ ଥ ଦ ଧ ନ ପ ଫ ବ ଭ ମ ଯ ର ଲ ଳ ଵ ଶ ଷ ସ ହ ଽ ଡ଼ ଢ଼ ୟ ୠ ୡ ୦ ୧ ୨ ୩ ୪ ୫ ୬ ୭ ୮ ୯ ୰ ୱ ஃ அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ க ங ச ஜ ஞ ட ண த ந ன ப ம ய ர ற ல ள ழ வ ஶ ஷ ஸ ஹ ௐ ௰ ௱ ௲ ௳ ௴ ௵ ௶ ௷ ௸ ௹ ௺ അ ആ ഇ ഈ ഉ ഊ ഋ ഌ എ ഏ ഐ ഒ ഓ ഔ ക ഖ ഗ ഘ ങ ച ഛ ജ ഝ ഞ ട ഠ ഡ ഢ ണ ത ഥ ദ ധ ന പ ഫ ബ ഭ മ യ ര റ ല ള ഴ വ ശ ഷ സ ഹ ഽ ൄ ൠ ൡ ൦ ൧ ൨ ൩ ൪ ൫ ൬ ൭ ൮ ൯ ൰ ൱ ൲ ൳ ൴ ൵ ൹ ൺ ൻ ർ ൽ ൾ ൿ ෴ ࿂ ࿃ ࿄ ࿅ ࿆ ࿇ ࿈ ࿉ ࿊ ࿋ ࿌ ࿏ Ⴀ Ⴁ Ⴂ Ⴃ Ⴄ Ⴅ Ⴆ Ⴇ Ⴈ Ⴉ Ⴊ Ⴋ Ⴌ Ⴍ Ⴎ Ⴏ Ⴐ Ⴑ Ⴒ Ⴓ Ⴔ Ⴕ Ⴖ Ⴗ Ⴘ Ⴙ Ⴚ Ⴛ Ⴜ Ⴝ Ⴞ Ⴟ Ⴠ Ⴡ Ⴢ Ⴣ Ⴤ Ⴥ ა ბ გ დ ე ვ ზ თ ი კ ლ მ ნ ო პ ჟ რ ს ტ უ ფ ქ ღ ყ შ ჩ ც ძ წ ჭ ხ ჯ ჰ ჱ ჲ ჳ ჴ ჵ ჶ ჷ ჸ ჹ ჺ ፠ ፡ ። ፣ ፤ ፥ ፦ ፧ ፨ Ꭳ Ꭴ Ꭶ Ꭷ Ꭸ Ꭽ Ꭾ Ꭿ Ꮀ Ꮁ Ꮂ Ꮄ Ꮈ Ꮉ Ꮊ Ꮌ Ꮍ Ꮎ Ꮏ Ꮑ Ꮔ Ꮕ Ꮖ Ꮗ Ꮘ Ꮙ Ꮚ Ꮛ Ꮜ Ꮝ Ꮟ Ꮠ Ꮡ Ꮣ Ꮤ Ꮥ Ꮦ Ꮧ Ꮨ Ꮩ Ꮫ Ꮬ Ꮭ Ꮰ Ꮱ Ꮳ Ꮴ Ꮵ Ꮷ Ꮸ Ꮹ Ꮺ Ꮻ Ꮼ Ꮿ Ᏸ Ᏹ Ᏺ Ᏻ ᐁ ᐂ ᐃ ᐄ ᐅ ᐆ ᐇ ᐈ ᐉ ᐊ ᐋ ᐌ ᐍ ᐎ ᐏ ᐐ ᐑ ᐒ ᐓ ᐔ ᐕ ᐖ ᐗ ᐘ ᐙ ᐚ ᐛ ᐜ ᐝ ᐞ ᐟ ᐠ ᐡ ᐢ ᐣ ᐤ ᐥ ᐦ ᐧ ᐨ ᐩ ᐪ ᐫ ᐬ ᐭ ᐮ ᐯ ᐰ ᐱ ᐲ ᐳ ᐴ ᐵ ᐶ ᐷ ᐸ ᐹ ᐺ ᐻ ᐼ ᐽ ᐾ ᐿ ᑀ ᑁ ᑂ ᑃ ᑄ ᑅ ᑆ ᑇ ᑈ ᑉ ᑊ ᑋ ᑌ ᑍ ᑎ ᑏ ᑐ ᑑ ᑒ ᑓ ᑔ ᑕ ᑖ ᑗ ᑘ ᑙ ᑚ ᑛ ᑜ ᑝ ᑞ ᑟ ᑠ ᑡ ᑢ ᑣ ᑤ ᑥ ᑦ ᑧ ᑨ ᑩ ᑪ ᑫ ᑬ ᑭ ᑮ ᑯ ᑰ ᑱ ᑲ ᑳ ᑴ ᑵ ᑶ ᑷ ᑸ ᑹ ᑺ ᑻ ᑼ ᑽ ᑾ ᑿ ᒀ ᒁ ᒂ ᒃ ᒄ ᒅ ᒆ ᒇ ᒈ ᒉ ᒊ ᒋ ᒌ ᒍ ᒎ ᒏ ᒐ ᒑ ᒒ ᒓ ᒔ ᒕ ᒖ ᒗ ᒘ ᒙ ᒚ ᒛ ᒜ ᒝ ᒞ ᒟ ᒠ ᒡ ᒢ ᒣ ᒤ ᒥ ᒦ ᒧ ᒨ ᒩ ᒪ ᒫ ᒬ ᒭ ᒮ ᒯ ᒰ ᒱ ᒲ ᒳ ᒴ ᒵ ᒶ ᒷ ᒸ ᒹ ᒺ ᒻ ᒼ ᒽ ᒾ ᒿ ᓀ ᓁ ᓂ ᓃ ᓄ ᓅ ᓆ ᓇ ᓈ ᓉ ᓊ ᓋ ᓌ ᓍ ᓎ ᓏ ᓐ ᓑ ᓒ ᓓ ᓔ ᓕ ᓖ ᓗ ᓘ ᓙ ᓚ ᓛ ᓜ ᓝ ᓞ ᓟ ᓠ ᓡ ᓢ ᓣ ᓤ ᓥ ᓦ ᓧ ᓨ ᓩ ᓪ ᓫ ᓬ ᓭ ᓮ ᓯ ᓰ ᓱ ᓲ ᓳ ᓴ ᓵ ᓶ ᓷ ᓸ ᓹ ᓺ ᓻ ᓼ ᓽ ᓾ ᓿ ᔀ ᔁ ᔂ ᔃ ᔄ ᔅ ᔆ ᔇ ᔈ ᔉ ᔊ ᔋ ᔌ ᔍ ᔎ ᔏ ᔐ ᔑ ᔒ ᔓ ᔔ ᔕ ᔖ ᔗ ᔘ ᔙ ᔚ ᔛ ᔜ ᔝ ᔞ ᔟ ᔠ ᔡ ᔢ ᔣ ᔤ ᔥ ᔦ ᔧ ᔨ ᔩ ᔪ ᔫ ᔬ ᔭ ᔮ ᔯ ᔰ ᔱ ᔲ ᔳ ᔴ ᔵ ᔶ ᔷ ᔸ ᔹ ᔺ ᔻ ᔼ ᔽ ᔾ ᔿ ᕀ ᕁ ᕂ ᕃ ᕄ ᕅ ᕆ ᕇ ᕈ ᕉ ᕊ ᕋ ᕌ ᕍ ᕎ ᕏ ᕐ ᕑ ᕒ ᕓ ᕔ ᕕ ᕖ ᕗ ᕘ ᕙ ᕚ ᕛ ᕜ ᕝ ᕞ ᕟ ᕠ ᕡ ᕢ ᕣ ᕤ ᕥ ᕦ ᕧ ᕨ ᕩ ᕪ ᕫ ᕬ ᕭ ᕮ ᕯ ᕰ ᕱ ᕲ ᕳ ᕴ ᕵ ᕶ ᕷ ᕸ ᕹ ᕺ ᕻ ᕼ ᕽ ᕾ ᕿ ᖀ ᖁ ᖂ ᖃ ᖄ ᖅ ᖆ ᖇ ᖈ ᖉ ᖊ ᖋ ᖌ ᖍ ᖎ ᖏ ᖐ ᖑ ᖒ ᖓ ᖔ ᖕ ᖖ ᖗ ᖘ ᖙ ᖚ ᖛ ᖜ ᖝ ᖞ ᖟ ᖠ ᖡ ᖢ ᖣ ᖤ ᖥ ᖦ ᖧ ᖨ ᖩ ᖪ ᖫ ᖬ ᖭ ᖮ ᖯ ᖰ ᖱ ᖲ ᖳ ᖴ ᖵ ᖶ ᖷ ᖸ ᖹ ᖺ ᖻ ᖼ ᖽ ᖾ ᖿ ᗀ ᗁ ᗂ ᗃ ᗄ ᗅ ᗆ ᗇ ᗈ ᗉ ᗊ ᗋ ᗌ ᗍ ᗎ ᗏ ᗐ ᗑ ᗒ ᗓ ᗔ ᗕ ᗖ ᗗ ᗘ ᗙ ᗚ ᗛ ᗜ ᗝ ᗞ ᗟ ᗠ ᗡ ᗢ ᗣ ᗤ ᗥ ᗦ ᗧ ᗨ ᗩ ᗪ ᗫ ᗬ ᗭ ᗮ ᗯ ᗰ ᗱ ᗲ ᗳ ᗴ ᗵ ᗶ ᗷ ᗸ ᗹ ᗺ ᗻ ᗼ ᗽ ᗾ ᗿ ᘀ ᘁ ᘂ ᘃ ᘄ ᘅ ᘆ ᘇ ᘈ ᘉ ᘊ ᘋ ᘌ ᘍ ᘎ ᘏ ᘐ ᘑ ᘒ ᘓ ᘔ ᘕ ᘖ ᘗ ᘘ ᘙ ᘚ ᘛ ᘜ ᘝ ᘞ ᘟ ᘠ ᘡ ᘢ ᘣ ᘤ ᘥ ᘦ ᘧ ᘨ ᘩ ᘪ ᘫ ᘬ ᘭ ᘮ ᘯ ᘰ ᘱ ᘲ ᘳ ᘴ ᘵ ᘶ ᘷ ᘸ ᘹ ᘺ ᘻ ᘼ ᘽ ᘾ ᘿ ᙀ ᙁ ᙂ ᙃ ᙄ ᙅ ᙆ ᙇ ᙈ ᙉ ᙊ ᙋ ᙌ ᙍ ᙎ ᙏ ᙐ ᙑ ᙒ ᙓ ᙔ ᙕ ᙖ ᙗ ᙘ ᙙ ᙚ ᙛ ᙜ ᙝ ᙞ ᙟ ᙠ ᙡ ᙢ ᙣ ᙤ ᙥ ᙦ ᙧ ᙨ ᙩ ᙪ ᙫ ᙬ ᙭ ᙮ ᙯ ᙰ ᙱ ᙲ ᙳ ᙴ ᙵ ᙶᚠ ᚡ ᚢ ᚣ ᚤ ᚥ ᚦ ᚧ ᚨ ᚩ ᚪ ᚫ ᚬ ᚭ ᚮ ᚯ ᚰ ᚱ ᚲ ᚳ ᚴ ᚵ ᚶ ᚷ ᚸ ᚹ ᚺ ᚻ ᚼ ᚽ ᚾ ᚿ ᛀ ᛁ ᛂ ᛃ ᛄ ᛅ ᛆ ᛇ ᛈ ᛉ ᛊ ᛋ ᛌ ᛍ ᛎ ᛏ ᛐ ᛑ ᛒ ᛓ ᛔ ᛕ ᛖ ᛗ ᛘ ᛙ ᛚ ᛛ ᛜ ᛝ ᛞ ᛟ ᛠ ᛡ ᛢ ᛣ ᛤ ᛥ ᛦ ᛨ ᛩ ᛪ ᛫ ᛭ ᛮ ᛯ ᛰ ៳ ៴ ៵ ៶ ៷ ៸ ៹ ᠀ ᠁ ᠅ ᠉ ᢀ ᢁ ᢂ ᢃ ᢄ ᢅ ᢆ ᥐ ᥑ ᥒ ᥓ ᥔ ᥕ ᥖ ᥗ ᥘ ᥙ ᥚ ᥛ ᥜ ᥝ ᥞ ᥟ ᥠ ᥡ ᥢ ᥣ ᥤ ᥥ ᥦ ᥧ ᥨ ᥩ ᥪ ᥫ ᥬ ᥭ ᥰ ᥱ ᥲ ᥳ ᥴ ᦀ ᦁ ᦂ ᦃ ᦄ ᦅ ᦆ ᦇ ᦈ ᦉ ᦊ ᦋ ᦌ ᦍ ᦎ ᦏ ᦐ ᦑ ᦒ ᦓ ᦔ ᦕ ᦖ ᦗ ᦘ ᦙ ᦚ ᦛ ᦜ ᦝ ᦞ ᦟ ᦠ ᦡ ᦢ ᦣ ᦤ ᦥ ᦦ ᦧ ᦨ ᦩ ᦰ ᦱ ᦲ ᦳ ᦴ ᦸ ᦹ ᦻ ᦼ ᦽ ᦾ ᦿ ᧀ ᧁ ᧂ ᧃ ᧄ ᧅ ᧆ ᧇ ᧈ ᧉ ᧑ ᧒ ᧓ ᧔ ᧕ ᧖ ᧗ ᧘ ᧙ ᧞ ᧟ ᧠ ᧡ ᧢ ᧣ ᧤ ᧥ ᧦ ᧧ ᧨ ᧩ ᧪ ᧫ ᧬ ᧭ ᧮ ᧯ ᧰ ᧱ ᧲ ᧳ ᧴ ᧵ ᧶ ᧷ ᧸ ᧹ ᧺ ᧻ ᧼ ᧽ ᧾ ᧿ ᴁ ᴂ ᴈ ᴉ ᴑ ᴒ ᴓ ᴔ ᴕ ᴖ ᴗ ᴘ ᴙ ᴚ ᴛ ᴜ ᴝ ᴞ ᴟ ᵷ ᵹ † ‡ • ‣ ※ ‼ ‽ ‾ ‿ ⁀ ⁁ ⁂ ⁃ ⁄ ⁅ ⁆ ⁇ ⁈ ⁉ ⁑ ⁗ ⁞ ₠ ₡ ₢ ₣ ₤ ₥ ₦ ₧ ₨ ₩ ₪ ₫ € ₭ ₮ ₯ ₰ ₱ ₲ ₳ ₴ ₵ ₸ ⃐ ⃑ ⃒ ⃓ ⃔ ⃕ ⃖ ⃛ ⃜ ⃝ ⃠ ⃡ ⃩ ⃪ ℀ ℁ ℂ ℃ ℄ ℅ ℆ ℇ ℈ ℉ ℊ ℋ ℌ ℍ ℎ ℏ ℐ ℑ ℒ ℓ ℔ ℕ Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ Ⅻ ⅰ ⅱ ⅲ ⅳ ⅴ ⅵ ⅶ ⅷ ⅸ ⅹ ⅺ ⅻ ⅼ ⅽ ⅾ ⅿ ↀ ↁ ↂ 
+
+
+學習語文的主要目的，是希望能自然流暢地在日常生活中應
+用。我海外華裔子弟學習華語之目標，亦在於能夠靈活應用。本
+會基於服務僑胞之一貫政策與理念，特別推出不同系列之華語教
+材，以符合不同地區僑胞的需要。這本「五百字說華語」走的是
+大眾路線，可供各行各業不同年齡層的人士使用。為使本會教材
+多元化，以多種語言呈現，目前已推出中英、中泰、中葡、中西
+、中法、中印尼文和中德文等七種版本，我們希望這套多語言的
+教材能嘉惠更多的華裔子弟。
+本書的主幹－中文部分－是由華語教育專家、國立政治大學
+副教授劉紀華女士所執筆編寫。西文部分，則由旅居西班牙的馬
+德里大學文學博士胡萍士女士翻譯。他們憑著豐富的專業知識以
+及多年的教學經驗，使本書內容充實完備，在此，本會註以最誠
+摰的心，致上最深的謝意。
+本書共分三十課，每課均包括課文、字與詞、溫習、應用等
+四單元。「課文」完全取材於日常生活，以實用為導向，從自我
+介紹、家庭、學校、溝通、到簡單的應對進退，皆已涵蓋。課文
+中重面而常用的字詞，在「字與詞」單元中並有詳細的解說，學
+生不僅能藉此瞭解文字的筆順，亦能學到由單字所衍生而來的詞
+語。在「溫習」單元，所有文字皆不加注音，藉以訓練學生認字
+的能力，並對課文內容能有更深一層瞭解。最後在「應用」的部
+分，則是希望能讓學生將所學的語彙靈活運用於日常生活中，進
+而能夠自然而流暢地使用華語。
+本書內容係經過精心安排，為使本書發揮最大的效用，深切
+期盼採用本教材的教師能安排自然活潑的學習環境，讓學生在輕
+鬆愉快的學習過程中，奠定華語的基礎，為日後學習進階華文做
+準備。本會也期望各界若對本書有任何意見，能不吝賜教，讓本
+書得以精益求精，更加完美。
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+using System;
+using System.Timers;
+
+public class Demo {
+   private static Timer timer;
+
+   public static void Main() {
+      timer = new System.Timers.Timer();
+      timer.Interval = 5000;
+
+      timer.Elapsed += OnTimedEvent;
+      timer.AutoReset = true;
+      timer.Enabled = true;
+
+      Console.WriteLine("Press the Enter key to exit anytime... ");
+      Console.ReadLine();
+   }
+
+   private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e) {
+      Console.WriteLine("Raised: {0}", e.SignalTime);
+   }
+}
+
+
+
+
+€€€€€€€€€€€€€€€€€ T A S K €€€€€€€€€€€€€€€€€€€€€€€
+
+void EjecutaTareaAsincrona()
+{
+    ProgressBar.Progress = 0;
+    Task.Run(() =>
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            Task.Delay(100).Wait(); // Retardo
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                ProgressBar.Progress = ((double)i + 1) / 100;
+            });
+        }
+    });
+}
+
+
+
+
+€€€€€€€€€€€€€€ T A S K   A S Y N C €€€€€€€€€€€€€€€€€€€€€€
+
+async Task EjecutaTareaAsync() --->ya NO  es void, sino que devuelve "Task"
+{
+    ProgressBar.Progress = 0;
+    await Task.Run(() =>   ---->>con el await es como decir, espera a que taks.run termine;
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            Task.Delay(100).Wait(); // Retardo
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                ProgressBar.Progress = ((double)i + 1) / 100;
+            });
+        }
+    });
+}
