@@ -1,0 +1,86 @@
+
+
+====== Home ======
+
+
+			Permisos de ARCHIVOS:
+i ---> enlace
+d ---> directorio
+- ---> archivo
+
+[i,d,-]   [propietario,grupo porpietarios,otros  r,w,x   ] (cambiar derechos)
+
+			EJEMPLO: miDirectorio d rwx ___ ___
+			EJEMPLO: miarchivo    - rwx rw  r
+
+
+       ----------------------------COMANDOS--------------------------------
+ubuntu:---> apt-get install gnome-system-tools
+google-chrome www.google.com -----> abrir una pagina con un navegador
+sudo su = para cojer la terminal como supervisor
+sudo
+bash = para cojer la terminal de scripting como root
+
+-v ( Ver el proceso de algun comando)
+
+cd /(destinno)/   (entrar en un directorio o carpeta)
+
+cd .. (paso atras )
+
+cp (copiar)
+
+ls ( ver el contenido de una carpeta)
+
+ls -l (mostrar contenido con sus parametros)
+
+ls -la (con paramentros y ficheros ocultos)
+
+pwd( muestra en que carpeta estamos)
+
+mv ( mover cortando un archivo y renombrarlo)
+
+rv( eliminar)
+
+nano(editor de texto)
+
+cat (ve el contenido de un archivo en pantalla)
+
+less (lo mismo que cat)
+
+grep(Filtro de contenido o texto en un archivo)
+
+			EJEMPLO: ls -l | grep a
+				   pwd | grep Desk
+touch (crear archivo)
+
+mkdir( crear carpeta)
+
+rmdir(eliminar carpeta)
+
+rm -r  nombreCarpeta ----> borrado la carpeta y lo de adentro
+
+chmod (cambiar permisos a:all u:propietario g:grupo o:otros) 
+			ejemplo: chmod  a+r   miDirectorio
+				 chmod  u-w   Miarchivo
+				 chmod  go-w  miarchivo
+				 chmod  u+rwx midir
+
+chown (cambiar archivo de propietario)
+ ejemplo
+				 chown gandalf midirectorio
+				 chown root mi_archivo
+
+chattr +i (hacer archivo incambiable)
+
+sudo apt-get --purge remove tor
+cat miarchivo | sort -----> "este comando intenta ordenar sort=ordenar"
+cat | grep 192 > archivonuevo ----> = muestra,busca, y mandalo ahi!!!
+
+echo "hola mundo" > Miarchivo ----->escribir dentro de un archivo
+echo "hola mundo" >> Miarchivo ---->añadir sin sobreescribir
+
+sudo nautilus& ---> le damos permisos de administrador a la aplicacion y lo lanzamos en segundo plano con el "&"
+tar -xvf archivo.tar ----> para Descomprimir
+apt-get purge nombre_programa* ---> El asterisco indica que se elemine todo!
+
+

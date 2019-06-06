@@ -1,0 +1,43 @@
+﻿/etc/init.d/networking restart
+nano /etc/apt/sources.list
+
+APT-GET UPGRATE  y   APT-GET DIST-UPGRADE
+(        apt-get upgrade no instala nuevos paquetes, solo actualiza los que ya están instalados.
+	Por otra parte, apt-get dist-upgrade instalará también los nuevos paquetes para resolver las dependencias.
+	nano /etc/proxychains.conf (cambiar proxys)....lo mas conveniente es usar primero update, y si hay algunproblema con alguna actualizacion, usar dist-upgrade     )
+
+proxychains firefox www.duckduckgo.com (entrar con proxys)
+
+sudo -u [usuario] [comando]      (otro usuario como root)
+
+
+
+
+nano /etc/resolv.conf    (cambiar  servidor dns)
+
+macchanger --show      (cambiar mac)
+
+
+
+crontab --help  (:wq para guardar cambios, ! por sea caso)--- (añadir scripts para que el sistema ejecute automaticamente)
+
+
+curl(aqui va la IP o DNS)        (para ver direccion fisica y otra informacion de interes)
+
+ufw enable
+ufw status
+ufw default deny ----> abrir el firewall porque por defecto viene cerrado
+ufw allow <NUmero Puerto>  abrir Puerto
+ufw deny  <Nuestro Puerto> cerrar Puerto
+ufw status verbose -----> Ver lista de servicios activos
+ufw delete <Numero de posicion de la regla a eliminar> ejemplo -->> ufw delete 3
+
+less /etc/services ------> VER TODOS LOS PUERTOS
+
+crunch [min] [max] [combinacion]  (crear lista de combinaciones posibles)
+ifconfig wlan0 up/down
+airmon-ng check kill
+airmon-ng start wlan0
+airdumb-ng
+
+

@@ -1,0 +1,26 @@
+comandos git
+
+vim 'nombre del archivo' -->Para modificar el codigo
+git init:(Iniciar git)
+git config --global user.gmail "correo"
+git config --global user.name "nombre"
+git status
+git add (nombre)
+git add .  --->agrega todo
+git commit    (pulsar i para escribir y 'escape' + ':wq')
+git log
+git checkout --  nombre_archivo   ----->si no añadimos nombre vuelve al ultimo, con el nombre especificamos
+git diff (nombre) ---> ver el nuevo cambio
+git remote add origin (declaramos dirección de alojamiento web)[Git-hub]
+git pull <archivo> ----->Actualizar al ultimo commit
+git push -u origin master ---->mandamos el archivo
+	-Se nos abrira una ventana y pedira usuario y contraseña
+	-tras eso, empezara la subida
+git branch ---> nues muestra la rama en la que nos encontramos
+git branch nombre_Nueva_rama ---> asi creamos nuevas ramas
+git checkout nombre_rama ---> para movernos entre ramas
+git merge Nombre_rama ----> para fusionar ramas (
+------------------------------------------------------------------------
+
+Si creamos un archivo llamado .gitignore, dentro podemos especificar escribiendo 
+los nombre de carpetas o archivos que no queremos que git detecte
