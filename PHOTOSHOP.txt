@@ -1,0 +1,5 @@
+€€€€€€€€€ P H O T S H O P €€€€€€€€€E
+
+CTRL + E ----> JUNTAR CAPAS
+CTRL +I  ----->CAPA
+CTRL +SHIFT+I  ----->INVERTIR SELECCION  

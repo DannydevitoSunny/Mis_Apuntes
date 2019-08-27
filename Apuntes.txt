@@ -1,12 +1,9 @@
 ﻿FECHA 06-06-19
 CLIENTE :YO -------SERVIDOR: VICTIMA
--Actividades finales BD
--Actividades 2 puntos BD
 
--acabar ARRASTAR Y SOLTAR
-
----RECUPERACION BASE DATOS
---xamarin
+Dos tipos de memoria que existen para variables:
+Memoria STACK---->Donde se guardan los tipos de variables distintos, las instancias y las estructuras
+Memoria HEAP ---->Donde se guardan los objetos
 
 C O S A S   I N T E R E S A N T E S   EN   C#{
 
@@ -142,6 +139,12 @@ Restriccion: catch(Exeption e) when (e.GetType() != typeof(FormatExeption))
 
 ######---------------------€€€€€--J A V A S C R I P T ----€€€€€€€€€€€---------------------############################################
 Cosas  avanzadas de Javascript:
+	var expresion_regular = /alumn.s/ || new RegExp("alumn.s"); el punto es un comodin
+	otros comodines: [a-e] rango,  [ae] permitidos,
+	var respuesta = expresion_regular.test(mi_texto)---> devuelve true o false;
+
+	 event.target.id----->El evento->div->dame su id
+	event.target.nodeName----->El evento->div->dame su nombre etiqueta
 	<condicion> ? <haz esto> : <sino esto>
 	var verdad = true;   console.log(!verdad)---->devolvera false;
 	var miFuncion =   ()=>{   <aqui va mi funcion>  };
