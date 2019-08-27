@@ -1,0 +1,3 @@
+Presionar "i" para empezar a escribir
+ESC para ponerse en modo comando
+Una vez en modo comando ponemos :wq NombreArchivo
