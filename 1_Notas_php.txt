@@ -1,0 +1,174 @@
+Para tener Laravel ---> VirtualBox(añadir al path!), git, vagrant, homestead, composer laravel;
+              Opcion 2 --->Docker + Lardock;
+
+
+
+---VER FECHA ----> $hoy = date("Y-m-d H:i:s");
+
+$resultado ->consulta->rowCount()---->>Cuenta las colummnas, funcion perteneciente a PDO
+$resultado = mysqli_affected_rows(conexion)-----> filas afectadas para metodo mysqli
+
+mysqli_fetch_array(conexion, MYSQL_ASSOC);
+mysqli_real_escape_string(conexion, $_GET('mi_nombre') );
+
+otra forma de concatenar variables es : ---->>>  echo 'Su nombre es {$nombre} ';
+
+consulta->fetchAll(PDO:: FETCH_OBJ)------->>> Devuelvo un objeto
+consulta->fetch(PDO:: FETCH_BOTH)-------->>>Devuelve array indexado
+consulta->fetch(PDO:: FETCH_ASSOC)----- ->>>Devuelve array asociativo
+
+session_start()---->>Inicia o restaura la sesion;
+$_SESSION['usuario'] = $_POST["login"]   ||   $_SESSION['usuario'] = $login;
+
+header ("location: pagina.php");
+
+<a href "otra_pagina.php?parametro=Alba"> ------->Pasamos parametros por la url;
+<a href "otra_pagina.php?parametro=Alba & parametro2 =Mariia  & parametro3 = Jose">  --->Pasamos mas de 1 parametro
+<a href="destino.php?saludo=$saludo">Recibir saludo</a>----> variables ya definidas  
+
+
+parent:: __construct(); ---> constructor  super() o  :base()
+
+setcookie('nombre', 'valor', time()+84600, 'opcionalmente_ruta_ambito');
+
+password_hash(contraseña, PASSWORD_DEFAULT, array('cost' => 12));
+password_verify(mi_contraseña, hash_creado);--->True o False dependiendo de que coincidan
+
+$resultados = conexion->query($ConsultaSQL)->fetchAll(PDO::FETCH_OBJ);----->FETCH ALL, es un vector llenos de resultados, NO un cursor!
+
+action="<?php echo $_SERVER['PHP_SELF']; ?>"
+
+
+
+
+############### @@@@@@@@@@@@@@ #####################
+
+------------------------ U S A N D O     P D O ----------------------------------
+
+
+		SIempre usuar PDO detro de TRY/CATCH/FINALLY
+
+			try{
+				$pdo = new PDO('mysql:host=mihost; dbname=basedatos, charset=utf8', "usuario", "contraseña");		
+				$conect->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			}
+			catch(Exeption $e){
+				die("Error debido a : " . $e->getMesagge() || getLine() || getCode()) ;
+			}
+			finally{
+				$pdo = null ----->cerramos la conexion;
+			}
+
+
+
+---------------------------p a r a m e t r o s -------------------------------------------
+@@@@@@@@@@@@@------   1º FORMA
+		$consulta = $pdo->prepare("INSERT INTO Clientes (nombre, ciudad, contacto) VALUES (?, ?, ?)");
+		$consulta->bindParam(1, $nombre, PDO::PARAM_STR);
+		$consulta->bindParam(2, $apellido, PDO::PARAM_STR);
+		$consulta->bindParam(3, $telefono, PDO::PARAM_INT);
+		$resultado = $consulta->execute()
+
+@@@@@@@@@@@@@-------2º FORMA
+		$consulta = $pdo->prepare("INSERT INTO Clientes (nombre, ciudad, contacto) VALUES (:nombre, :appelido, :telefono)");
+
+		$consulta->bind_param(":nombre", $nombre, PDO::PARAM_STR);
+		$consulta->bind_param(":apellido", $apellido, PDO::PARAM_STR);
+		$consulta->bind_param(":telefono",$telefono, PDO::PARAM_INT);
+		$resultado = $consulta->execute();
+
+		-----Otra forma seria pasar los parametros dentro de un vector todos a la vez :
+		$resultado = $consulta->execute(array(':nombre' => $busqueda,  ':apellido'=>$apellid,':telefono'=>$telefono)); ---> dos parametros  y mas....
+
+CONSULTA NO PREPARADA:
+		$consulta = $pdo->query("SELECT * FROM clientes");
+		resultado = consulta->fetch(PDO::FETCH_ASSOC);
+
+			
+	
+	
+	
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+	$consulta->bindValue(":mi_marcador", $mi_variable)--->Otra forma de unir variables y parametros
+	$consulta->bindParam(":mi_marcador", $mi_variable);
+
+		----Esto se usa para las '?', los numeros indican el incide del parametro iterrogacion;
+
+############## P A G I N A C I O N ############
+Para hacer paginas solo debemos de jugar con la sentencia 'LIMIT' dentro del SQL.
+La primera variable dice desde que articulo empieza, y la segunda el maximo para mostrar( ejmp 5 por pagina);
+es decir,  poner :
+
+		$articulos_por pagina;
+		$empezar_desde = (pagina - 1) * articulos_por_pagina;
+
+		$total_paginas  = (consulta->rowCount()) / $articulos_por pagina;
+
+		 SELECT * FROM clientes LIMIT $empezar_desde, $articulos_por pagina;;
+		elsid_04
+
+€€€€€€€€€€€€€€€€€ I M A G E N E S €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+	
+	$Nombre_Imagen = $FILES['id_imagen']['name']
+	$size = $FILES['id_imagen']['size']
+	$carpeta_temporal = $FILES['id_imagen']['tmp_name']--->Nombre de la carpeta temporal!!!
+	$carpeta_Destino = $SERVER['DOCUMENT_ROOT'].'/img/';   -->Carpeta para imagenes dentro del servidor
+
+	move_uploaded_file( $carpeta_temporal , $carpeta_Destino.$Nombre_Imagen );
+		---Añadimos la Imagen a la base de datos-----
+	consulta->prepare("UPDATE PRODUCTOS SET foto='$Nombre_Imagen' WHERE articulo = 'ART1' ";
+
+
+	-----  Mostrar FOTO -------
+	
+	while ($results = $query->fetch(PDO::FETCH_BOTH)) {
+		echo "<image src= 'xampp/img/". $results[1]. "'>";
+		
+	}
+
+
+€€€€€€€€€€€€€€€€€€€€€€ L E E R     A R C H I V O S €€€€€€€€€€€€€€€€€€
+
+	$mi_archivo = fopen( $ruta,   'modo lectura ex: r , w, rw u otros' );
+	$contenido = fread( $mi_archivo, tamaño);
+	
+	-----Si vamos a meterlo en una BD, hay que asegurar escape de comillas:
+		$contenido = addslashes($contenido);
+
+	fclose($mi_archivo);
+
+	----La Imagen se guarda en base de datos de forma encriptada con caracteres dentro de BLOB,
+	----Por lo que una vez sacada la imagen, debemos descodificarla como se ve abajo:
+
+	echo '<img src="data:image/jpeg; base64,' .base64_encode($imagen) .' "/>';
+
+
+€€€€€€€€€€€€€€€€€€€€€€ M A N D A R   E M A I  L €€€€€€€€€€€€€€€€€€
+
+	-----1º recojemos la informacion en desde html con nuestras respectivas variables:
+	con la funcion mail() mandamos el correo, esta retorna un booleano
+	
+	mail($destinatario, $asunto, $mensaje, $headers );
+
+	-----------$headers es opcional, un ejemplo seria: 
+
+	$header = "From: noreply@example.com\r\n"; 
+	$header.= "MIME-Version: 1.0\r\n"; 
+	$header.= "Content-Type: text/plain; charset=utf-8\r\n"; 
+	$header.= "X-Priority: 1\r\n"; 
+	
+
+
+	-------------------- L A R A V E L ----------------------------
+
+	 php artisan serve
+	<script src="{{asset('components/bootstrap/js/bootstrap.min.js')}}" type="text/	javascript"></script>
+
+
+
+
+
+
+
+
+
