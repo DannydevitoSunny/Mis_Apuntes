@@ -23,7 +23,15 @@ C O S A S   I N T E R E S A N T E S   EN   C#{
 	}
 
 
-	
+
+
+
+	ENUM = conjunto de Constantes, ejempmlos: 
+		enum Bonus = {Bajo = 1000, Alto = 2000};  
+		enum Estaciones = {Primavera, Verano, Otoño, Invierno}--->No hacen falta comillas
+		Bonus verCantidad = Bonus.bajo;
+		Estaciones verEstacion = Estaciones.Verano;--->Aunque verEstacion se imprime por pantalla, NO ES STRING!!
+
 	string ruta =@"C:/Home/Usuario..."----->Si ponemos '@' eso nos permite evitar poner doble barra en las rutas
 	EN C# SE SUELE EMPLEAR DOBLE CAMELCASE EJEMPLO; NuevaVariable;
 	+ --> nos permite escribir en varias lineas: consoleWriteLine("Hola"+"adios");
@@ -121,15 +129,25 @@ Restriccion: catch(Exeption e) when (e.GetType() != typeof(FormatExeption))
 
 
 @@@@@@@@@@@@@@@@@@ TASK, AWAIT, ASYNC @@@@@@@@@@@@@
+	//Los Task pueden devolver distintos tipos de datos---->   Task< tipode dato ..int, string etc..>
 
-	public  async Task Mi_Funcion(){
+	public  async Task<int> Mi_Funcion(){   -----Los metodos tipo Task, siempre deben devolver un "Task"
 	
 		int variable = 0;
-		await Task.Run( () => {
-			hacer_cosas_mucho_tiempo();
+		await Task.Run( () => {  --------------Task.Run() es la Thread.Pool, ejecuta metodos en otros hilos
+
+			variable  =  hacer_cosas_mucho_tiempo();
 		}
 		
-		Console.WriteLine($'La variable vale {variable} ');
+		return variable; //Variable de tipo Task<int>
+	}
+
+	public asycn Mi_funcion_Principal(){
+	
+		int resultado = 0;
+		resultado = await Mi_Funcion();
+		Console.Write($"El resultado de todo es  {resultado}");
+
 	}
 	
 

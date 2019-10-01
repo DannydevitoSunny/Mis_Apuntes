@@ -160,8 +160,11 @@ es decir,  poner :
 
 
 	-------------------- L A R A V E L ----------------------------
-
-	 php artisan serve
+	
+	---Una vez instalado composer , instalamos Laravel como se ve Abajo y listo!
+	composer global require laravel/installer
+	laravel new blog
+	php artisan serve
 	<script src="{{asset('components/bootstrap/js/bootstrap.min.js')}}" type="text/	javascript"></script>
 
 
