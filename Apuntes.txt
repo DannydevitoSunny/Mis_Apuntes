@@ -1,5 +1,7 @@
 ﻿FECHA 06-06-19
 CLIENTE :YO -------SERVIDOR: VICTIMA
+El la direccion completa de un servicio es 198.25.45.202:3036  (ip/puerto)
+CGI -----> Programa que se ejecuta en el servidor y es el que comunica se comunica con el cliente
 
 Dos tipos de memoria que existen para variables:
 Memoria STACK---->Donde se guardan los tipos de variables distintos, las instancias y las estructuras
@@ -32,6 +34,7 @@ C O S A S   I N T E R E S A N T E S   EN   C#{
 		Bonus verCantidad = Bonus.bajo;
 		Estaciones verEstacion = Estaciones.Verano;--->Aunque verEstacion se imprime por pantalla, NO ES STRING!!
 
+	CASITING--->Empleado miEmpleado  = (Empleado)vectorEmpleados.getEmpleado[1];
 	string ruta =@"C:/Home/Usuario..."----->Si ponemos '@' eso nos permite evitar poner doble barra en las rutas
 	EN C# SE SUELE EMPLEAR DOBLE CAMELCASE EJEMPLO; NuevaVariable;
 	+ --> nos permite escribir en varias lineas: consoleWriteLine("Hola"+"adios");
@@ -64,7 +67,7 @@ Restriccion: catch(Exeption e) when (e.GetType() != typeof(FormatExeption))
 
 	private int nombre
 
-	set int Nombre{
+	set string Nombre{
 
 		aqui podemos programar condicionales, switches, bucles .....
 		y al final:
@@ -113,7 +116,7 @@ Restriccion: catch(Exeption e) when (e.GetType() != typeof(FormatExeption))
 		public class Tienda : IEnumerable
 		{
 		
-			public IEnumerator void Funcion_para_enumerar(){
+			public IEnumerator Funcion_para_enumerar(){
 				return lista_vehiculos.GetEnumerator();
 			}
 

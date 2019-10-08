@@ -1,3 +1,8 @@
+$a = 'hola';
+$$a='adios';---->ofuscacion de codigo;
+unset()----->destructor;
+var_dump()---->imprimee todo-> objetos, variables, etc....
+settype($a, 'integrer');
 Para tener Laravel ---> VirtualBox(añadir al path!), git, vagrant, homestead, composer laravel;
               Opcion 2 --->Docker + Lardock;
 
@@ -166,6 +171,29 @@ es decir,  poner :
 	laravel new blog
 	php artisan serve
 	<script src="{{asset('components/bootstrap/js/bootstrap.min.js')}}" type="text/	javascript"></script>
+
+
+	------------- C O T R O L A D O R E S --------------------------
+	namespace App\Http\Controllers;
+
+	class ControladorPaginas extends Controller
+	{
+    		public function Inicio(){
+			return view ("Pagina_Incio")
+		}
+	}
+
+	Ahora desde rutas llamos los controladores que a su vez retornan paginas de vistas
+	Route::get("NombreWeb/Inicio/{id}", ControladorPaginas@Inicio);
+
+	-------------- >
+	Otra forma es hacerlo sin controlador de paginas, directamente desde las rutas
+
+	Route::get("NombreWeb/Inicio/{id}",function(id){
+		return view ("Inicio");
+		}
+	)
+
 
 
 
