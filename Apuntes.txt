@@ -33,7 +33,7 @@ C O S A S   I N T E R E S A N T E S   EN   C#{
 		enum Estaciones = {Primavera, Verano, Otoño, Invierno}--->No hacen falta comillas
 		Bonus verCantidad = Bonus.bajo;
 		Estaciones verEstacion = Estaciones.Verano;--->Aunque verEstacion se imprime por pantalla, NO ES STRING!!
-
+	WHERE-->para hacer restricciones ejemplo: public Mi clase <T> where T : IMi_Interfaz-->solo objetos con esa Interfaz
 	CASITING--->Empleado miEmpleado  = (Empleado)vectorEmpleados.getEmpleado[1];
 	string ruta =@"C:/Home/Usuario..."----->Si ponemos '@' eso nos permite evitar poner doble barra en las rutas
 	EN C# SE SUELE EMPLEAR DOBLE CAMELCASE EJEMPLO; NuevaVariable;
@@ -56,6 +56,8 @@ Restriccion: catch(Exeption e) when (e.GetType() != typeof(FormatExeption))
 		-PROTECTED necesita instancia y solo puede ser invocado desde la misma clase o herencia
 		-PRIVATE solo puede ser invocado dentro de la misma clase
 	
+	---->>Si queremos implementar una interfaz--->1º siempre heredamos la clase si la hay y luego la Interfaz, ese orden
+	---->>Si hay ambiguedad con variables y metodos de interfaces se resuelve asi:  nombreInterfaz.metodo/variable
 	public virtual void mi_funcion()--->virtual simboliza que el metodo puede ser sobre escrito con override
 	public override void mi_funcion()--->sobrecarga del metodo anterior con override/virtual
 	sealed ---> no permite herencia, se puede añadir a un metodo o clase
@@ -159,6 +161,12 @@ Restriccion: catch(Exeption e) when (e.GetType() != typeof(FormatExeption))
 
 
 ######---------------------€€€€€--J A V A S C R I P T ----€€€€€€€€€€€---------------------############################################
+
+	VARIABLE EN CSS --> :root {
+				  --variable: green;  
+                                                               }
+		+++++++++++++++++++++++++++++++++++++++++
+
 Cosas  avanzadas de Javascript:
 	var expresion_regular = /alumn.s/ || new RegExp("alumn.s"); el punto es un comodin
 	otros comodines: [a-e] rango,  [ae] permitidos,
@@ -179,7 +187,7 @@ Cosas  avanzadas de Javascript:
 	var vector_asosiativo[1] = {"nombre":"Kratos", "Edad" : "43"};
 	El triple === comprar si son iguales y encima si son el mismo tipo de dato;
 	var texto = 'hola'; console.log("este es el texto {texto})",texto);
-	argument--->> me lo tengo que mirar!!!!! <<<-----------------!!!!
+	arguments--->> vector API donde se guardan los parametros de una funcion;
 	var elemento = '<img src = " '+mi_imagen.getAttribute("src")+ ' " ';--->getAtribute() funcion para cojer atributos;
 	document.getElementById('uno').checkValidity(); ----> comprueba las condiciones como: max, min, pattern, email, number etc.....
 		-- los metodos los consultamos en internet para checkValidity de cada uno de los tipos de campos de ejemplo de arriba;
