@@ -83,4 +83,7 @@ sudo nautilus& ---> le damos permisos de administrador a la aplicacion y lo lanz
 tar -xvf archivo.tar ----> para Descomprimir
 apt-get purge nombre_programa* ---> El asterisco indica que se elemine todo!
 
+netstat -atunp --------> ver el estado de la red
+more etc/passwd -----------> derechos de usuario
+
 

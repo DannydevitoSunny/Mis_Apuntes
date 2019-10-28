@@ -1,0 +1,12 @@
+Sobrecarga de constructores
+	public Empleado (string name, int edad, date nacimiento, float altura){
+	 .........
+	}
+	public Empleado (string name){
+	 	this(name, 25, 22/08/78, 1.94,);
+		// pasa el nombre y los demas valores al constructor debido, en esta caso el de arriba
+	}
+	
+	;
+En JAVA, el cosntructor padre se llama con ----->super()
+Para sellar una clase ponemos --->  'final' en vez de selled

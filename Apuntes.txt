@@ -26,8 +26,14 @@ C O S A S   I N T E R E S A N T E S   EN   C#{
 
 
 
+	+++++++++++++++++  C O L E C C I O N E S ++++++++++++++++++++
+		LinkedList <int> numeros = new LinkedList <int>();
+		numero.AddLast(14);
+		
 
-
+	
+	USAR siempre que se pueda una LinkedList, agrega elementos por punteros, es decir, no sigue un indice " i ";
+	vector 2d = >>> int [,] vector1 = new int [3,2] { {0,10}, {50,11},{14,5} };
 	ENUM = conjunto de Constantes, ejempmlos: 
 		enum Bonus = {Bajo = 1000, Alto = 2000};  
 		enum Estaciones = {Primavera, Verano, Otoño, Invierno}--->No hacen falta comillas

@@ -52,6 +52,33 @@ Para tener Laravel ---> VirtualBox(añadir al path!), git, vagrant, homestead, co
 
 
 
+	---------------------------- B L A D E --------------------------------------------
+	Dentro de vista creamos una carpeta llamada Layouts, dentro creamos nuestra plantilla:  plantilla1.blade.php
+	
+	Dentro, el contendedor que queremos reusar en otra pagina, debemos añadir lo siguente
+		<div>  @yield('cabecera') </div>
+		<div>  @yield('cuerpo') </div>
+
+	      	++++++++++++++E J E M P L O ++++++++++++++++++++++++++++++++
+	La pagina que lo valla a recibir debe heredar de la plantilla:
+		@extends('Layouts/plantilla1.blade.php')
+
+	La seccion añadida debe quedar asi:
+		@section("cabecera")
+		
+			Todo lo que este dentro de esta seccion se le aplicara el estilo que hemos definido para cabecera
+			tambien podemos llamar las instrucciones php con la @, y en vez de echo usamos {{$variable}} ejemplo:
+			@while ( $i < 4){
+				{{"hola"}}
+				$i++;
+			}
+			@endwhile
+
+		@endsection("cabecera")
+		+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
 
 
 

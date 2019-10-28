@@ -7,6 +7,13 @@ settype($a, 'integrer');
 $mivariable = $variable2 ?? 'Otra cosa'---> equivalente a  || en JS--> Se llama OPERADOR DE FUNCION;
 static contador=0;---->si declaramos static dentro de una funcion, la variable no se recetea al llamar la funcion cada vez
 
+array_values()
+array_keys();
++++++-----P U N T E R O S---- ++++
+
+--> each($vector);
+-->reset($vector);
+
 
 
 1<=>2
