@@ -1,0 +1,130 @@
+select distinct nombre from usuarios;
+select count(*) from usuarios;
+select count(distinct(nombre)) from usuarios;
+select * from compra where precio_compra <= "15000";
+select * from compra whre precio_compra >=14500 and precio_compra <= 15000;
+select * from compra whre precio_compra >=14500 and precio_compra <= 15000 OR precio_compra >=11000 and precio_compra <= 12000 ;
+select count(*) from vehiculos where marca != "audi";
+select count(distinct(marca)) from vehiculos where marca != "audi";
+select * from vehiculos where marca = "toyota" or marca = "volvo";
+select * from vehiculos where marca in("toyota", "marca");---> lo mismo que arriba;
+select * from vehiculos where marca like "volvo";
+select * from modelos where modelos like "%es"; ---> el porcentaje los busca todo
+select * from modelos where modelos like "%es%";
+select * from modelos where modelos like "_es"; ----> La barra baja busca un caracterg
+select * from modelos where modelos like "%es_a";
+update nombre_usuario set nombre_usuario="Roberto" where dni="x16516848"
+
+------------------------------------------------
+select nombre from Usuarios where nombre rlike ^[A-B];      ^-empieza,  $-termina
+select min(km) from compra;
+select sum(km) from compra;
+-----------GROUP BY--> si hacemos la media de los precios de todos los coches, con group by podemos ordenarlos por marcas y veremos la media por cada marca!
+select avg(precio_compra), usuario from compra group by usuario;
+select avg(precio_compra) as precio_medio, usuario from compra group by usuario;
+select * from usuarios, compra where usuarios.id = compra.usuario limit 300;
+select avg(precio_compra) as precio_medio, marca from vehiculos, compra where vehiculos.id = compra.vehiculo group by marca;
+select * from compra having km > 300;
+select * from compra having km between 300 and 500;
+select * from usuarios, compra where usuarios.id = compra.usuario group by year(fecha_compra) having sum(precio_compra) > 20000 limit 5;
+
+select usuario, sum(precio_compra) as total, year(fecha_compra) from compra group by  usuario,
+year(fecha_compra) having total > 20000 order by usuario,total limit 10;
+
+select * from usuarios group by nombre, year(fecha_registro);
+select count(nombre), nombre, year(fecha_registro) as año from usuarios group by nombre, year(fecha_registro) order by 1 desc limit 20;
+
+select * from usuarios where fecha_registro >=(select fecha_registro as limite from usuarios where id = 300); ------> SUB consulta!
+SELECT * FROM compra WHERE precio_compra <= (SELECT MIN(precio_compra) FROM compra, vehiculos WHERE vehiculos.id=compra.vehiculo AND marca="BMW");1
+
+select nombre, email from usuarios, compra where compra.usuario = usuarios.id and vehiculo in (select vehiculos.id from vehiculos, compra where vehiculos.id = compra.vehiculo and usuario = (select id from usuarios where email = "aleebh@google.cn"));
+
+select nombre, email from usuarios, vehiculos, compra where compra.usuario = usuarios.id  and compra.vehiculo = vehiculos.id and marca in (select vehiculos.marca from vehiculos, compra where vehiculos.id = compra.vehiculo and usuario = (select id from usuarios where email = "aleebh@google.cn"));
+
+----------> IN/in es equivalente a 'que contenga ..' ejemplo :     marca in (Samsung, Hauwei, Nokia)----> devuelve las marcas que  contengas los siguientes nombres
+select * from usuarios join compra on usuarios.id = compra.usuario;
+select * from usuarios left join compra on id = usuario;
+select * from usuarios where usuarios.id > all (select vehiculos.id from vehiculos);
+select * from usuarios where usuarios.id > any/some (select vehiculos.id from vehiculos);
+create VIEW Mi_Consulta as select * from usuarios left join compra on id = usuario; -----> Crea un resultado en forma de tabla, asi no tenemos que escribir la consulta larga;
+
+create temporary table vendedores as (select * from consultas.usuarios where nombre like 'j%' or nombre like '%a');
+Union---> sirve para unir dos SELECT, pero deben tener columnas en comun
+select* from vendedores union select * from usuarios;
+
+select usuario, SUM(precio_compra) as compraTotal from compra group by usuario having compraTotal > 70000;
+select * from usuarios where exists (select usuario, SUM(precio_compra) as compraTotal from compra where id = usuario group by usuario having compraTotal > 70000);
+
+select * from usuarios limit rows examined 100; a diferencia de limit no tiene que leer toda la tabla para devolver las 100 primeras filas;
+ENGINE= innoM, CHARSET=utf8 COLLATION = utf_code_spanish;
+
+into outfile  'C:\Users\ruslan\Desktop' fields terminated by ';' ;-----> sacar tablas;
+mysqldump -u -root test > 'C:\Users\ruslan\Desktop\Test_base_de_datos.sql'; ---> exportar la base de datos
+
+ select password('lanuevacontraseña');-------> podemos ver el hash
+
+
+
+--------------------------------------          ---------------------------------------------------    ------ -----     ---------------------------------------------------------------------------------
+
+
+--€€€€€€€€€€€€€€€€€€€€ CO S U L T A S €€€€€€€€€€€€€€€€€€€€€€€€
+
+-- CONSULTAS-------------------------------
+/*A. [6 puntos] Listar el nombre y los apellidos únicos de los participantes que estén
+inscritos tanto en Dota 2 como en Counter Strike. Para generar la consulta se
+debe utilizar JOIN y la cláusula IN. Ordenar los resultados por nombre creciente
+y por apellidos decreciente.*/
+SELECT  DISTINCT NOMBRE,APELLIDO FROM PARTICIPANTE  WHERE ID IN (SELECT JUGADOR FROM INSCRITO WHERE JUEGO ='Dota 2' OR JUEGO= 'Counter Stike'); 
+
+
+/*[4 puntos] Listar los partidos que aún no han finalizado y, por tanto, no tienen
+un vencedor en el resultado. Ordenarlos por hora de juego descendiente y por
+id de partido ascendente.*/
+SELECT ID FROM PARTIDO WHERE RESULTADO = NULL  ORDER BY FECHA, ID ASC;
+
+
+
+/*Listar a los participantes que estén inscritos en más 8 juegos. Si es
+necesario se utilizará JOIN.*/
+SELECT NOMBRE, APELLIDO FROM PARTICIPANTE JOIN INSCRITO ON PARTICIPANTE.ID = INSCRITO.JUGADOR WHERE COUNT(JUEGO) > 8;
+
+
+
+
+/*Obtener los 10 juegos que han tenido más inscripciones en el año
+2018. Se debe mostrar el nombre del juego y cuantas jugadores se han
+inscrito bajo una columna llamada jugaodres_inscritos. Si dos juegos tiene el
+mismo número de jugadores inscritos, se debe ordenar según el nombre del
+video juego de menor a mayor.*/
+SELECT NOMBRE FROM JUEGO JOIN INSCRITO ON JUEGO.ID = INSCRITO.JUEGO WHERE YEAR(FECHA) = '2018' GROUP BY JUEGO HAVING COUNT(JUGADOR) ORDER BY JUEGO DESC;
+
+
+
+/*Crear una tabla llamada participantes_sueltos en la que se inserten
+a partir de un left join los participantes que nunca se han inscrito a nada.*/
+
+CREATE TABLE PARTICIPANTE_SUELTO AS SELECT ID, NOMBRE, APELLIDO FROM participantes WHERE ID NOT IN (SELECT JUGADOR FROM INSCRITO);
+
+
+/*Eliminar de la tabla participantes los participantes que estén en la
+tabla participantes_sueltos*/
+DELETE FROM PARTICIPANTE WHERE ID IN (SELECT PARTICIPANTE.ID FROM PARTICIPANTE JOIN PARTICIPANTE_SUELTO ON PARTICIPANTE.ID = PARTICIPANTE_SUELTO.ID);
+
+
+/*Listar los juegos en los que están inscritos y los datos de los
+participantes cuyo apellido comienza por A. Ordenarlos por apellidos y por
+nombre.*/
+SELECT INSCRITO.JUEGO, NOMBRE, APELLIDO FROM INSCRITO JOIN PARTICIPANTE ON INSCRITO.JUGADOR = PARTICIPANTE.ID WHERE APELLIDO RLIKE ^[A] ORDER BY APELLIDO, NOMBRE DESC;
+
+
+
+
+/*Crear una vista con los participantes que hayan ganado al menos 2
+torneos en 2018.*/
+CREATE VIEW VISTA_PARTICIPANTES AS SELECT ID, NOMBRE, APELLIDO FROM PARTICIPANTE JOIN PARTIDO ON PARTIDO.JUGADOR1 = PARTICIPANTE.ID OR PARTIDO.JUGADOR2 = PARTICIPANTE.ID 
+GROUP BY RESULTADO HAVING COUNT(RESULTADO) > 2;
+
+
+
+

@@ -84,6 +84,8 @@ tar -xvf archivo.tar ----> para Descomprimir
 apt-get purge nombre_programa* ---> El asterisco indica que se elemine todo!
 
 netstat -atunp --------> ver el estado de la red
-more etc/passwd -----------> derechos de usuario
+more etc/passwd     etc/shadow-----------> derechos de usuario
+updatedb--->para usar el comando locate con resultado actualizados
+history | grep cd --->muestra todo la historia de comandos cd
 
 

@@ -10,3 +10,9 @@ Sobrecarga de constructores
 	;
 En JAVA, el cosntructor padre se llama con ----->super()
 Para sellar una clase ponemos --->  'final' en vez de selled
+
+Si declaramos un metodo abstracto o propiedad, debemos declarar la clase entera como abstracta;
+Los metodos abstractos, solo se definen public--->abstract double area();
+
+++++++++OUTPUT/INOPUT++++++
+import java.io.*; Es mejor que---> import java.util.Scanner; 

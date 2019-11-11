@@ -1,0 +1,6 @@
+^ ---> antes no puede haber nada
+$--->despues no puede haber nada
+
+(Lorem)-----> literalmente lo wue halla dentro de los parentesis
+[ ]----> aqui van los rangoooos
+{n},  {n,m} -----> las veces minimas o maximas que puede de repetirse un valor

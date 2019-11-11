@@ -1,0 +1,35 @@
+
+-- E X P O R T A R  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+mysqldump -u -root EXARECU > 'C:\Users\ruslan\Desktop\Ruslan_Gazykhanov_examen.sql';
+
+mysql -u root actividades_finales < C:\Users\ruslan\Downloads\ruralka.sql          ----->Insertar codigo de una base  SIN COMA AL FINAl
+
+mysql -u root -p --database=sakila < sakila-data.sql ---> Insertar datos a una base;
+SHOW TABLE STATUS FROM <nombre_base_datos> \G; -->muestra engine,charset y collation
+LOAD DATA INFILE 'C:/xampp/mysql/data/LaJhonyBiblia.csv' INTO TABLE actor_info FIELDS TERMINATED BY ';' (actor_id, first_name); --->Insertar datos desde un archivo;
+SELECT * FROM AREAS; ---->>>>VER LOS VALORES DE LA TABLA
+SELECT * FROM actor; --> Ver todos los datos de la tabla
+REPLACE INTO actor VALUES(202,'Zack','Efron','2018-05-05 14:00:00'),(203,'Selena','Gomez','2018-05-05 18:00:00'),(204,'Hugh','Laurie','2019-05-05 11:00:00');
+SHOW CREATE TABLE hospital_area;---> muestra como se ha creado una base de datos;
+
+INSERT IGNORE INTO actor VALUES (202, 'jUAN', 'MARIA','1474-45-45 22:22:45'),
+
+SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE constraint_schema = 'hospital' \G;
+
+
+ use information_schema; --->     Esquema de la base de datos!!!!!!!!!!!
+
+SELECT * FROM COLUMNS LIMIT 2;
+
+SELECT * FROM  STATISTICS WHERE TABLE_SHEMA  ='sakila';
+SELECT * FROM REFERENTIAL_CONSTRAINTS;
+
+CREATE INDEX Nuevo_Nombre ON actor(nombre);
+CREATE FULLTEXT INDEX id_tofo_texto ON  baseDatos.Tabla(Columna)
+DROP INDEX Nuevo_Nombre ON actor(nombre);
+
+SELECT * FROM pelicula WHERE MATCH (descripcion) AGAINST( maestro, brujo);
+
+SHOW VARIABLES
+SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS = 1;
