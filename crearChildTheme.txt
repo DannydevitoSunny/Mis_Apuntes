@@ -1,0 +1,40 @@
+
+------------------ TEMPLATE PARA  FUNCTION.PHP --------------
+
+
+<?php
+function enqueue_styles_child_theme() {
+
+	$parent_style = 'virtue'; //PAdre 
+	$child_style  = 'virtue-child'; // Hijo
+
+	wp_enqueue_style( $parent_style,
+				get_template_directory_uri() . '/style.css' );
+
+	wp_enqueue_style( $child_style,
+				get_stylesheet_directory_uri() . '/style.css',
+				array( $parent_style ),
+				wp_get_theme()->get('Version')
+				);
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_styles_child_theme' ); // NO se toca
+
+ //	-------- A P A R T I R   DE   A Q U I   M I  CO D I G O --------------
+echo "<h1>HOLA</h1>";
+
+
+
+
+
+
+------------------ TEMPLATE PARA STYLE.SCC --------------
+
+/*
+Theme Name: Virtue child
+Theme URI: http://loquesea.es
+Version: 4.0
+Description: Tema hijo de A theme
+Author: Tu
+Author URI: http://loquesea.es
+Template: virtue
+*/
