@@ -1,6 +1,19 @@
 ^ ---> antes no puede haber nada
-$--->despues no puede haber nada
+ Si el símbolo ^ se encuentra dentro de corchetes [] como por ejemplo [^0-9] significa NO, en este caso no nos mostrará ningún número.
 
-(Lorem)-----> literalmente lo wue halla dentro de los parentesis
+$--->despues no puede haber nada
+\d  --> [0-9] significan lo mismo
+\s--->busca espacios
+pattern="^\d{4}-\d{3}-\d{4}$"
+
+
+(Lorem)-----> literalmente lo que halla dentro de los parentesis
 [ ]----> aqui van los rangoooos
 {n},  {n,m} -----> las veces minimas o maximas que puede de repetirse un valor
+
+123? --> Con esto le estamos diciendo  que el carácter 3 debe aparecer o no, es decir, el nos mostrará 12 o 123 pero no más, es decir no 1234.
+
+El “+”---> indica uno o más para el carácter anterior. Con el ejemplo anterior sería 123* = 123 o 1233 o 12333 o 12333…. Etc. Pero nunca 12 como en el anterior.
+
+\w significa que nos encuentre cualquier letra, numero, en mayúsculas y minúsculas. [A-Za-z0-9_]
+\s significa que nos encuentre los espacios en blanco.

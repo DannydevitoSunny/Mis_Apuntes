@@ -56,7 +56,18 @@ $resultados = conexion->query($ConsultaSQL)->fetchAll(PDO::FETCH_OBJ);----->FETC
 action="<?php echo $_SERVER['PHP_SELF']; ?>"
 
 
+€€€€€€€€€€€€€€€€€€ M A N E J O   DE   E R R O R E S €€€€€€€€€€€€€€€€€€€€€
 
+---------->bUSCAR CONSTANTES PREDEFINIDADES DE ERROR CODE PHP
+---------->buscar un handler de errores
+-----------> trigger_error("mensajes", ERROR);
+----------> cambiar el manejo de de errores de PHP a Nuestros propios, por ejemplo con un switch dentro de nuestra funcion handler 
+-----------> set_error_handler("mi_funcionHandler_de_errores");
+
+
+
+	Es decir la funcion triger detona nuestro handler, nos saldra el error mensaje del triger
+	acompañado del error descrito por nosotros en el handler;
 
 ############### @@@@@@@@@@@@@@ #####################
 
@@ -125,7 +136,7 @@ es decir,  poner :
 		elsid_04
 
 €€€€€€€€€€€€€€€€€ I M A G E N E S €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
-	
+	enctype= multipart/form-data
 	$Nombre_Imagen = $FILES['id_imagen']['name']
 	$size = $FILES['id_imagen']['size']
 	$carpeta_temporal = $FILES['id_imagen']['tmp_name']--->Nombre de la carpeta temporal!!!

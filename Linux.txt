@@ -1,4 +1,4 @@
-
+GOOGLE--> start chrome "https://google.com"--->chrome u otro buscador
 
 ====== Home ======
 
@@ -58,6 +58,7 @@ mkdir( crear carpeta)
 rmdir(eliminar carpeta)
 
 rm -r  nombreCarpeta ----> borrado la carpeta y lo de adentro
+rm -rf  nombreCarpeta ----> borrado la carpeta y lo de adentro
 
 chmod (cambiar permisos a:all u:propietario g:grupo o:otros) 
 			ejemplo: chmod  a+r   miDirectorio
@@ -87,5 +88,18 @@ netstat -atunp --------> ver el estado de la red
 more etc/passwd     etc/shadow-----------> derechos de usuario
 updatedb--->para usar el comando locate con resultado actualizados
 history | grep cd --->muestra todo la historia de comandos cd
+
+cut -d " " -f 4 ---->muestrame lo que halla despues de 4 espacion
+---->d es delimitador y f es campo
+
+
+
+tr ----->Comando traductor o para eliminar, podemos sustituir
+	----->una cosa por otra como se ve abajo
+
+	-cat my_fyle.txt  |  tr "a" "Z" -----> Sustituye a por Z
+	-tr '{}' '()'   newfile.txt
+echo "Welcome To GeeksforGeeks" | tr -d 'w' ---> eliminar un caracter o varios
+
 
 
