@@ -215,6 +215,72 @@ Cosas  avanzadas de Javascript:
 
 	}
 
+	
+
+
+
+	€€€€€€€€€€€€--ASYNC  /  AWAIT   JS-- €€€€€€€€€€€€€€€
+
+
+	async function f() {
+  		
+		    console.log("1");
+
+		    let promise = new Promise((resolve, reject) => {
+		    	
+		    	try {
+		    		setTimeout( () => resolve(algo()) , 1000);
+				//Digamos que la funcion algo() imprime un 2
+		    	} 
+
+		    	catch(e) {
+		    		reject("Ha ocurrido un error"+e);
+		    	}
+
+		    });
+
+		    let result = await promise; // wait until the promise resolves (*)
+
+		    console.log("3");
+		}
+
+
+
+
+
+// €€€€€€€€€€€€€€€   P R O M E S A €€€€€€€€€€€€€€€€€€
+		
+
+		var promesa2 = new Promise((resolve, reject)=>{
+
+			var b = 2+2;
+			if (b == 6) {
+				reject(fallo());
+			}
+			else{
+				resolve(exito());
+			}
+
+		});
+
+
+		
+			@@@@@@@@@@@@@@@@@
+		//----------------- F U N C I O N E S  para la promesa ----------------------
+
+		function exito(){
+			console.log("----------\nUrraaa!!!")
+			return 10; //Este return es opcional, lo pasamos como parametro al THEN ...
+		}
+		function fallo(){
+			console.log("----------\nMierda!!!")
+		}
+
+
+
+		promesa2.then((a)=>{
+			console.log("Terminado "+a);
+		})
 
 
 
@@ -223,8 +289,7 @@ Cosas  avanzadas de Javascript:
 
 
 
-
-
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2
 
 
 

@@ -1,5 +1,5 @@
 GOOGLE--> start chrome "https://google.com"--->chrome u otro buscador
-
+apache2ctl [opcion] , apache2ctl -M ---->ver modulos de apache2
 ====== Home ======
 
 
@@ -65,6 +65,7 @@ chmod (cambiar permisos a:all u:propietario g:grupo o:otros)
 				 chmod  u-w   Miarchivo
 				 chmod  go-w  miarchivo
 				 chmod  u+rwx midir
+				chmod r+rwx
 
 chown (cambiar archivo de propietario)
  ejemplo
@@ -100,6 +101,11 @@ tr ----->Comando traductor o para eliminar, podemos sustituir
 	-cat my_fyle.txt  |  tr "a" "Z" -----> Sustituye a por Z
 	-tr '{}' '()'   newfile.txt
 echo "Welcome To GeeksforGeeks" | tr -d 'w' ---> eliminar un caracter o varios
+
+
+tail -2 ---->muestra los dos ultimos elementos
+      tail sirve para mostrarr la cola!!!!
+tail -f --> monitoreamos un archivo en tiempo real, vemos lo ultimo añadido
 
 
 

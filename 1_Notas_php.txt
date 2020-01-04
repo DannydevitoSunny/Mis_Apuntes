@@ -1,5 +1,40 @@
+
+@@@@@@@@@--- C O S A S   I N T E R E S A NT E S  ---@@@@@@@@@@@@@@@@@@@@@
+
+PHP contiene declaracion de tipos para parametros de funciones
+
+	function f1( int ...valores){} --->los 3 puntos antes de valores, nos permiten pasar 
+				tantos parametros como queramos.
+				Solo podemos pasar valores INT
+
+PHP contiene declaracion de tipos para return de funciones
+	function f1( int ...valores):bool{} --> Solo devuelve valores BOOL
+
+
+
+
+En PHP las CLASES ANONIMAS a diferencia de C#, pueden tener 
+modificadores de acceso de todo tipo, e incluso metodos, pero
+solo las podemos instanciar una vez!!!
+
+$miOBJ = new class  (parametros opcinales para CONSTRUCTOR) extends OtraClase implements UnaInterfaz{
+	CODIGO . . . . 
+
+}
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+
+
 $a = 'hola';
-$$a='adios';---->ofuscacion de codigo;
+$$a='adios';---->ofuscacion de codigo;ç
+real_string_escapa() / strip_tags();
 unset()----->destructor;
 var_dump()---->imprimee todo-> objetos, variables, etc....
 gettype()---->imprime solo el tipo;
@@ -15,7 +50,7 @@ array_keys();
 -->reset($vector);
 
 
-
+	Esto se llama SPACESHIP OPERATOR :
 1<=>2
 5<=>5  --------> comprando el primer numero , si es menor = -1, si es igual = 0; si es mayor  = 1
 7<=>6		tambien comprar las letras en funcion del orden del abecedario
