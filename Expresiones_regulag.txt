@@ -17,3 +17,27 @@ El “+”---> indica uno o más para el carácter anterior. Con el ejemplo anterior s
 
 \w significa que nos encuentre cualquier letra, numero, en mayúsculas y minúsculas. [A-Za-z0-9_]
 \s significa que nos encuentre los espacios en blanco.
+
+DENTRO DE LAS EXPRESIONES REGULARES
+	si tenemos \w --> busca cualquier letra o digito
+	si la letra esta en mayuscula \W, siempre sera lo contrario
+
+€€€€€€€€€-- MA S  E J E M P L O S ---€€€€€€€€€€€€€
+
+c[a|u]sa ----> cosa, cisa, cesa ....
+
+c[^a-f]sa --> todos los caracteres menos ese rango
+
+b{0,5} --> b aparesca minimo 0 maximo 5
+
+c+ --> c 1 o mas veces
+c* --> c 0 o mas veces
+c? --> 0 o 1 vecesg
+^c --> que empieze con c
+c$ --> que termine con c
+
+.at --->cat, hat, rat , cuakquier letra delante
+[art]at ---> aat, rat, tat
+
+LOS PARENTESIS los usamos para hacer grupos
+(c|f|t){1.4}op --> ccop, ccccop,cop, fop, ffop, ttttop, top, tttop

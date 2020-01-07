@@ -1,0 +1,53 @@
+*Adicional: React permite importar codigo CSS, no rallarse por eso!!!
+Todos los componentes teben tener su metodo render{ return() };
+Todos los componentes heredan de React.Component
+Cada componente que creemos debe tener un EXPORT, para poder ser importado
+Cada componente se invoca como una etiketa HTML <NombreComponente/>
+VARIABLES: si queremos declarar variables debemos hacerlo antes de render{}, dentro o fuera, pero nunca dentro de return, ahi solo las llamamos
+
+IMPORTANTE!!!
+--Cada componente tiene una propiedad llamada ===> this.prop
+this porque es suya propia, y los prop son los paramentros que recibe,
+ejemplo==>> <NombreComponente param1="Nuevo Titulo"/>
+para recojerlo seria ==> {this.prop.param1}
+
+CONSTRUCTOR
+Cuando creamos un componente , este tiene un costructor vacio por defecto
+si queremos crear un costructor debemos invocar el constructor padre super()
+
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+ESTADO / STATES
+Solo por ser REACT, en vez de llamar propiedades del objeto
+tenemos ahora "state", que usa JSON para definirlos,
+Si un state(propiedad) cambia, la pagina se renderiza : 
+
+class Car extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      brand: "Ford",
+      model: "Mustang",
+      color: "red",
+      year: 1964
+    };
+  }
+  render() {
+    return (
+      <div>
+        <h1>My Car</h1>
+        <h2>{this.state.brand}</h2>
+      </div>
+    );
+  }
+}
+
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+
+Toda la aplicacion es disparada desde src/index.js que a su vez usa src/App.js
+En vez de class, usamos className=""
+Dos carpetas impotantes==> public y src
+Nosotros escribiremos codigo dentro de src
+Dentro de public tenemos nuesta pagina.html donde se muestra la aplicacion
+El codigo de JS va dentro de{} ==> {alert("hola")};
+El JSX solo puede devolver un elemento!!! es decir, todo dentro de un div!!
+
