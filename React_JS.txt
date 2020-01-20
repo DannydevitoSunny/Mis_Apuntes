@@ -19,7 +19,10 @@ si queremos crear un costructor debemos invocar el constructor padre super()
 ESTADO / STATES
 Solo por ser REACT, en vez de llamar propiedades del objeto
 tenemos ahora "state", que usa JSON para definirlos,
-Si un state(propiedad) cambia, la pagina se renderiza : 
+Si un state(propiedad) cambia, la pagina se renderiza,
+Para cambiar un estado se usa el metodo this.setState,
+solo dentro del constructor podemos usar this.state
+fuera de constructor SIEMPRE setState() : 
 
 class Car extends React.Component {
   constructor(props) {
@@ -30,6 +33,16 @@ class Car extends React.Component {
       color: "red",
       year: 1964
     };
+
+    this.setState({
+	brand:"Audi" 
+    });
+
+    this.setState((param1,props)=>({ //--------->CON PARAMETROS
+	param1:"props.parametro" 
+    }));
+
+
   }
   render() {
     return (

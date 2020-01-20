@@ -1,3 +1,15 @@
+
+@@@@@@@@@@@	M U Y    I M P O R T A N T E S  @@@@@@@@@@@@@@@@@@@@@@
+
+-Comando para ver columna-foreign-key; 
+SELECT TABLE_NAME,COLUMN_NAME,CONSTRAINT_NAME, REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE REFERENCED_TABLE_SCHEMA = 'biblio';
+
+
+select * from columns where table_schema= "biblio" \G; ----> ME DA LOS DATOS DE CADA COLUMNA DENTRO DE UNA BASE DE DATOS
+SELECT column_name FROM information_schema.columns WHERE table_schema= 'biblio' AND extra = 'auto_increment';    LA MISMA CONSULTA BIEN ORDENADA(SOLO -> AUTOINCREMENT);
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 select distinct nombre from usuarios;
 select count(*) from usuarios;
 select count(distinct(nombre)) from usuarios;

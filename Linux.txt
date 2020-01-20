@@ -91,7 +91,7 @@ updatedb--->para usar el comando locate con resultado actualizados
 history | grep cd --->muestra todo la historia de comandos cd
 
 cut -d " " -f 4 ---->muestrame lo que halla despues de 4 espacion
----->d es delimitador y f es campo
+---->d es delimitador y f es campo, en este caso muestrame solo el 4 campo
 
 
 

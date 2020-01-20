@@ -41,3 +41,7 @@ c$ --> que termine con c
 
 LOS PARENTESIS los usamos para hacer grupos
 (c|f|t){1.4}op --> ccop, ccccop,cop, fop, ffop, ttttop, top, tttop
+
+El punto es como decir, cualquier caracter. . . 
+.* --> cualquier caracter  las veces que sea
+.*@.*(hotmail | gmail)\.(com | es)
