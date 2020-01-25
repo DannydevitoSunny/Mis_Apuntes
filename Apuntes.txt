@@ -1,4 +1,5 @@
-﻿FECHA 06-06-19
+﻿setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
 CLIENTE :YO -------SERVIDOR: VICTIMA
 El la direccion completa de un servicio es 198.25.45.202:3036  (ip/puerto)
 CGI -----> Programa que se ejecuta en el servidor y es el que comunica se comunica con el cliente
