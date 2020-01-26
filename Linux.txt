@@ -1,4 +1,6 @@
 GOOGLE--> start chrome "https://google.com"--->chrome u otro buscador
+cat os-release --->INFROMACION DEL SISTEMA
+
 apache2ctl [opcion] , apache2ctl -M ---->ver modulos de apache2
 ====== Home ======
 
@@ -108,4 +110,12 @@ tail -2 ---->muestra los dos ultimos elementos
 tail -f --> monitoreamos un archivo en tiempo real, vemos lo ultimo añadido
 
 
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+file imagen.jpg ---> me da los datos del archivo
+eog imagen.jpg ---> quizas halla que instalarlo, es un visualizador
+netdiscover -i eth0 -r 132.168.1.0/24
+curl direccion_web.com  --> nos da el codigo fuente de la pagina
+wget direccion_recurso.com ---> si damos una direccion, esto descargara el contenido
+
+CURL es mas poderoso que WGET, con ambos podemos hacer las mismas cosas
 
