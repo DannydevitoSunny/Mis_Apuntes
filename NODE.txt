@@ -1,0 +1,44 @@
+€€€€€€€€€€€€€€€ N O D E €€€€€€€€€€€€€
+
+ 
+    
+    var direccion_solicitada = req.url;//---> Recojemos el action del form
+
+        
+    var direccion_objeto = url.parse(direccion_solicitada, true);//----> Convertimos la direccion solicitada en objeto
+    var names_formulario = direccion_objeto.query;// ------> Extraemos los parametros introducidos en el form para JSON
+
+    console.log("Path name: "+direccion_objeto.pathname+"\n"); //Direccion 
+    console.log("Search: "+direccion_objeto.search+"\n"); //Los parametros -> ?dato1=a&dato2=b&dato3=c
+
+
+
+
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+
+        if(req.method === 'GET' && direccion_objeto.pathname === '/form-submit2ddddd') {
+
+            res.write("Esta ha sido la direccion solicitada : "+direccion_objeto.pathname);
+            res.end("<br/>Final");
+      
+        }
+
+         if(req.method === 'POST' && direccion_objeto.pathname === '/respuestaPagina') {
+
+           
+
+            try {
+                // const data = fs.readFileSync('7_respuesta_pagina.html', 'utf8')//--->Apertura normal sincronizada
+                // res.end(data);
+
+                //Apertura mediante streams;
+                var mis_datos = fs.createReadStream(__dirname + '/7_respuesta_pagina.html', 'utf8').pipe(res);
+                
+            } 
+            catch (err) {
+                res.write(err);
+                console.error(err);
+                res.end("<br/>Final");
+            }
+
+        }

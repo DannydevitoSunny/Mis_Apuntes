@@ -1,3 +1,12 @@
+
+    1.Find exposed services (with nmap) and try to detect the hardware and software version with the        TCP signature
+    2.Look for common exploits on the exposed services, or for that specific hardware/software
+    3.Try to gain access with brute force
+    4.Try to create a custom exploit
+
+ataques WEB -->xss, csrf(Cross site request forgery),  Remote Code Execution (RCE)
+
+
 GOOGLE--> start chrome "https://google.com"--->chrome u otro buscador
 cat os-release --->INFROMACION DEL SISTEMA
 
@@ -116,6 +125,5 @@ eog imagen.jpg ---> quizas halla que instalarlo, es un visualizador
 netdiscover -i eth0 -r 132.168.1.0/24
 curl direccion_web.com  --> nos da el codigo fuente de la pagina
 wget direccion_recurso.com ---> si damos una direccion, esto descargara el contenido
-
 CURL es mas poderoso que WGET, con ambos podemos hacer las mismas cosas
 

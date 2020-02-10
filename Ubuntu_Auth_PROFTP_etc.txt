@@ -1,0 +1,82 @@
+apachectl -M
+a2enmod auth_digest
+htdigest -c /etc/apache2/passwords.digest practica23 usuario1
+htdigest  /etc/apache2/passwords.digest practica23 usuario2
+
+
+
+
+<Directory "/var/www/html/practica23">
+    AuthType Digest
+    AuthName "practica23"
+    AuthDigestProvider file
+    AuthUserFile /etc/apache2/passwords.digest
+    Require user usuario1 usuario2
+</Directory>
+
+Dentro de sites-availible en 0000default añadimos la plantilla dentro de virtual host
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@  P A R T E  2 @@@@@@@@@@@@@@@@@@@@
+a2enmod auth_basic
+htpasswd -c authorizations.htpasswd usuario1
+htpasswd authorizations.htpasswd usuario2
+htpasswd authorizations.htpasswd usuario3
+
+
+htpasswd -c users.htpasswd usuario1
+htpasswd users.htpasswd usuario2
+nano grupo.basic ---->admin: usuario1 usuario2
+a2enmod authz_groupfile
+
+<Directory "/var/www/html/practica24/admin">
+ AuthType Basic
+ AuthName "Administradores de Apache"
+ AuthUserFile /etc/apache2/practica24/users.htpasswd
+ AuthGroupFile /etc/apache2/practica24/grupo.basic
+ Require group admin
+</Directory>
+
+@@@@@@@@@@@@@@@@@@@@@@@  P A R T E  3 @@@@@@@@@@@@@@@@@@@@
+apt-get install filezilla--->(El cliente)
+apt-get install proftpd
+crear carpeta ROOT mkdir /home/rus/Escritorio/mierda
+
+descomentar Defaultroot           /home/rus/Escritorio/mierda
+Descomentamos RequireValidShell a off (fuera de Anonyoums) 
+AuthUserFile /etc/proftpd/ftpd.passwd
+Añadimos /bin/false en el fichero /etc/shells (lo he dejado comentado)
+
+--Creamos el fichero de usuarios vacio
+	touch /etc/proftpd/ftpd.passwd
+
+ftpasswd --passwd --name=usuario1 --uid=3000 --gid=3000 --home=/srv/ftp/usuario1 --shell=/bin/false
+
+€€€€€€ USUARIO ANONIMO PROFTPD
+	Entrar en proftpd.conf y descomentar toda la etiqueta anonnymous
+	menos la parte de <Directory incoming
+
+
+€€€€€€€€€€ P E R M I S O S 
+<Directory /home/rus/Escritorio/mierda>
+
+ <Limit READ MKD WRITE >
+ 	AllowUser usuario1
+	DenyAll
+ </Limit>
+
+<Limit READ>
+ 	AllowUser usuario2
+	DenyAll
+ </Limit>
+
+</Directory> 
+
+
+
+
+€€€€€€€€€€€€€€€€€€€€€€ S ERVER  G I T 
+
+which git-shell--------->/usr/bin/git-shell
+nano /etc/shells -> /usr/bin/git-shell

@@ -1,0 +1,5 @@
+Debemos recorrer XML con el DOM de HTML
+ejemplo: 
+(xml es el texto que me da ajax.responseXML)
+var padre =  xml.getElementsByTagName("peliculas");
+let valor = padre[0].children[0].children[0].childNodes[0].nodeValue;
