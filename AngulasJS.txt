@@ -1,0 +1,24 @@
+LO MAS CORRECTO SERIA AÑADIR 'data-ng-loquesea' VALIDACI9ON HTML5
+----------------------------------------------------------
+$scope--> representa intermedirio entre JS y HTML
+ng-init ---> para inicializar variables,(pueden ser varias a la vez)
+ng-app ---> para dar nomnbre a nuestra app como modulo
+ng-model ---> recoje los value de cualquier input
+ng-bind o {{expresion}} ---> Salida del codigo por HTML
+ng-repeat --->para crear loops 'Ejemplo--> ng-repeat="x in names" '
+ng-controller --> creamos controladores
+ng-click --> lo mismo que onclick Ejemplo: ng-click="saludar()" < $scope.saludar = function(){} >
+
+Ademas podemos crear directivas propias, que una vez
+asignadas a un elemento haran lo que hallamos programado
+
+
+
+Para usar estos metodos, debemos pasar la variable $http
+
+app.controller("nombre", function($scope, $http){
+	
+	$http.get(url).success(function(data){}).error(function(data_error){})-->AJAX
+	$http.post(url,{param1:adios}).success(function(){}).error(function(){})
+
+})
