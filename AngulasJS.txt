@@ -10,9 +10,22 @@ ng-controller --> creamos controladores
 ng-click --> lo mismo que onclick Ejemplo: ng-click="saludar()" < $scope.saludar = function(){} >
 
 Ademas podemos crear directivas propias, que una vez
-asignadas a un elemento haran lo que hallamos programado
+asignadas a un elemento haran lo que hallamos programado,
+simpre deben tener un RETURN y un TEMPLATE
+
+.directive("nombre",function(){
+
+	return {
+    		template : "<h1>Made by a directive!</h1>" o 'una funcion'
+  	};
+});
 
 
+-->el nombre de la directiva no deberia llevar ng- al principio
+	ya que pdria sobreescribir algo de agularjs
+	Ademas si escribimos 'miDirectvia' luego la invocamos como mi-directiva
+
+-------------------------------------------------------------
 
 Para usar estos metodos, debemos pasar la variable $http
 

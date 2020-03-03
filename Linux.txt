@@ -11,6 +11,7 @@ GOOGLE--> start chrome "https://google.com"--->chrome u otro buscador
 cat os-release --->INFROMACION DEL SISTEMA
 
 apache2ctl [opcion] , apache2ctl -M ---->ver modulos de apache2
+a2ensite ejemplo.com.conf habilitar sites-availble
 ====== Home ======
 
 

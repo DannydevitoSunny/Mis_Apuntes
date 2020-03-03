@@ -1,0 +1,31 @@
+#variable --> es como el this
+[propiedad]="variable_directa_desde_angular", en vez de {{}}
+propiedad = "{{}}"
+(evento) = "nombre_funcion()"
+
+import { Component} from '@angular/core';
+
+
+
+@Component({
+  selector: 'app-hero-child', ---> nombre directiva
+  template:`    ------->Vista donde se ejecuta el component
+    <h3>{{mivariable}} says:</h3>
+    <p>I, {{mivariable}}, am at your service, {{mivariable}}.</p>
+  `,
+  style : [`h3{color:black}`] ---> donde se aplican estilos
+})
+export class HeroChildComponent {
+ 	public mi_variable: string
+	
+	constructor(){
+		this.mivariable = "hola";
+	}
+}
+
+
+<ul> 
+	<li *ngFor let persona of personas>
+		{{persona.nombre}}
+	</li>
+</ul>
