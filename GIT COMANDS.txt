@@ -19,8 +19,23 @@ git push -u origin master ---->mandamos el archivo
 git branch ---> nues muestra la rama en la que nos encontramos
 git branch nombre_Nueva_rama ---> asi creamos nuevas ramas
 git checkout nombre_rama ---> para movernos entre ramas
-git merge Nombre_rama ----> para fusionar ramas (
-------------------------------------------------------------------------
+git merge Nombre_rama ----> para fusionar ramas 
+git branch -d nombre_rama --> elimina la rama, no se puede hacerse desde una misma
+git branch -D nombre_rama ---> fuerza el borrado
+
+--------------- R E M O T O S -------------------------------------
+origin es solo el nombre por defecto que se dal al remoto al clonar
+podemos tener muchos remotos y llamarlos de diferentes maneras
+git remote -v y $ git remote--->el 1º muestra url del origin y el otro solo origin
+git remote add origen_nuevo https://github.com/paulboone/ticgit
+Al usar GIT PULL estas combinando git fetch+ git merge
+
+git push --set-upstream origin master --->establece el remoto y  la rama a la que va el push
+------------------ F O R K -----------------------------------------------
+	ES UNA COPIA DEL REPOSOTORIO ORIGINAL
+	QUE SE CREA CON EL PROPOSITO DE QUE SI ALGUIEN LO COPIA
+	QUE NO LO ALTERE APESAR DE LOS CAMBIOS!
+------------------------------------
 
 Si creamos un archivo llamado .gitignore, dentro podemos especificar escribiendo 
 los nombre de carpetas o archivos que no queremos que git detecte
