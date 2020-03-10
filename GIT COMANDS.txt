@@ -22,10 +22,29 @@ git branch nombre_Nueva_rama ---> asi creamos nuevas ramas
 git branch -d <rama> ---> borrar rama, no se puede hacer desde si misma
 git checkout nombre_rama ---> para movernos entre ramas
 git merge Nombre_rama ----> para fusionar ramas 
+<<<<<<< HEAD
 git stash --> guarda el codigo sin comitear (guardado temporal)
 git stash apply  --> devuelve el codigo gaurdado,podemos elegir con 		git stash apply stash@{1}
 
 ------------------------------------------------------------------------
+=======
+git branch -d nombre_rama --> elimina la rama, no se puede hacerse desde una misma
+git branch -D nombre_rama ---> fuerza el borrado
+
+--------------- R E M O T O S -------------------------------------
+origin es solo el nombre por defecto que se dal al remoto al clonar
+podemos tener muchos remotos y llamarlos de diferentes maneras
+git remote -v y $ git remote--->el 1º muestra url del origin y el otro solo origin
+git remote add origen_nuevo https://github.com/paulboone/ticgit
+Al usar GIT PULL estas combinando git fetch+ git merge
+
+git push --set-upstream origin master --->establece el remoto y  la rama a la que va el push
+------------------ F O R K -----------------------------------------------
+	ES UNA COPIA DEL REPOSOTORIO ORIGINAL
+	QUE SE CREA CON EL PROPOSITO DE QUE SI ALGUIEN LO COPIA
+	QUE NO LO ALTERE APESAR DE LOS CAMBIOS!
+------------------------------------
+>>>>>>> b174eca81da31942f532f76fe6381290c0667d19
 
 Si creamos un archivo llamado .gitignore, dentro podemos especificar escribiendo 
 los nombre de carpetas o archivos que no queremos que git detecte
