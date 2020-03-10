@@ -14,13 +14,20 @@ git diff (nombre) ---> ver el nuevo cambio
 git remote add origin (declaramos dirección de alojamiento web)[Git-hub]
 git pull <archivo> ----->Actualizar al ultimo commit
 git push -u origin master ---->mandamos el archivo
+git push -u <remote> <branch> (comando general)
 	-Se nos abrira una ventana y pedira usuario y contraseña
 	-tras eso, empezara la subida
 git branch ---> nues muestra la rama en la que nos encontramos
 git branch nombre_Nueva_rama ---> asi creamos nuevas ramas
+git branch -d <rama> ---> borrar rama, no se puede hacer desde si misma
 git checkout nombre_rama ---> para movernos entre ramas
-git merge Nombre_rama ----> para fusionar ramas (
+git merge Nombre_rama ----> para fusionar ramas 
+git stash --> guarda el codigo sin comitear (guardado temporal)
+git stash apply  --> devuelve el codigo gaurdado,podemos elegir con 		git stash apply stash@{1}
+
 ------------------------------------------------------------------------
 
 Si creamos un archivo llamado .gitignore, dentro podemos especificar escribiendo 
 los nombre de carpetas o archivos que no queremos que git detecte
+
+El origin es el nombre del remoto por defecto
