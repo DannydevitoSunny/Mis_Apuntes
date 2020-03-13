@@ -29,3 +29,13 @@ export class HeroChildComponent {
 		{{persona.nombre}}
 	</li>
 </ul>
+
+-------PETICION POST DESDE ANGULAR -------
+const headers = { 'Authorization': 'Bearer my-token', 'My-Custom-Header': 'foobar' }
+const body = { title: 'Angular POST Request Example' }
+this.http.post<any>('https://jsonplaceholder.typicode.com/posts', body, { headers }).subscribe(data => {
+    this.postId = data.id;
+})
+
+a2ensite refrsecar la configuracion de sites-available
+
