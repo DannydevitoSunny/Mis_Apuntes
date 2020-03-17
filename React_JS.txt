@@ -54,6 +54,54 @@ class Car extends React.Component {
   }
 }
 
+
+€€€€€€€€€€€€€€€€€€€€€--- R O U T E S -- €€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+import React from "react";
+import {Route, Switch, Link, BrowserRouter as Router,} from "react-router-dom";-->OBLIGATORIO
+import Home from './home.js' --->>RUTAS DE MIS COMPONENTES
+import Info from './dataRequest.js'
+
+
+const RouteSS =()=>{
+    return(
+        <div>
+         <Router>
+                <nav className="nav bg-dark">
+                    <Link to="/"><a className="nav-link text-white disabled">Home</a></Link>
+                    <Link to="requestData"><a className="nav-link text-white  disabled">Info</a></Link>
+                </nav>
+            <Switch>
+                <Route path="/" exact component={Home}></Route>
+                <Route path="/requestData" exact component={Info}></Route>
+            </Switch>
+         </Router>
+        </div>
+    )
+}
+
+
+€€€€€€€€€€€€€€@@@@@@@@@@--- S E T   S T A T E   AND   ARGS  F U N C T I O N S --@@@@@€€€€€€€€€E
+	this.setState({usersData: this.users.map((item)=>{
+                        return (
+                            <tr  key={item.id} onClick={() => this.selectUser(item.name)} >
+                                <th scope="row" className="th-User UserName">Name: {item.name}  </th>
+                                <th scope="row" className="th-User">id: {item.id}  </th>
+                                <th scope="row" className="th-User">Workspace id: {item.workspace}  </th>
+                            </tr>
+                        )
+                    })})
+
+
+ARGS ---->>>  onClick={() => this.selectUser(item.name)}
+
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+
+export default RouteSS;
+
+---Router-->engloba los links
+---Switch -->Renderiza las rutas pasando de una a otra por URL
+---Link --> El enlace en si
+
 €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
 
 Toda la aplicacion es disparada desde src/index.js que a su vez usa src/App.js
