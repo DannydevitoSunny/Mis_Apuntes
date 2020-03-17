@@ -128,3 +128,6 @@ curl direccion_web.com  --> nos da el codigo fuente de la pagina
 wget direccion_recurso.com ---> si damos una direccion, esto descargara el contenido
 CURL es mas poderoso que WGET, con ambos podemos hacer las mismas cosas
 
+cat /etc/lsb-release -->datos del sistema
+uname -a ---> mas datos del sistema	
+
