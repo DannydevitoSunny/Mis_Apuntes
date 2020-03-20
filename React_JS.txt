@@ -104,6 +104,25 @@ export default RouteSS;
 
 €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
 
+
+@@@@@@@@@@@@@@@@@@@@@@@@ FROM  C H I L D   TO   P A R E N T @@@@@@@@@@@@@@@@@@@@@@@@
+
+	--El react es una mierda y nada intuitivo
+	  esto de aqui abajo no tiene ningun sentido, pero funcionaa
+
+Child--->  onClick={this.props.parametroX(this.state.NuestraVariable)}
+Parent --> <Micompnent  parametroX = {this.funcionHandlePadre}
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@ VERY IMPORTANT   R E F S   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<div  id="myId" ref = {nameRef = {this.variable  = nameRef}}></div>
+this.func =()=>{
+	let id  = this.variable.id
+	let value = this.variable.innerHTML
+}
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+
 Toda la aplicacion es disparada desde src/index.js que a su vez usa src/App.js
 En vez de class, usamos className=""
 Dos carpetas impotantes==> public y src

@@ -297,7 +297,14 @@ Cosas  avanzadas de Javascript:
 
 
 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ I M P R I M I R   CON    J S @@@@@@@@
+	function onclickPrint(){
+		let newWindow = window.open()				
+		newWindow.document.write(myDiv.innerHTML)
+		newWindow.print();
+		newWindow.close()
 
+	} 
 
 
 
