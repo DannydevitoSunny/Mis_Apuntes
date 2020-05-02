@@ -1,4 +1,5 @@
-
+Bcrypt
+md5 hash
     1.Find exposed services (with nmap) and try to detect the hardware and software version with the        TCP signature
     2.Look for common exploits on the exposed services, or for that specific hardware/software
     3.Try to gain access with brute force
@@ -129,5 +130,19 @@ wget direccion_recurso.com ---> si damos una direccion, esto descargara el conte
 CURL es mas poderoso que WGET, con ambos podemos hacer las mismas cosas
 
 cat /etc/lsb-release -->datos del sistema
-uname -a ---> mas datos del sistema	
+uname -a ---> mas datos del sistema
 
+grep -r "mydomain.com" /etc/apache2/ ---->Busca el string en varios archivos dentro de la ruta
+rev ---> vuelve el texto al reves	
+cd - => te dice el directorio en el qu8e estas alojado actualmente
+usar find --> para encontrar archivos, es muy pontente (buscar parametros en google) 
+find . -name "*foo*" --> Busqueda recursiva de un archivo dentro de una carpeta
+
+IMPORTANTE ---> which nombrePrograma --->nos da la direccion del ejecutable
+
+w --> inforamacion de usuario y session 
+top --> administrador de procesos
+df -ah --> espacio libre en disco (disk free  -all -human read format)
+du -sh directorio ---> tamaño del directorio
+netstat -tulpn --> puertos abiertos y servicios (hacer mejor en sudo)
+find ./foo -type f -name "*.txt" | xargs rm --> XARGS hace que lo que le precede se ejecute !!!

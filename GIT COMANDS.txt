@@ -26,6 +26,12 @@ git merge Nombre_rama ----> para fusionar ramas
 git stash --> guarda el codigo sin comitear (guardado temporal)
 git stash apply  --> devuelve el codigo gaurdado,podemos elegir con 		git stash apply stash@{1}
 
+
+Git no sensible a cambios de permisos sobre archivos
+--->Global
+git config ––global core.filemode false ||     git config ––add ––global core.filemode false
+--->this
+git config core.filemode false
 ------------------------------------------------------------------------
 =======
 git branch -d nombre_rama --> elimina la rama, no se puede hacerse desde una misma

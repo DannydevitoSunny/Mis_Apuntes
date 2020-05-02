@@ -15,6 +15,87 @@ CONSTRUCTOR
 Cuando creamos un componente , este tiene un costructor vacio por defecto
 si queremos crear un costructor debemos invocar el constructor padre super()
 
+
+--->Otra forma de extraer states
+	this.state = {contador:0}
+	 var { contador} = this.state
+@@@@@@@@@@@@@@@@@@@@@@@@ H O O K S  €€€€€€€€€€€€€€€€€€€€€€€€€€
+
+
+SI NO QUEREMOS USAR COMPONENTES DE TIPO CLASE
+	Ejemplo: class Car extends React.Component
+	
+Entonces podemos usar funciones y HOOKS
+LAS FUNCIONES TAMBIEN SE IMPORTAN, EXPORTAN Y RECIBEN PROPS
+PERO NO POSEEN CICLOS DE VIDA, LOS HOOKS SI
+------------------------------------------------------
+import React, { useState } from 'react'
+export default function Car(){
+	---EL parametro inicializa y el segundo es el callback que usaremos
+	const [count, setCount] = useState(0)
+	var [persona, creador] = useState({nombre:"", apellido:"", edad:""});
+	return (
+    		<div>
+      			<p>Has hecho click {count} veces</p>
+      			
+     		 	<button onClick={() => setCount(count + 1)}>
+      			  Haz click!
+      			</button>
+    		</div>
+  	)
+}
+@@@@@@@@@@@@@@@@@@@@@@ C O N T E X @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+import React, { Component } from 'react';
+
+export const MyContext = React.createContext();
+
+export class MyProvider extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            ApiKey:"XjauhfruKLK454-22",
+            Lenguage: "Eng",
+            LocalTime: "Spain",
+            UserName: "Ruslan"
+        }
+
+        this.setKeyFun = (key)=>{
+            if (key != "") {
+                this.setState({
+                    ApiKey:key,
+                })
+                }
+            else{
+                this.setState({
+                    ApiKey:"You need set a Key",
+                })
+            }
+        }
+    }
+    
+  render() {
+    return (
+      <MyContext.Provider value={{
+          state: this.state, 
+          setKey: this.setKeyFun,
+        }}>
+        {this.props.children}//-->This is consultory, you can't change this name
+      </MyContext.Provider>
+    )
+  }
+}
+<MyContext.Consumer>
+	{(value)=>(
+		AQUI ES DONDE VA EL DIV QUE RETORNA NUESTRO COMPONENTE
+		<div>
+			
+			<h1>{value.state.UserName}</h1>
+			<p onClick={{()=>value.setKey(nuevoValor)}}> Actualizar api key </p>
+		</div
+		
+	)}
+</MyContext.Consumer>
 €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
 ESTADO / STATES
 Solo por ser REACT, en vez de llamar propiedades del objeto
@@ -53,6 +134,8 @@ class Car extends React.Component {
     );
   }
 }
+
+
 
 
 €€€€€€€€€€€€€€€€€€€€€--- R O U T E S -- €€€€€€€€€€€€€€€€€€€€€€€€€€€€€
@@ -113,6 +196,46 @@ export default RouteSS;
 Child--->  onClick={this.props.parametroX(this.state.NuestraVariable)}
 Parent --> <Micompnent  parametroX = {this.funcionHandlePadre}
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+@@@@@@@@@@@@@@@@@@@@@ G L O B A L E S   C O N T E X T  @@@@@@@@@@@@@@@@
+theme-context.js
+----------------
+
+
+export const themes = {
+  light: {
+    foreground: '#000000',
+    background: '#eeeeee',
+  },
+  dark: {
+    foreground: '#ffffff',
+    background: '#222222',
+  },
+};
+
+export const ThemeContext = React.createContext(  themes.dark // valor por defecto);
+
+
+------------------------------------Otro componente ----------------
+
+
+import {ThemeContext} from './theme-context';
+
+class ThemedButton extends React.Component {
+  render() {
+    let props = this.props;
+    let theme = this.context;    return (
+      <button
+        {...props}
+        style={{backgroundColor: theme.background}}
+      />
+    );
+  }
+}
+ThemedButton.contextType = ThemeContext;
+export default ThemedButton;
+
 
 
 @@@@@@@@@@@@@@@@@@@@@ VERY IMPORTANT   R E F S   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
