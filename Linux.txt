@@ -146,3 +146,4 @@ df -ah --> espacio libre en disco (disk free  -all -human read format)
 du -sh directorio ---> tamaño del directorio
 netstat -tulpn --> puertos abiertos y servicios (hacer mejor en sudo)
 find ./foo -type f -name "*.txt" | xargs rm --> XARGS hace que lo que le precede se ejecute !!!
+tee and tee -a --> ejemplo: date | tee -a miLog.txt -->>guarda la fcha en el archivo y lo muestra
