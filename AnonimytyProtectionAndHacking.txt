@@ -1,0 +1,22 @@
+TrueCrypt --> 256 encription, allows hidden  OS -->impossible<--- to find for others
+Learn Linux ------>
+1. LINUX_UTILITIES_COOKBOOK
+2. Linux Bible 9th Ed (2015)
+
+Both ebooks best. Use ubuntu for starting. Use in vmware/virtualbox for starting
+I use two ubuntu os in vmware for practice.
+
+Then Kali linux :-> Books
+1. pwk.1.0 [google it]
+2. Kali Linux Cookbook
+3. Kali Linux Web Penetration Testing Cookbook [Latest]
+I specially like pwk ebook
+
+
+RTFM [Red Team Field Manual ] <---- This ebook is best Why ? check yourself
+
+You should also read following ebooks ->
+1. ethical hacking and penetration testing guide
+2. Mastering Wireshark - Charit Mishra
+3. the-web-application-hackers-handbook
+4. The Hacker Playbook 2 Practical Guide To Penetration Testing

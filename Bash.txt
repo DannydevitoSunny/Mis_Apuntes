@@ -1,0 +1,63 @@
+#!/bin/bash
+-------------------Declarar variables 
+var2=5
+var3=10
+echo "$var2"
+-------------------Desclarar constantes
+declare -r NUM = 1
+
+
+@@@@@@@@@@@@@@@----ARRAYS ---@@@@@@@
+arra1 = ("hola", "adios")
+echo "array1[0]"
+
+@@@@@@@@@@@@@@@@  I N P U T @@@@@@@@@@@@@@
+echo "Introduzca un valor"
+read variable
+@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+# Operaciones con el comando let:
+let suma=$var2+$var3 --> es lo mismo que suma = $(( $var2+$var3))
+
+-----> SIMPRE QUE VAMOS A USAR, MOSTRAR O CONCATENAR LA VARIABLE PONEMOS $ DELANTE
+
+
+@@@@@@@@@@@@@@@@@@@@@@ C O D I C I O N A L E S 
+if [ 2 -gt 1 ]; then
+    echo "2 es mayor que 1"
+fi
+
+    "-lt": Menor que
+    "-le": Menor o igual que
+    "-eq": Igual que
+    "-ge": Mayor o igual que
+    "-gt": Mayor que
+    "-ne": Distinto que
+----------------->>>>>>>>------IMPORTANTE
+	(HECHAR UN VISTAZO A LOS --->  "   FILE TEST OPERATORS    "
+@@@@@@@@@@@@@@@@@@@@@@@@ switch
+case "$numb" in
+      1) echo "Month: January";;
+      2) echo "Month: February";;
+      3) echo "Month: March";;
+      *) echo -e "You wrote a wrong number.
+
+
+@@@@@@@@@@@@@@@@@@@@@@  F U N C I O N E S 
+testfunction(){
+   echo "My first function"
+}
+testfunction ---> PARA LLAMAR
+
+@@@@@@@@@@@@@@@@  A R G U M E N T O S   DEL  S C R I P T @@@@@@@@@@@@@@@@@
+Llamadas las variables especiales
+$0---> el nombre del script
+$nº --> $4
+$# --> el numero de argumentos
+
+
+# Operaciones con el comando expr:
+echo "Operaciones con el comando expr"
+expr $varX + $varY # Suma

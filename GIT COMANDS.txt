@@ -56,3 +56,6 @@ Si creamos un archivo llamado .gitignore, dentro podemos especificar escribiendo
 los nombre de carpetas o archivos que no queremos que git detecte
 
 El origin es el nombre del remoto por defecto
+
+@@@@@@@@@@@@@@@ Subir sin tener en cuenta los permisos cambiados @@@@@@@@@@@@@@
+git config core.filemode false

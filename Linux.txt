@@ -57,8 +57,9 @@ rv( eliminar)
 nano(editor de texto)
 
 cat (ve el contenido de un archivo en pantalla)
-
+cat e -n archivo.txt --> mostar la linea siguiente y enumerada
 less (lo mismo que cat)
+less +345 -N archivo.txt --> emepezar desde la line 345 y mostrar las lineas numeradas
 
 grep(Filtro de contenido o texto en un archivo)
 
@@ -79,6 +80,10 @@ chmod (cambiar permisos a:all u:propietario g:grupo o:otros)
 				 chmod  go-w  miarchivo
 				 chmod  u+rwx midir
 				chmod r+rwx
+chmod 777 archivo.txt
+	1 --> x
+	2 --> w
+	4 --> r
 
 chown (cambiar archivo de propietario)
  ejemplo
@@ -147,3 +152,47 @@ du -sh directorio ---> tamaño del directorio
 netstat -tulpn --> puertos abiertos y servicios (hacer mejor en sudo)
 find ./foo -type f -name "*.txt" | xargs rm --> XARGS hace que lo que le precede se ejecute !!!
 tee and tee -a --> ejemplo: date | tee -a miLog.txt -->>guarda la fcha en el archivo y lo muestra
+
+cat este es mi archivo  -->> cat "este es mi archivo" or cat este\ es\ mi\ archivo
+cat -   ---> cat ./-   or cat abspath/-
+
+sort file.txt | uniq -u  --> saca la line que no se repite
+sort file.txt | uniq -d  --> saca las que se repiten
+
+
+@@@@@@@@@@@@ T O N T E R I A @@@@@@@@@@@@@@@@@
+figlet fuck you --> letras grandes terminal
+
+@@@@@@@@@@@@@@@@@@@@--- I M P O R T A N TE  ---@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+---->>>>>>> string data.txt  --> sacara todos los string de un archivo binario
+---->>>>>>> .bashrc, ahi dentro podemos crear nuestros propios comandos con funciones
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+---------------------------------------------------------------
+
+@@@@@@@@@@@@@@@@@@  E R R O R E S  EN   B A S H @@@@@@@@@
+
+entrada, salida y error para un comando en bash: STDIN, STDOUT y STDERR === 0 , 1 , 2 
+0 -> exito
+1 -> salida
+2 -> error
+
+2>&1 --> redirige los errores a la salida ( muestra el error, '&' es mejor forma de llamar a 1).
+Redirigir un error a la basura --> mkDirr carpeta 2>/dev/null (mkdir mal escrito)
+$? --> muestra el estado del ultimo comando
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+for f in *.txt;do echo $f;done ---> Interesanteeee!!!!
+retrasar un comando ---> sleep 2 | xargs echo "Imprimir mas tarde"
+
+
+
+€€€€€€€€€€€€€€€€€€€?  J O B S  €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+Para llevar un proceso a background usamos &
+Para traer un proceso usamos fg % nº(numero del job)
+Para ver los procesos en segundo plano usamos --> jobs
+sleep 20 | xargs echo "Imprimir mas tarde" & -->(En segundo plano)
+fg % 1 ->> traemos a primer plano
