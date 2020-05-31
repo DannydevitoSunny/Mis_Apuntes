@@ -150,7 +150,11 @@ top --> administrador de procesos
 df -ah --> espacio libre en disco (disk free  -all -human read format)
 du -sh directorio ---> tamaño del directorio
 netstat -tulpn --> puertos abiertos y servicios (hacer mejor en sudo)
+
+@@@@@@@@@  F I N D @@@@@@@@@@@@@@@@@@
 find ./foo -type f -name "*.txt" | xargs rm --> XARGS hace que lo que le precede se ejecute !!!
+find . perm 777 |xargs ls -la
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 tee and tee -a --> ejemplo: date | tee -a miLog.txt -->>guarda la fcha en el archivo y lo muestra
 
 cat este es mi archivo  -->> cat "este es mi archivo" or cat este\ es\ mi\ archivo
@@ -182,6 +186,7 @@ entrada, salida y error para un comando en bash: STDIN, STDOUT y STDERR === 0 , 
 2>&1 --> redirige los errores a la salida ( muestra el error, '&' es mejor forma de llamar a 1).
 Redirigir un error a la basura --> mkDirr carpeta 2>/dev/null (mkdir mal escrito)
 $? --> muestra el estado del ultimo comando
+echo $0 ---> muestra la shell que se usa actualmente
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -196,3 +201,26 @@ Para traer un proceso usamos fg % nº(numero del job)
 Para ver los procesos en segundo plano usamos --> jobs
 sleep 20 | xargs echo "Imprimir mas tarde" & -->(En segundo plano)
 fg % 1 ->> traemos a primer plano
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+
+@@@@@@@@@@@@@@ variables globales en la shelll
+	export RUS=dios   ---> echo $RUS  (salida:dios)
+
+
+@@@@@@@@@@@@@@@ SUID @@@@@@@@@@@@@@
+  root  grup others  owner   grupo-owner
+- rws    r-x   r-x     root    	root    
+IMPORTANE---> Las s representa el permiso SUID, quire decir que si 
+		ejecuto este archivo, tendre sobre el los mismos 
+		permisos que el propietario(root en este caso)
+hack--> si esto fuera el caso del archivo vim o nano, al tener el usuario normal
+el permiso de ejecucucion, podria ahora ejecutar nano o vim seria root,
+lo que quiere decir que podria modificar archivos como /ect/shadow para insertar un 
+nuevo hash de contraseña y hacerme root del sistema
+
+#######################################
+
+nc -l -p 4444 -->poner servidor a la escucha
+nc 192.168.1.15 4444  --->conectarse al servidor
+-----Scaneando con netcat
+nc -n -z 192.168.1.54 1-1000 ->(z)mandar paquete sin datos, (n) sin resolver dns, (1000 ports)
