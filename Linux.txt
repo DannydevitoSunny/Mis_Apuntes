@@ -103,7 +103,13 @@ sudo nautilus& ---> le damos permisos de administrador a la aplicacion y lo lanz
 tar -xvf archivo.tar ----> para Descomprimir
 apt-get purge nombre_programa* ---> El asterisco indica que se elemine todo!
 
+@@@@@@@@@@@@@    R  E  D  @@@@@@@@@@@@@@@@@@@@@
+
+netdiscover
 netstat -atunp --------> ver el estado de la red
+sudo arp-scan -l muestra la MAC y los IP de la red local
+
+@@@@@@@@@@@@@@@@@@@@@
 more etc/passwd     etc/shadow-----------> derechos de usuario
 updatedb--->para usar el comando locate con resultado actualizados
 history | grep cd --->muestra todo la historia de comandos cd
@@ -133,6 +139,17 @@ netdiscover -i eth0 -r 132.168.1.0/24
 curl direccion_web.com  --> nos da el codigo fuente de la pagina
 wget direccion_recurso.com ---> si damos una direccion, esto descargara el contenido
 CURL es mas poderoso que WGET, con ambos podemos hacer las mismas cosas
+
+
+@@@@@@@@@@@@@@@@@@@@@@ C U R L   P O S T
+curl -d "param1=value1&param2=value2" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/data
+@@@@@@@@@@@@@@@@@@@@@@ C U R L   G E T 
+curl -d "param1=value1&param2=value2" -H "Content-Type: text/html" -X GET http://localhost:3000/?param1="uno"
+
+---Puedo añadir tantos -H como headers quiera
+---El parametro -i es para ver los headers de las peticiones o respuestas
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 cat /etc/lsb-release -->datos del sistema
 uname -a ---> mas datos del sistema

@@ -200,6 +200,13 @@ Cosas  avanzadas de Javascript:
 		-- los metodos los consultamos en internet para checkValidity de cada uno de los tipos de campos de ejemplo de arriba;
 	elemento.setCustomValidity('El campo no debe tener numeros') ----> mensaje de error personalizado!!;
 
+	@@@@@@@@@@@@@@@@@@@@  A R R O W S @@@@@@@@@@@@@@@@
+
+	var a = {name: "Jose"};
+	let y = p => a.name; ---> Si hay mas de un parametro entonces (p1,p2)
+	document.getElementById("demo").innerHTML = y(a);
+	SALIDA: Jose
+
 
 
 	€€€€€€€€€€€€--N O T A C I O N    C H U L A S-- €€€€€€€€€€€€€€€
@@ -217,8 +224,6 @@ Cosas  avanzadas de Javascript:
 	}
 
 	
-
-
 
 	€€€€€€€€€€€€--ASYNC  /  AWAIT   JS-- €€€€€€€€€€€€€€€
 
