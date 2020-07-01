@@ -141,9 +141,13 @@ wget direccion_recurso.com ---> si damos una direccion, esto descargara el conte
 CURL es mas poderoso que WGET, con ambos podemos hacer las mismas cosas
 
 
-@@@@@@@@@@@@@@@@@@@@@@ C U R L   P O S T
+
+curl -d -H -X --> parametros impoortantes data, Header, metodo "direccion"
+@@@@@@@@@@@@@@@@@@@@@@ C U R L   P O S T-----------##########
+
 curl -d "param1=value1&param2=value2" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/data
-@@@@@@@@@@@@@@@@@@@@@@ C U R L   G E T 
+
+@@@@@@@@@@@@@@@@@@@@@@ C U R L   G E T-------------- ###########
 curl -d "param1=value1&param2=value2" -H "Content-Type: text/html" -X GET http://localhost:3000/?param1="uno"
 
 ---Puedo añadir tantos -H como headers quiera
@@ -159,6 +163,9 @@ rev ---> vuelve el texto al reves
 cd - => te dice el directorio en el qu8e estas alojado actualmente
 usar find --> para encontrar archivos, es muy pontente (buscar parametros en google) 
 find . -name "*foo*" --> Busqueda recursiva de un archivo dentro de una carpeta
+####### U T I L #####
+whereis hosts --> devolvera las posibles ruttas del archivo
+
 
 IMPORTANTE ---> which nombrePrograma --->nos da la direccion del ejecutable
 
@@ -241,3 +248,18 @@ nc -l -p 4444 -->poner servidor a la escucha
 nc 192.168.1.15 4444  --->conectarse al servidor
 -----Scaneando con netcat
 nc -n -z 192.168.1.54 1-1000 ->(z)mandar paquete sin datos, (n) sin resolver dns, (1000 ports)
+------->>>> socat ( mas avanzado que netcat, mas dificil)
+
+@@@@@@@@@@@@@@@@@@ I M P O R T A N T E @@@@@@@@@@@@@@@@
+scp user@45.165.253.12:/dirPath/file nuevoNombre --->Descargamos un desde el servidor
+scp miArchivo user@45.165.253.12:/dirPath/file ---Subimos desde local a servidor
+sudo -l para ver que puede hacer un usuario
+sudo -i --> en un servidor mal configurado nos puede hacer root sin contraseña
+
+set num1 num2 num3 .... parametros que guardamos por si los necesitamos
+set hola $(date) ----> si hacemos ahora  echo $1 mostarara hola
+			echo $2 mostrara la hora en la que se creo el comando
+
+@@@@@@@@@@@@@@@@@@@@@ A W K @@@@@@@@@@@@@
+Filtra la salida de texto de un comando por linea
+ls -l  | awk '{ print $5 : $8 : $1 }'-----> dentro de cada linea mostrara las columnas nombradas

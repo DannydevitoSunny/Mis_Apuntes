@@ -8,6 +8,11 @@ Dos tipos de memoria que existen para variables:
 Memoria STACK---->Donde se guardan los tipos de variables distintos, las instancias y las estructuras
 Memoria HEAP ---->Donde se guardan los objetos
 
+
+Media queryyyys----> @media screen and (max-width:500px)
+	Si la pantalla es menor a 500px, entonces....
+
+
 C O S A S   I N T E R E S A N T E S   EN   C#{
 
 @@@@@@@@@@@@ MI   P R O P I O    SET-INTERVAL @@@@@@@@@@@@@@@
