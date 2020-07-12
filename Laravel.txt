@@ -22,13 +22,76 @@ Tres Tipos basicos :
 
 @@@@@@@@@@@@@@ END ROUTES @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+		------------
+
+@@@@@@@@@@@@@@ M I G R A T I O N S @@@@@@@@@@@@@@@@@@@@@
+
+1º  crear la tabla ---> php artisan make:migration create_table_users
+2º  configurar la tabla
+3º  subir la tabla -----> php artisan migrate
+
+Deshacer el ultimo paso --> php artisan make:rollback
+
+Para modificar una tabla --> php artisan make:migration  create_column_address --table=users
+Estamos creando un archivo desde cual añadimos la columna adress a usarios
+
+-----------------DENTRO DE ESE ARCHIVO CREADO----------------
+
+----PARA CREAR NUEVA COLUMNA EN LA TABLA EXISTENTE
+
+Schema::create('users', (Blueprint $table)) {
+    $table->string('address', 50)->nullable();
+});
+----PARA ACTUALIZAR UN CAMPO YA EXISTENTE
+
+Schema::table('users', (Blueprint $table)) {
+    $table->string('address', 50)->nullable();
+});
+
+IMPORTANTE----------------
+!!!!! refresh, reset, rollback borran los contenidos de las tablas
+@@@@@@@@@@@@@@@@ END MIGRATIONS @@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+		-------------------
+
+@@@@@@@@@@@@@@@@ SQL    Q U E R I E S @@@@@@@@@@@@@
+
+2º FORMAS :  Eloquent y raw SQL, (eloquent recomendado)
 
 
+Si lo hacemos con raw SQL es DB::select("SELECT * FROM campo");
+
+Con ELOQUENT en cambio necesitamos crear un modelo de la tabla ejemplo: de Articulos (tabla)-----> Articulo (modelo)
+Si no queremos seguir la convencion, podemos declarar dentro del modelo la tabla a la que pertenece:
+	protected $table = "NombreTabla";
+$Array_articulos = Articulo::where("pais_origen", "china")->get();
+$Array_articulos = Articulo::all();
 
 
+@@@@@@@@@@@@@@@@@@@@@@  M O D E L O S @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	php artisan make:model Articulo
+
+Si queremos añadir un nuevo producto instanciamos nuestro modelo:
+	$newProduct = new Articulo();
+	$newProduct->nombre("Cafetera");
+	$newProduct->save();
+Si queremos actualizar un articulo 
+	$product = Articulo::find(id);
+	$product->Nombre("NuevoNombre");
+	$product->save();
+	(Hay otras formas de hacerlo);
+
+Si queremos cambiar el comporatmiento por defecto dentro del modelo
+debemos especificarlo desde la clase de nuestro modelos con propiedades
+protected (consultar docs para ver los parametros que podemos cambiar)
 
 
+@@@@@@@@@@@@@@@@@@@@@@@@@ PAPELERA @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+El modo	SOFT DELETE sirve para crear una papelera de reciclaje en las 
+tablas de laravel
+Video 25 pildoradinformaticas
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 

@@ -229,7 +229,8 @@ fg % 1 ->> traemos a primer plano
 
 @@@@@@@@@@@@@@ variables globales en la shelll
 	export RUS=dios   ---> echo $RUS  (salida:dios)
-
+	unset RUS --> destrulle la variable
+	printenv ---> imprime todas las variables
 
 @@@@@@@@@@@@@@@ SUID @@@@@@@@@@@@@@
   root  grup others  owner   grupo-owner
