@@ -1,3 +1,9 @@
+Directivas y componentes link:
+https://stackoverflow.com/questions/34613065/what-is-the-difference-between-component-and-directive
+
+
+
+
 #variable --> es como el this
 [propiedad]="variable_directa_desde_angular", en vez de {{}}
 propiedad = "{{}}"
