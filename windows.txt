@@ -1,0 +1,4 @@
+gpedit.msc
+msconfig
+regedit
+cmd

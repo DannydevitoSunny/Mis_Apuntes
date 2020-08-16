@@ -264,3 +264,8 @@ set hola $(date) ----> si hacemos ahora  echo $1 mostarara hola
 @@@@@@@@@@@@@@@@@@@@@ A W K @@@@@@@@@@@@@
 Filtra la salida de texto de un comando por linea
 ls -l  | awk '{ print $5 : $8 : $1 }'-----> dentro de cada linea mostrara las columnas nombradas
+
+@@@@@@@@@@@@@@@ PARA ENCONTRAR SERVIDORES DNS DE UN DOMINIO
+
+host -t ns your-domain-name || dig ns your-domain-name --->uno u otro hacen lo mismo
+dig -x 192.168.94.3 ---> esto hace lo contrario
