@@ -1,4 +1,5 @@
 intrusion prevention systems (IPSs), access control lists (ACLs)
+(PII) personally identifiable information 
 -----------------------------------------------------------------------
 SYN: synchronize, inicia la conexion entre 2 host
 ACK : acknowledge, establece la conexion, luego del SYN
@@ -77,3 +78,4 @@ robtex
 domaintools
 exiftool---> nos permite leer metadatos de un archivo multimedia
 binwalk ---> herramienta para leer informacion desde las imagenes binarias(firmware)
+magic bytes --> cambiar las cabeceras de un archivo para hacerlo pàrecer otro

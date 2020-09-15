@@ -1,0 +1,7 @@
+1. hacer footrprinting en diferentes buscadores
+2. usar paginad web de footprinting
+3. investigar en pagina de empleo, se puede descubrir el OS, lenguaje o programa
+	que usa la empresa a traves de o que pide :)
+4. La informacion importante de una compania suele estar mas bien
+	en la parte financiera y no la de soporte (hablando de paginas web)
+5. Si no encuentras informacion de algo, mira o compara en la competencia

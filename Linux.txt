@@ -269,3 +269,22 @@ ls -l  | awk '{ print $5 : $8 : $1 }'-----> dentro de cada linea mostrara las co
 
 host -t ns your-domain-name || dig ns your-domain-name --->uno u otro hacen lo mismo
 dig -x 192.168.94.3 ---> esto hace lo contrario
+
+
+@@@@@@@@@@@@@@ R E S O  L U C I O N    K A L I @@@
+https://www.youtube.com/watch?v=VzZkYrLiaac
+CÓMO CAMBIAR LA RESOLUCION DE PANTALLA EN KALI LINUX
+-----------------VIDEO
+COMANDO --> xrandr
+si se usa gnome, por sea caso desactivar el XWAYLAND
+en la ruta ---> cd /etc/gdm3/daemon.conf
+
+######################################
+------------ VER IP PUBLICA
+# echo $(wget -qO - https://api.ipify.org)
+OR
+# echo $(curl -s https://api.ipify.org)
+
+@@@@@@@@@@ PORT FORWARDING @@@@@@@@@@@@@@@@@@@
+ssh -L local-port:remote-hostname:remote-port user@server->Somos local en red remota
+ssh -R local-port:remote-hostname:remote-port user@server->Alguien remoto entra en local
