@@ -1,18 +1,25 @@
+@@@@@@@@ CREACION DE PAQUETES @@@@
+hping3 --> Es como scapy, pero mas sencillo y menos potente
+
+
 intrusion prevention systems (IPSs), access control lists (ACLs)
 (PII) personally identifiable information 
 -----------------------------------------------------------------------
 SYN: synchronize, inicia la conexion entre 2 host
 ACK : acknowledge, establece la conexion, luego del SYN
-PSH: push, reenvia los datos en el buffer
+PSH: push, cuando mandamos un msg y este no ocupa el buffer completo, push mete relleno
+	(el buffer debe de estar lleno para mandar el mensaje, el push lo autocompleta)
 URG: urgent, los datos deben enviarse rapidamente
 FIN: finish, termina la conexion
+	(FIN termina la conexion y espera hasta que la otra parte termine de hablar)
 RST: reset, corta abruptamente la conexion.
+	(RST termina la conexion y NO espera hasta que la otra parte termine de hablar)
 
 windows hashes--------------
 LM Hash  3D-86-73-82-9D-2F-20-8F-28-24-F3-55-4F-22-44-C4
 NTLM Hash F7-DC-3E-68-DF-ED-AD-A2-16-A1-F2-7F-FD-4B-D5-1C
 Pwdump bill:3D8673829D2F208F2824F3554F2244C4:F7DC3E68DFEDADA216A1F27FFD4BD51C::: (COMPLETO)
-respuesta --->hola seño0r
+clave--->hola seño0r
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 Null byte atack --> %00 , el final de un string despues del cual ya no se lee nada
@@ -47,7 +54,8 @@ n &#39; — '
 Ataques :
 bypass -->> saltarse el paso de seguridad
 
-@@@@@@@@@@@@@@@@@   Robar cookies
+@@@@@@@@@@@@@@@@@   Robar cookies @@@@@@@@@@@@
+
 <button onclick="loadDoc()" style="color:red">Fuck</button>
 ---------------- 1º SCRIPT
 <script>
@@ -63,6 +71,7 @@ bypass -->> saltarse el paso de seguridad
         document.cookie = "user:=admin; PHPSESSID=eqhvqtpulp1r43euncdf0qva84; acopendivids=swingset,jotto,phpbb2,redmine; acgroupswithpersist=nada";
     }
 </script>
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 @@@@@@@@@@@ BASIC HYDRA 

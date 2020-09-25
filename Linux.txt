@@ -288,3 +288,15 @@ OR
 @@@@@@@@@@ PORT FORWARDING @@@@@@@@@@@@@@@@@@@
 ssh -L local-port:remote-hostname:remote-port user@server->Somos local en red remota
 ssh -R local-port:remote-hostname:remote-port user@server->Alguien remoto entra en local
+
+@@@@@@@@ LEER PDF
+okular/evince archivo.pdf
+
+@@@@@@@@  MOSTRAR CABECERA HEXADECIMAL @@@@@
+hexedit archivo
+
+@@@@@@@@@@ DUPLICADOR DE DATOS @@@@@@@ (NO CONFUNDIR CON df)
+dd if=/dev/sda of=/dev/sdb bs=4096 -» Duplicación disco-a-disco
+dd if=/dev/urandom of=myfile bs=6703104 count=1 -» Codifica un archivo (tal vez antes de borrarlo)
+dd if=/dev/zero of=/dev/sda bs=4k -» Limpia un disco duro (puede necesitar ser repetido)
+dd if=/dev/urandom of=/home/$user/hugefile bs=4096 -» Llena una partición (¡Cuidado con las particiones de sistema!)
