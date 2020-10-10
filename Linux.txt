@@ -60,6 +60,8 @@ cat (ve el contenido de un archivo en pantalla)
 cat e -n archivo.txt --> mostar la linea siguiente y enumerada
 less (lo mismo que cat)
 less +345 -N archivo.txt --> emepezar desde la line 345 y mostrar las lineas numeradas
+cat passwords.lst | sed -n '1,10p' --> mostrar rango de lineas
+
 
 grep(Filtro de contenido o texto en un archivo)
 
@@ -100,8 +102,16 @@ echo "hola mundo" > Miarchivo ----->escribir dentro de un archivo
 echo "hola mundo" >> Miarchivo ---->añadir sin sobreescribir
 
 sudo nautilus& ---> le damos permisos de administrador a la aplicacion y lo lanzamos en segundo plano con el "&"
-tar -xvf archivo.tar ----> para Descomprimir
 apt-get purge nombre_programa* ---> El asterisco indica que se elemine todo!
+
+@@@@@@@@@@@@@@@@@ DESCOMPRIMIR 
+
+tar -xvf archivo.tar ----> para Descomprimir (tambiend tenemos el unzip)
+el comoando para descomprimir iniversal 
+	7z -x archivo ->> descomprime cualquier cosa
+	7z -l archivo --> muestra que tipo de archivo obtendremos (no descomprime)
+
+ 
 
 @@@@@@@@@@@@@    R  E  D  @@@@@@@@@@@@@@@@@@@@@
 
@@ -114,10 +124,11 @@ more etc/passwd     etc/shadow-----------> derechos de usuario
 updatedb--->para usar el comando locate con resultado actualizados
 history | grep cd --->muestra todo la historia de comandos cd
 
-cut -d " " -f 4 ---->muestrame lo que halla despues de 4 espacion
----->d es delimitador y f es campo, en este caso muestrame solo el 4 campo
 
+################## S U S T I T U I R   O   C O R T A R 
 
+cat file | sed 's/cadena1/cadena2/g' --> sustituir global
+sed 's/cadena1/cadena2/' file.txt
 
 tr ----->Comando traductor o para eliminar, podemos sustituir
 	----->una cosa por otra como se ve abajo
@@ -130,6 +141,10 @@ echo "Welcome To GeeksforGeeks" | tr -d 'w' ---> eliminar un caracter o varios
 tail -2 ---->muestra los dos ultimos elementos
       tail sirve para mostrarr la cola!!!!
 tail -f --> monitoreamos un archivo en tiempo real, vemos lo ultimo añadido
+
+
+cut -d " " -f 4 ---->muestrame lo que halla despues de 4 espacion
+---->d es delimitador y f es campo, en este caso muestrame solo el 4 campo
 
 
 €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
@@ -146,7 +161,8 @@ curl -d -H -X --> parametros impoortantes data, Header, metodo "direccion"
 @@@@@@@@@@@@@@@@@@@@@@ C U R L   P O S T-----------##########
 
 curl -d "param1=value1&param2=value2" -H "Content-Type: application/x-www-form-urlencoded" -X POST http://localhost:3000/data
-
+@@@@@@@@@@@@@@@@@@@@@ T I M E 
+time grep "palabra" archivo --> devuelve resultado y timpo de ejecucion  
 @@@@@@@@@@@@@@@@@@@@@@ C U R L   G E T-------------- ###########
 curl -d "param1=value1&param2=value2" -H "Content-Type: text/html" -X GET http://localhost:3000/?param1="uno"
 
@@ -194,7 +210,8 @@ figlet fuck you --> letras grandes terminal
 @@@@@@@@@@@@@@@@@@@@--- I M P O R T A N TE  ---@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 ---->>>>>>> string data.txt  --> sacara todos los string de un archivo binario
----->>>>>>> .bashrc, ahi dentro podemos crear nuestros propios comandos con funciones
+---->>>>>>> .bashrc, ahi dentro podemos crear nuestros propios comandos con funciones o aser alias
+------->>>> mv $(pwd)/mi_archivo /nueva/ruta
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
@@ -210,7 +227,12 @@ entrada, salida y error para un comando en bash: STDIN, STDOUT y STDERR === 0 , 
 2>&1 --> redirige los errores a la salida ( muestra el error, '&' es mejor forma de llamar a 1).
 Redirigir un error a la basura --> mkDirr carpeta 2>/dev/null (mkdir mal escrito)
 $? --> muestra el estado del ultimo comando
+!$ --> el ultimo argumento
 echo $0 ---> muestra la shell que se usa actualmente
+
+
+
+find | xargs cat 2>/dev/null ---->muestrame todos los archivos y los que no puedes leer no los muestres
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -264,6 +286,8 @@ set hola $(date) ----> si hacemos ahora  echo $1 mostarara hola
 @@@@@@@@@@@@@@@@@@@@@ A W K @@@@@@@@@@@@@
 Filtra la salida de texto de un comando por linea
 ls -l  | awk '{ print $5 : $8 : $1 }'-----> dentro de cada linea mostrara las columnas nombradas
+awk 'NR==139' file (o pipeado desde grep) ----> mostrar una determinada linea
+grep "password" -n ---> encontrar password y decir en que linea esta
 
 @@@@@@@@@@@@@@@ PARA ENCONTRAR SERVIDORES DNS DE UN DOMINIO
 
@@ -292,8 +316,10 @@ ssh -R local-port:remote-hostname:remote-port user@server->Alguien remoto entra 
 @@@@@@@@ LEER PDF
 okular/evince archivo.pdf
 
-@@@@@@@@  MOSTRAR CABECERA HEXADECIMAL @@@@@
-hexedit archivo
+@@@@@@@@  HEXADECIMAL @@@@@
+hexedit archivo -> muestra la parte hexadecimal de un archivo 
+xxd --> convierte y revierte hexadecimal y binarios
+
 
 @@@@@@@@@@ DUPLICADOR DE DATOS @@@@@@@ (NO CONFUNDIR CON df)
 dd if=/dev/sda of=/dev/sdb bs=4096 -» Duplicación disco-a-disco

