@@ -1,0 +1,57 @@
+funtes --> https://networkengineering.stackexchange.com/questions/17439/how-does-the-router-know-how-to-route-the-packets-to-my-terminal
+
+QUESTION:
+
+
+Suppose I have a network of 2 computers, each having a private network address of 192.168.1.101 and 192.106.1.102.
+
+For my public ip address, it is 10.2.10.172.
+
+When I make a http request to google.com, my computer will send out a packet with source ip address of 192.168.1.101 to the router and the NAT will change it to 10.2.10.172.
+
+My question is, when google.com gets the request, and sends the reply back to 10.2.10.172, how does the router knows which computer to route to? (192.168.1.101 or 192.168.1.102).
+
+I was thinking about port number at first but I think that we could be browsing on the same website at the same time so I have no idea how it works here.
+
+
+ANSWER:
+
+7
+
+NAT
+If you are using static (one-to-one) NAT, the router will assign the 11.2.10.172 public IP to the first PC ( for example 192.168.1.101 ) trying to reach google.com. In this case, the two PC will not be able to communicate with google.com at once, because the only available public IP is already distributed.
+The NAT table in the router:
+11.2.10.172 -> 192.168.1.101
+
+PAT
+In your case PAT ( NAT overloading ) is the solution.
+With PAT, multiple addresses can be mapped to one private IP. When a device initiates a TCP/IP session, it generates a TCP or UDP source port number to uniquely identify the session. When the router receives this packet it uses that source port number to uniquely identify the translation.
+
+Example
+PC1 (192.168.1.101) makes an HTTP request to google.com (64.233.161.1) with a random source port number (1444). PC1 will send a packet with DA: 64.233.161.1:80 | SA: 192.168.1.101:1444. When the router receives this packet it inserts 11.2.10.172:1444 -> 192.168.1.101:1444 to the NAT table then changes the L3 addressing of the packet to DA: 64.233.161.1:80 | SA: 11.2.10.172:1444 and forwards it to google.com.
+Google responds with DA: 11.2.10.172:1444 | SA: 64.233.161.1:80. The router receives this packet and translates it to DA: 192.168.1.101:1444 | SA: 64.233.161.1:80 then forwards it to PC1.
+
+If PC2 (192.168.1.102) sends a packet with the same source port number as PC1 did , the router simply increases the port number by 1. In that case the NAT table would look like this
+
+11.2.10.172:1444 -> 192.168.1.101:1444
+11.2.10.172:1445 -> 192.168.1.102:1444
+
+I hope it helps a bit.
+
+UPDATE
+As @CraigConstantine noticed, 10.2.10.172 is still in the private address space so I have changed it to 11.2.10.172.
+
+
+
+
+ANSWER 2:
+
+
+so you mean we will be having 2 port numbers in the packet? one for the NAT and one for the terminal (http port 80)???
+
+Yes. The PC sends a packet with <dest: 64.233.161.1:80, source 192.168.1.101>. The router translates it to <dest: 64.233.161.1:80, 
+source: 10.2.10.172:1317> and sends it to Google. Google responds with <dest: 10.2.10.172:1317, source: 64.233.161.1:80>. The router receives the packet, 
+searches for the 10.2.10.172:1317 mapping in the NAT table. Finds the correct row, translates, and sends the packet to the PC with <dest: 192.168.1.101, 
+source: 64.233.161.1:80> – Adam Hornyak Mar 23 '15 at 7:00
+
+

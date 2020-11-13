@@ -326,3 +326,7 @@ dd if=/dev/sda of=/dev/sdb bs=4096 -» Duplicación disco-a-disco
 dd if=/dev/urandom of=myfile bs=6703104 count=1 -» Codifica un archivo (tal vez antes de borrarlo)
 dd if=/dev/zero of=/dev/sda bs=4k -» Limpia un disco duro (puede necesitar ser repetido)
 dd if=/dev/urandom of=/home/$user/hugefile bs=4096 -» Llena una partición (¡Cuidado con las particiones de sistema!)
+###### iptables
+
+https://www.tecmint.com/linux-iptables-firewall-rules-examples-commands/
+https://albertomolina.wordpress.com/2009/01/09/nat-con-iptables/

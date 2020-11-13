@@ -1,0 +1,9 @@
+Para mezclar dos archivos de codigo en C necesitamo crear un proyecto(puede que sin proyecto)
+el archivo main siempre es .c pero los demas tienen que se punto .h
+ademas hay que recordar que las libreria estandart de C se importan con #include<libreria>
+mientras que las propias se importan con #include"libreria"
+
+**puntero a otro puntero
+-> la flecha es para dato tipo struct puntero ejemp: struct * s ; s->valor
+para declarar una varibale de tipo global entre dos ficheros se usa la palabra "extern int variable" 
+si queremos que una variable local actue como global debemos declararla como static (tambien en php)
