@@ -212,6 +212,7 @@ figlet fuck you --> letras grandes terminal
 ---->>>>>>> string data.txt  --> sacara todos los string de un archivo binario
 ---->>>>>>> .bashrc, ahi dentro podemos crear nuestros propios comandos con funciones o aser alias
 ------->>>> mv $(pwd)/mi_archivo /nueva/ruta
+--------->>> pwdx 32152 --> nos dice desde donde fue ejecutado un cierto proceso
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
@@ -253,7 +254,6 @@ fg % 1 ->> traemos a primer plano
 	export RUS=dios   ---> echo $RUS  (salida:dios)
 	unset RUS --> destrulle la variable
 	printenv ---> imprime todas las variables
-
 @@@@@@@@@@@@@@@ SUID @@@@@@@@@@@@@@
   root  grup others  owner   grupo-owner
 - rws    r-x   r-x     root    	root    

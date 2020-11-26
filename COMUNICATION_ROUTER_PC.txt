@@ -54,4 +54,7 @@ source: 10.2.10.172:1317> and sends it to Google. Google responds with <dest: 10
 searches for the 10.2.10.172:1317 mapping in the NAT table. Finds the correct row, translates, and sends the packet to the PC with <dest: 192.168.1.101, 
 source: 64.233.161.1:80> – Adam Hornyak Mar 23 '15 at 7:00
 
+If we want to get all technical (and who wouldn't?) the PC does assign a source port which is then translated by the NAT device.
+So in Adam's comment the first source would really be more like 192.168.1.101:33123, and likewise 
+the corresponding final destination at the end of his comment would be 192.168.1.101:33123. 
 
