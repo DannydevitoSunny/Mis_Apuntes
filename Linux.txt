@@ -213,6 +213,8 @@ figlet fuck you --> letras grandes terminal
 ---->>>>>>> .bashrc, ahi dentro podemos crear nuestros propios comandos con funciones o aser alias
 ------->>>> mv $(pwd)/mi_archivo /nueva/ruta
 --------->>> pwdx 32152 --> nos dice desde donde fue ejecutado un cierto proceso
+----------->> fdisk -l --> muestra las particiones en nuestro disco
+-------> ldd /bin/bash --> muestra las dependecias de un ejecutable
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
@@ -330,3 +332,17 @@ dd if=/dev/urandom of=/home/$user/hugefile bs=4096 -» Llena una partición (¡Cuid
 
 https://www.tecmint.com/linux-iptables-firewall-rules-examples-commands/
 https://albertomolina.wordpress.com/2009/01/09/nat-con-iptables/
+
+################# types of files
+
+archivos con cabecera crxw --> normalmente pertenecen a un dispositivo y son realmente una interfaz en forma de bytes
+	donde se lee y escriben los caracters uno a uno para la comunicacion ( sin buffer)
+	al cambiar un caracter el cambio es inmediato en el dispositivo, tarjetas graficas, audio, video ...
+
+archivos con cabecera brxw --> archivos como los anteriores pero funcionan con buffers para el intercambio de informacion
+	entre el sistema y el dispositivo, al cambiar un caracter el buffer debe ser transimitido
+	disos duros, usb, floppy, rom etc...
+#########################################
+
+strace --> comando que muestra todas las llamdas del sistema de un comando ej : strace echo "hola"
+watch ---> muestra los cambios en tiempo real dentro de un directorio o archivo ej: watch file

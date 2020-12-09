@@ -5,3 +5,7 @@
 4. La informacion importante de una compania suele estar mas bien
 	en la parte financiera y no la de soporte (hablando de paginas web)
 5. Si no encuentras informacion de algo, mira o compara en la competencia
+6. chroot, entorno creado por nosotros (root jail), por ejemplo para correr un servidor desde dentro
+	de esta forma si alguien hackea no podra salir de ahi
+7. mount se usa para acceder a la estructura de archivos de un dispositivo
+	no es lo mismo que copiar, ya que hacemos visible un dispositivo desde una ruta que eligamos
