@@ -9,3 +9,15 @@
 	de esta forma si alguien hackea no podra salir de ahi
 7. mount se usa para acceder a la estructura de archivos de un dispositivo
 	no es lo mismo que copiar, ya que hacemos visible un dispositivo desde una ruta que eligamos
+8. multiprogramacion (normalmente monoprocesador): simulacion de varios hilos en un procesador,
+	(se aprobechan tiempos de espera de un proceso para saltar al otro)
+   programacion paralela (la concurrencia es real, varios nuecleos)
+9. proceso es la instancia de un programa (programa en ejecuccion)
+10. los hilos son los subprocesos de un proceso ( tareas diferentes en paralelo de un proceso)
+	podemos crear tantos hilos como querramos (subdividir la tarea), el procesador alternara
+	entre una y otra haciendo parecer que se ejecutan al mismo tiempo
+11.Los mutex bloquean un recurso y no lo liberan hasta que termine de ser usuado (los hilos estan en cola esperando)
+   Los semaforos tambien bloquean un recurso, pero funcionan desde dos puntos distintos
+	es decir, una vez el recurso ha sido llamado, se pone en estado ocupado, despues pasa el contro a wait,
+	este recoje la respuesta, y cambia el estado del recurso a libre de nuevo
+

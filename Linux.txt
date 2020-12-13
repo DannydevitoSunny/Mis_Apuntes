@@ -133,8 +133,9 @@ sed 's/cadena1/cadena2/' file.txt
 tr ----->Comando traductor o para eliminar, podemos sustituir
 	----->una cosa por otra como se ve abajo
 
-	-cat my_fyle.txt  |  tr "a" "Z" -----> Sustituye a por Z
-	-tr '{}' '()'   newfile.txt
+	cat my_fyle.txt  |  tr "a" "Z" -----> Sustituye a por Z
+	tr '{}' '()'   newfile.txt
+
 echo "Welcome To GeeksforGeeks" | tr -d 'w' ---> eliminar un caracter o varios
 
 
@@ -143,7 +144,7 @@ tail -2 ---->muestra los dos ultimos elementos
 tail -f --> monitoreamos un archivo en tiempo real, vemos lo ultimo añadido
 
 
-cut -d " " -f 4 ---->muestrame lo que halla despues de 4 espacion
+cut -d " " -f 4 ---->muestrame lo que halla despues de 4 espacio
 ---->d es delimitador y f es campo, en este caso muestrame solo el 4 campo
 
 
@@ -179,9 +180,9 @@ rev ---> vuelve el texto al reves
 cd - => te dice el directorio en el qu8e estas alojado actualmente
 usar find --> para encontrar archivos, es muy pontente (buscar parametros en google) 
 find . -name "*foo*" --> Busqueda recursiva de un archivo dentro de una carpeta
-####### U T I L #####
-whereis hosts --> devolvera las posibles ruttas del archivo
 
+####### U T I L #####
+whereis hosts.txt --> devolvera las posibles ruttas del archivo
 
 IMPORTANTE ---> which nombrePrograma --->nos da la direccion del ejecutable
 
@@ -295,7 +296,7 @@ grep "password" -n ---> encontrar password y decir en que linea esta
 
 host -t ns your-domain-name || dig ns your-domain-name --->uno u otro hacen lo mismo
 dig -x 192.168.94.3 ---> esto hace lo contrario
-
+nslookup
 
 @@@@@@@@@@@@@@ R E S O  L U C I O N    K A L I @@@
 https://www.youtube.com/watch?v=VzZkYrLiaac
@@ -328,6 +329,7 @@ dd if=/dev/sda of=/dev/sdb bs=4096 -» Duplicación disco-a-disco
 dd if=/dev/urandom of=myfile bs=6703104 count=1 -» Codifica un archivo (tal vez antes de borrarlo)
 dd if=/dev/zero of=/dev/sda bs=4k -» Limpia un disco duro (puede necesitar ser repetido)
 dd if=/dev/urandom of=/home/$user/hugefile bs=4096 -» Llena una partición (¡Cuidado con las particiones de sistema!)
+
 ###### iptables
 
 https://www.tecmint.com/linux-iptables-firewall-rules-examples-commands/
