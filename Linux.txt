@@ -215,7 +215,7 @@ figlet fuck you --> letras grandes terminal
 ------->>>> mv $(pwd)/mi_archivo /nueva/ruta
 --------->>> pwdx 32152 --> nos dice desde donde fue ejecutado un cierto proceso
 ----------->> fdisk -l --> muestra las particiones en nuestro disco
--------> ldd /bin/bash --> muestra las dependecias de un ejecutable
+-------> ldd /bin/bash --> muestra las dependencias de un ejecutable
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
@@ -345,6 +345,7 @@ archivos con cabecera brxw --> archivos como los anteriores pero funcionan con b
 	entre el sistema y el dispositivo, al cambiar un caracter el buffer debe ser transimitido
 	disos duros, usb, floppy, rom etc...
 #########################################
-
+crontab -l
+last ---> login activity and users
 strace --> comando que muestra todas las llamdas del sistema de un comando ej : strace echo "hola"
 watch ---> muestra los cambios en tiempo real dentro de un directorio o archivo ej: watch file

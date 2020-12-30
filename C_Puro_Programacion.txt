@@ -7,3 +7,69 @@ mientras que las propias se importan con #include"libreria"
 -> la flecha es para dato tipo struct puntero ejemp: struct * s ; s->valor
 para declarar una varibale de tipo global entre dos ficheros se usa la palabra "extern int variable" 
 si queremos que una variable local actue como global debemos declararla como static (tambien en php)
+
+friend --> nos permite declarar la funcion fuera 
+explicit--> nos permite obligar la llamada del constructor de forma correcta
+static --> fuera del clase hace a la funcion a varibale invisible para el resto de archivos
+	en cambio dentro de una funcion hace que la variable mantenga al memoria despues del scope
+operator <signo> --> nos permite sobreescribir signos ya existentes
+const --> aparte de crear constantes nos permite hacer una funcion inmutable
+mutable --> con esta definicion podemos alterar variables dentro de funcione const
+inline --> sirve para las funciones cortas y que se llaman pocas veces,	
+	evita que la memoria tenga que buscar dicha funcion, por lo que transporta
+	el codigo a la line en la que se envoca, como su fuera una instruccion mas
+
+############# PUNTEROS MULTIDIMENSIONALES #############
+
+	declaracion de punteros para leer en codigo
+	si vemos un * eso quiere decir que tenemos un puntero que apunta a un valor
+	si vemos dos ** o mas eso quiere decir que el puntero apunta a una direccion si o si
+
+	int ***puntero = new int** arrayPunteros[5]; NO CONFUNDIR, esto no nos devuelve un puntero ni un array de punteros,
+						     esto nos devuelve la direccion de donde empieza el array (ejmp: &arrayPunteros[0])
+						     
+
+NECESITAMOS DECLARAR LOS PUNTEROS  CON UN TYPE PARA QUE SEPAN CUANTOS ESPACIOS TIENEN QUE SALTAR
+ejemplo: un puntero int *pt es de tipo entero, si hacemos pt+1 saltara 4 bytes (lo que mide un int)
+--->IMPORTANTISIMO => la direccion de un array es LA DIRECCION DEL PRIMER ELEMENTO!!!!!
+		No confundir nunca notacion de arrays con punteros
+		recordar que : La direccion del array a === a[0]
+		@@@@@ ESTAS DOS COSAS SON LO MISMO @@@@
+	punteros---> *(*(*(a1+i)+j)+k) --> el * solicita el valor (a+1) es la direccion del saltando a la siguente
+	arrays  ---> a1[i][j][k]
+
+EJEMPLO PUNTERO DOBLE:
+	int **ptp2;
+    	ptp2 = &ptp;
+    	cout<<"Direccion de **ptp2: ["<<ptp2<<"] y Valor es = "<<*ptp2<<" Evaluar direccion del valor: "<<**ptp2;
+
+SINTAXIS para punteros multidimensionales:
+	w[0] == *w la primera es NOTACION ARRAY
+	int ***p ;
+	<p>  es la direccion basura, hasta que le asignemos a donde tiene que apuntar
+	<*p> es la direccion de donde apunta
+	<**p> es el valor del puntero al que apunta ( un asterisco representa la direccion al que  apunta)
+	<***p> es la evaluacion de la direccion del ultimo puntero al que apuntamos (el mismo numero de * siempre es la evaluacion del valor)
+	
+	
+
+
+######## CONSTRUCTRORES EN C++ #########
+hay tres tipos
+	constructor  1: Entity(int a, std::string c);
+	destructor   2: ~Entity();
+	interfaz     3: hacerfuncion()=0;
+	evitar copia 4: Entity(const Entity& otraEntidad)= delete
+
+############# TEMPLATE ###########
+template <typename/class T> void functionName(T value){} //typename o class es lo mismo pero el primero se ve mas correcto
+example: functionName<std::string>("hola");
+	 functionName("hola");
+
+<typename/class T, int N, std::string S> void functionName(T value, N value2, S value3 ){}
+
+template <class T>
+void foo() {
+   typename T::iterator * iter; --> sin el typename se interpretaria como una multiplicacion y la creacion de un puntero
+   ...
+}
