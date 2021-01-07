@@ -1,4 +1,4 @@
-Para mezclar dos archivos de codigo en C necesitamo crear un proyecto(puede que sin proyecto)
+ Para mezclar dos archivos de codigo en C necesitamo crear un proyecto(puede que sin proyecto)
 el archivo main siempre es .c pero los demas tienen que se punto .h
 ademas hay que recordar que las libreria estandart de C se importan con #include<libreria>
 mientras que las propias se importan con #include"libreria"
@@ -13,11 +13,109 @@ explicit--> nos permite obligar la llamada del constructor de forma correcta
 static --> fuera del clase hace a la funcion a varibale invisible para el resto de archivos
 	en cambio dentro de una funcion hace que la variable mantenga al memoria despues del scope
 operator <signo> --> nos permite sobreescribir signos ya existentes
-const --> aparte de crear constantes nos permite hacer una funcion inmutable
+const --> aparte de crear constantes nos permite hacer una funcion inmutable (LAS FUNCIONES CONST SOLO VALEN SI SON DE CLASE)
 mutable --> con esta definicion podemos alterar variables dentro de funcione const
 inline --> sirve para las funciones cortas y que se llaman pocas veces,	
 	evita que la memoria tenga que buscar dicha funcion, por lo que transporta
 	el codigo a la line en la que se envoca, como su fuera una instruccion mas
+
+
+
+############ MEMORY LEAK
+SI EL PROGRAMA SE CIERRA EN LA MAYORIA DE SISTEMAS LA MEMORIA SE LIMPIARA!!
+es decir, algunos sitemas embebidos no borran la memoria
+pero los pricipales como linux, mac o windows si que lo haran
+
+
+############### PARAMETERS PACK
+solo funciona con plantillas
+aqui estamos pasando indefinido numero de int como parametros
+
+template<typename ...Ints>
+void printa(Ints... ints) 
+{
+   int args[] { ints... }; 
+   cout<<args[0]<<"\n";
+}
+int main()
+{
+    printa(1,2,4,5);
+
+    return 0;
+}
+
+########### INCLUDES EN C++
+los headers deberian solo llevar el codigo esencial
+es decir las definiciones de clase o solo librerias esenciales,
+si por ejemplo iostream no es usado en la definicon (en el header)
+entonces solo lo importaremos en el cpp si vamos hacer uso de el
+
+//IMPORTANTE: DEBEMOS EVITAR HACER INCLUDES DENTRO DEL HEADER A MENOS QUE SE IMPLEMENTEN
+		EN LA DEFINICON DE LA ESTRUCTURA QUE ESTAMOS CREANDO
+		TODOS LOS INCLUDES DEBEN IR EN EL .cpp
+
+dentro de los headers, para que no se repitan hacemos lo siguiente
+#ifndef NOMBRE_MODULO_H
+#define NOMBRE_MODULO_H
+//..........codigo del header
+#endif
+
+
+
+############## LOS BIT FIELDS
+SOLO FUNCIONA DENTRO DE STRUCTS CLASS Y UNION
+struct halfbyte_t {
+    unsigned int half1: 4;
+    unsigned int half2: 4;
+} halfbyte;  //especificamos cuantos bits va a tomar una variable
+
+
+
+############# CASTING EN C++
+los diferentes metodos de casting en c++ nos permiten hacer un control
+de errores a la hora de la convercion de un tipo a otro ya que nos devuelven
+un resultado tipo null u otra cosa para saber si todo ha ido bien
+
+
+
+
+################# POINTERS FUNCTIONS
+SYTAXIS: tipo retorno (*nombre funcion)(tipos de datos de los paramentros)
+	
+		int (*funcion_puntero)(int,std::string); Esto seria el delegado o LA PLANTILLA
+		funcion_puntero= &funcion_de_verdad; 
+
+
+############ HERENCIAAAA
+Si hay herencia lo mejor que podemos hacer es dentro de la clase BASE
+declarar el DESTRUCTOR como virtual para poder sobreescribirse desde los hijos y 
+asi poder ser invocado sin fugas de memoria
+
+############# GLOBALES #######
+Si tenemos una variable local llamada igual que una global
+podemos resolvel el conflicto para llamar a la global con
+::mi_globalVar, esto empieza a mirar desde el scope global
+
+############### structuras ANONIMAS
+podemos crear estructuras unionees o clases de forma anonima,
+es decir no nos hacen falta los nombre ejemplo:
+de esta forma agrupamos los miembros  en estructruras pero non tenemos que inicializarlos
+class Persona{
+    public:
+        union{
+    		int x;
+    		double y;	
+    	};
+    	struct{
+    		int a;
+    		double b;	
+    	};
+
+};
+
+Persona p;
+    p.a =5;
+    p.x =5;
 
 ############# PUNTEROS MULTIDIMENSIONALES #############
 
@@ -50,7 +148,26 @@ SINTAXIS para punteros multidimensionales:
 	<*p> es la direccion de donde apunta
 	<**p> es el valor del puntero al que apunta ( un asterisco representa la direccion al que  apunta)
 	<***p> es la evaluacion de la direccion del ultimo puntero al que apuntamos (el mismo numero de * siempre es la evaluacion del valor)
-	
+
+
+
+################ PUNTERO VOID*
+int a = 0;
+int& function(){
+    a =10;
+    cout<<"direccion de a : "<<&a<<"\n";
+    return a;
+}
+
+int main()
+{
+    void *p;
+    p =&function();
+    
+    cout<<"direccion en p : "<<p<<"\n";
+
+    return 0;
+}	
 	
 
 
@@ -62,6 +179,21 @@ hay tres tipos
 	evitar copia 4: Entity(const Entity& otraEntidad)= delete
 
 ############# TEMPLATE ###########
+typedef int numero;
+using numero=int;
+
+
+typedef typename _MyBase::value_type  mi_nuevoNombre;  cambiamos tipo de nombre para el tipo de variable(para nombres largos)
+mi_nuevoNombre v;
+
+ejemplo real:
+        typedef typename std::remove_cv<typename std::remove_pointer<T>::type>::type  ObjType;
+        return static_cast<T>(qt_qFindChild_helper(this, aName, ObjType::staticMetaObject, options));
+------------------------------------------------
+typedef NTSTATUS(NTAPI *pdef_NtTerminateProcess)(HANDLE ProcessHandle, NTSTATUS ExitStatus); FUNCION CON 2 PARAM QUE DEVUELVE NTSTATUS
+pdef_NtTerminateProcess mifuncion = funcion() //DELEGADO EN C++
+------------------------------------
+
 template <typename/class T> void functionName(T value){} //typename o class es lo mismo pero el primero se ve mas correcto
 example: functionName<std::string>("hola");
 	 functionName("hola");
@@ -73,3 +205,37 @@ void foo() {
    typename T::iterator * iter; --> sin el typename se interpretaria como una multiplicacion y la creacion de un puntero
    ...
 }
+
+
+
+#################### DESTRUYENDO MEMORIA EJEMPLO BUENO POR MI
+class N {
+    public:
+        N() {
+            std::cout << "Creating object of type N\n";
+        }
+        ~N() {
+            std::cout << "Destroying object of type N\n";
+        }
+};
+
+class M {
+    public:
+        M() {
+            cout<<"Created N from M\n";
+        }
+        ~M() {
+            delete *n2;
+            cout<<"N deleted from M\n";
+        }
+        N* n;
+        N** n2;
+        
+    };
+
+int main()
+{
+    M m;
+    m.n=new N();
+    m.n2 = &m.n;
+    cout<<"\n"<<m.n<<" ---  "<<*m.n2<<"\n";
