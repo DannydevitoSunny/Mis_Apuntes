@@ -19,7 +19,33 @@ inline --> sirve para las funciones cortas y que se llaman pocas veces,
 	evita que la memoria tenga que buscar dicha funcion, por lo que transporta
 	el codigo a la line en la que se envoca, como su fuera una instruccion mas
 
+############ constructor por defecto
 
+int a{}-->> es lo mismo que int a = 0;
+
+
+########## 	c++ 17
+<optional> comprueba si la varible lleva datos y podemos comprobar que existen
+<variant>  nos permite definir varios tipos para una solo varibale (dependiendo de inicializacion cambia)
+std::any ---> varible de cualquier tipo (variant es mas rapido)
+
+################ C DESDE C++
+#include<iostream>
+extern "C"{
+	#include <stdio.h>
+
+	void f(void)
+	{ 
+	    printf("\n This is a C code\n");
+	}
+};
+
+int main(){
+    
+    f();
+	
+    return 0;
+}
 
 ############ MEMORY LEAK
 SI EL PROGRAMA SE CIERRA EN LA MAYORIA DE SISTEMAS LA MEMORIA SE LIMPIARA!!
@@ -164,11 +190,10 @@ int main()
     void *p;
     p =&function();
     
-    cout<<"direccion en p : "<<p<<"\n";
+    cout<<"direccion en p : "<<p<<" y valor que tiene es :"<<*(int*)p<<"\n";
 
     return 0;
-}	
-	
+}
 
 
 ######## CONSTRUCTRORES EN C++ #########
@@ -179,6 +204,13 @@ hay tres tipos
 	evitar copia 4: Entity(const Entity& otraEntidad)= delete
 
 ############# TEMPLATE ###########
+sin typedef --> int (Persona::*function)(int) = &Persona::function;
+con:
+	typedef int (Persona::*function)(int);
+	function f = &Persona::function;
+
+
+
 typedef int numero;
 using numero=int;
 
