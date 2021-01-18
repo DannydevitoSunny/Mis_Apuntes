@@ -19,6 +19,50 @@ inline --> sirve para las funciones cortas y que se llaman pocas veces,
 	evita que la memoria tenga que buscar dicha funcion, por lo que transporta
 	el codigo a la line en la que se envoca, como su fuera una instruccion mas
 
+
+@@@@@@@@@@@@@@@@@@ C O M P I L A C I O N @@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	
+	
+	IMPORTANTE: el nombre de nuestro source tiene que aparecer ANTES que las librerias (-l)
+	si compilamos librerias dinamicas lo mas probable que tengamos que añadirlas a una ruta del sistema
+	- o utilizar -Wl rpath, EJEMPLO: g++ -L/my/dir/path/ -Wl,-rpath=/my/dir/path/ -l:foo.so -l:bar.so
+	-rpath es runtime path
+
+	Esto es la compilacion de una libreria estatica, con dos rutas relativas y una absoluta (relativa L.)
+g++ miArchivo.cpp -std=c++17 -I./librerias/headers -L./librerias/statica -L/usr/local/sys -lprimera -lsegunda -lsystem -o nombreSalida.exe
+
+g++ miArchivo.cpp -c -std=c++20 -I/usr/include -o salida.o --> esto compila el codigo con los headers, tendremos que añadir lib aparte
+g++ salid.o -L/usr/lib -lmysql -o test.exe
+
+el parametro -Wall es activar todos los warnigs
+tambien podemos usar -v para mas informacion sobre la compilacion
+-----------DEBUG
+g++ -g miArchivo -o salida
+gdb ./salida --> lanza el debugger
+
+
+
+############## FUNCIONES LAMBDA Y CALLBACKS ################
+
+
+auto x = [a] { return (a+1); };  simple funcion lambda
+x(4); //resultado 5
+---------------------------------------------------------------------------
+
+template<typename myLambda> ------> CREANDO PARAMENTRO CALLBACK
+void mi_callback(myLambda fun)
+{
+   	cout << fun(10) << endl;
+}
+
+int g(int x)
+{
+    return x * x;
+}
+
+mi_callback(g);      // pasamos la funcion g como parametro a mi otra funcion
+----------------------------------------------------------------------------
 ############ constructor por defecto
 
 int a{}-->> es lo mismo que int a = 0;
@@ -187,7 +231,7 @@ int& function(){
 
 int main()
 {
-    void *p;
+    void *p; ---> LOS PUNTEROS VOID PUEDEN SER CUALQUIER TIPO DE PUNTERO
     p =&function();
     
     cout<<"direccion en p : "<<p<<" y valor que tiene es :"<<*(int*)p<<"\n";
