@@ -1,7 +1,10 @@
 Directivas y componentes link:
 https://stackoverflow.com/questions/34613065/what-is-the-difference-between-component-and-directive
 
-
+######## si se usa formly #######
+if (this.field[0].key === "nam"){
+ this.fields[0].formControl.setValue("fjjfkld"); --> cambia el valor dinamicamente
+}
 
 
 #variable --> es como el this

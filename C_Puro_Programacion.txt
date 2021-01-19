@@ -43,6 +43,12 @@ gdb ./salida --> lanza el debugger
 
 
 
+############# using vs using namespace #####################
+si usamos solo using e.g.
+using System::Server::Request; --> esto es solo usamos el objeto/subname Request de todo el namespace
+using namespace System::Server; ---> usamos todo el namespace con todas las clases que le pertenezcan
+otro ejemplo es : using namespace std;
+
 ############## FUNCIONES LAMBDA Y CALLBACKS ################
 
 
