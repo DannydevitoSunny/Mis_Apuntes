@@ -1,0 +1,19 @@
+########## ABRIR UN FRAGMENT DESDE UN ACTIVITY #########
+        FragmentTransaction mi_frg_trans = getSupportFragmentManager().beginTransaction();
+        mi_frg_trans .replace(R.id.appVista, new testF()).commit();
+
+app_vista --> es el id de la activity donde se va a renderizar el fragment
+new testF() -> es la clase de fragment en si
+
+
+
+########### ABRIR NUEVA VENTANA 
+
+Intent nuevaVentana= new Intent(this,NommbreClaseActivity.class);
+        intent.putExtra("name", "Ruslan"); ---> pasando  un parametro "name"  con mi nombre
+        startActivity(nuevaVentana);
+
+
+################  REMOVER LA BARRA DE ARRIBA
+ this.getSupportActionBar().hide();
+llamar al inicio antes de hacer cosas

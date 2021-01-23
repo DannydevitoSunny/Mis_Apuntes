@@ -6,7 +6,19 @@ if (this.field[0].key === "nam"){
  this.fields[0].formControl.setValue("fjjfkld"); --> cambia el valor dinamicamente
 }
 
+#################### DIALOGO
+providers:[DialogService] --> para cuando el dialogo no se cierra
 
+ 
+####################  JAVASCRIPT  ######################################
+let s =  {"e1" : [{"uno":"hola"}, {"dos":"mundo"}]}
+let j =  {e1 : [{uno:"hola"}, {dos:"mundo"}]}
+
+document.getElementById("demo").innerHTML = s["e1"][0]["uno"] + " " + s["e1"][1]["dos"];
+document.getElementById("demo2").innerHTML = j.e1[0].uno + " " + j["e1"][1].dos;
+
+
+###################################### MAS ANGULAR
 #variable --> es como el this
 [propiedad]="variable_directa_desde_angular", en vez de {{}}
 propiedad = "{{}}"

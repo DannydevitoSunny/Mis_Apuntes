@@ -42,6 +42,15 @@ g++ -g miArchivo -o salida
 gdb ./salida --> lanza el debugger
 
 
+################ rvalues and lvalues ################
+lvalues son todos aquellos que tienen una direccion y podemos rerfernciarlos
+rvalues hay dos tipos:
+	los que son puros (pvalue) --> 42, "String" ....
+	los que son temp  (xalue)--> datos retorno, parametros por valor .... 
+
+para pasar los objetos como rvalue dos formas:
+	1. Persona p1( (Persona&&)p2 ) ---> hacemos un casting  a rvalue (o xvalue)
+	2. Persona p1  (std::move(p2)) ---> hacmos el casting a traves de move( static casting) 
 
 ############# using vs using namespace #####################
 si usamos solo using e.g.
@@ -160,6 +169,13 @@ SYTAXIS: tipo retorno (*nombre funcion)(tipos de datos de los paramentros)
 	
 		int (*funcion_puntero)(int,std::string); Esto seria el delegado o LA PLANTILLA
 		funcion_puntero= &funcion_de_verdad; 
+		(*funcion_puntero= )(); ----> llamada
+
+
+################# FUNCTIONS REFERENCES
+SYTAXIS: tipo retorno (&nombre funcion)(tipos de datos de los paramentros)
+	void (& f_ref)(int, char) = funcion1
+	f_ref() ---> llamada
 
 
 ############ HERENCIAAAA
@@ -307,7 +323,7 @@ class M {
             cout<<"Created N from M\n";
         }
         ~M() {
-            delete *n2;
+            delete *n2; //destruyo n1 por por tanto destruyo el valor de N que tenia almacenado en el heap
             cout<<"N deleted from M\n";
         }
         N* n;
@@ -321,3 +337,47 @@ int main()
     m.n=new N();
     m.n2 = &m.n;
     cout<<"\n"<<m.n<<" ---  "<<*m.n2<<"\n";
+
+
+
+
+
+
+######################### diferencia entre por referencia y por valor con punteros
+#include <iostream>
+
+using namespace std;
+
+void passParam(int & x){
+    
+    x = x+2;
+}
+
+void passPt(int *pt){
+    
+    cout<<"direccion del puntero parametro:"<<&pt<<"\n";
+}
+
+
+void passPtdir(int *&pt){
+    
+    cout<<"direccion del puntero parametro por referencia:"<<&pt<<"\n";
+}
+int main()
+{
+    int a  = 25;
+    int & refa = a;
+    passParam(a);
+    cout<<a<<"\n\n";
+    
+    int b = 30;
+    int * ptb = &b;
+    passPt(ptb);
+    cout<<"direccion del puntero original:"<<&ptb<<"\n\n";
+    
+
+    passPtdir(ptb);
+    cout<<"direccion del puntero original:"<<&ptb<<"\n";
+    
+    return 0;
+}
