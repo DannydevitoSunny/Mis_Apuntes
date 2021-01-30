@@ -20,6 +20,11 @@ inline --> sirve para las funciones cortas y que se llaman pocas veces,
 	el codigo a la line en la que se envoca, como su fuera una instruccion mas
 
 
+######### IMPORTANTE !!!
+Si queremos crear un array sin inicializar debemos declarar un puntero e.g 
+int *mi_array;
+mi_array[5]; ---> y luego podemos darle el largo !!!!!!
+
 @@@@@@@@@@@@@@@@@@ C O M P I L A C I O N @@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	
@@ -40,6 +45,66 @@ tambien podemos usar -v para mas informacion sobre la compilacion
 -----------DEBUG
 g++ -g miArchivo -o salida
 gdb ./salida --> lanza el debugger
+
+
+
+@@@@@@@@@@@@@@@@@@ alocar memoria en direccion determinada @@@@@@@@@@@@@@@@
+esto nos permite crear un objeto dentro de una direccion alocada anteriormente
+es decir, reusando una direccion y ahorrando nuevo alojamiento heap ejemplo:
+
+Persona p1("Maria");
+new (&p1) Persona("Juan"); //el constructor persona se sigue llamando, pero el nuevo alojamiento heap no ocurre!!!
+
+############## llamar destructor manualmente #############
+int main()
+{
+     //c1 esta en el heap, ademas esta variable no esta siendo creada dentro de una clase
+      (de ser asi definimos el delete de la variable en el destructor)
+
+    Conductor* c1 = new Conductor* ();
+    Examen e1; // e1 esta en el stack!!!
+
+    e1.arrayConductores[0] = c1;
+    e1.arrayConductores[0]->~Conductor* (); //invocamos el destrutor explicitamente solo para este objeto
+    return 0;
+}
+
+
+################ FORWARD AND EMPLACE ########
+std::forward<tipo_dato>(dato), esto nos sirve para pasar los parametros de forma original desde la funcion
+				padre a la funcion hija ya que a veces cuando usamos plantillas y pasamos 
+				parametros por referenciaa o rvalue, al recibirlos la funcion hija siempre es
+				por rvalue, por padre los interpreta asi una vez los recibe y si los casteamos 
+				antes de pasarlos seguramente tendremos que escribir muchas sobrecargas
+
+emplace----> sirve para pasar parametros de forma que van directos a la fuente es decir:
+
+	template <class tipo1>
+	struct datoCustom{
+    		datoCustom(){}
+    
+			tipo1* mi_funcion_emplace(int&& size){
+			tipo1 *a[] = new tipo1[std::forward<int>(size)];
+			return a;
+		}
+
+	};
+
+	
+    	datoCustom <int>a;
+    	int *pint = a.mi_funcion_emplace(5); //pasamos un 5 pero recuperamos un array
+
+resumen, emplace sirve para cuando necesitamos crear un objeto (pasandolo como parametro)
+que necesita datos para ser inicializado pues en vez de pasar un objeto con esos datos
+y que la memoria haga copias innecesarias, lo que hacemos es pasar los datos 
+y crear el objeto ya en el destino evitando asi la copia
+IMPORTANTE, es apropiado que el objeto sea una variable miembro o global, ya que si no morira al terminar la funcion
+
+otro ejemplo:
+ en vez de: nuevoDato<Vector(1,4f,"nombreX")>
+ hacemos  : nuevoDato.emplace(1,4f,"nombreX") y ahora ya no estamos haciendo una copia de vector como parametro
+
+-----------------------------------------------------------------------
 
 
 ################ rvalues and lvalues ################
