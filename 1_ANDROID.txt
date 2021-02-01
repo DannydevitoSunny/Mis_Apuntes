@@ -1,6 +1,29 @@
 ########## ABRIR UN FRAGMENT DESDE UN ACTIVITY #########
-        FragmentTransaction mi_frg_trans = getSupportFragmentManager().beginTransaction();
-        mi_frg_trans .replace(R.id.appVista, new testF()).commit();
+
+//esta es a unica funcion que realmente necesitamos para que un fargmente exista
+public class primeraPantalla extends Fragment{
+	@Override
+    	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState){}
+
+}
+
+-una vez que el fragment existe lo añadimos dentro de un view fragment en el activity que deseamos
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.historias.contarhistorias.primeraPantalla"
+        android:layout_width="265dp"
+        android:layout_height="394dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+     />
+
+--------------------------------------------------------------------------
+
+
+        FragmentTransaction mi_frg_transaccion = getSupportFragmentManager().beginTransaction();
+        mi_frg_transaccion .replace(R.id.appVista, new primeraPantalla()).commit();
 
 app_vista --> es el id de la activity donde se va a renderizar el fragment
 new testF() -> es la clase de fragment en si

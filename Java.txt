@@ -14,5 +14,18 @@ Para sellar una clase ponemos --->  'final' en vez de selled
 Si declaramos un metodo abstracto o propiedad, debemos declarar la clase entera como abstracta;
 Los metodos abstractos, solo se definen public--->abstract double area();
 
+
+
+++++++++++++++++++ mavenCentral() ++++++++++++
+
+++++++++++++ AÑADIR JAR A GRADLE ++++++++++++++++++++
+	//las dos formas funcionan
+	// la primera seria para añadir un solo jar
+	// la segunda forma para añadir varios jars
+    compile files('/home/rus/Escritorio/Pogramacion/JAVA/hibernateTest/lib/jasperLibs/archivo.jar')
+    compile fileTree(dir: '/home/rus/Escritorio/Pogramacion/JAVA/hibernateTest/lib/jasperLibs', include: '*.jar')
+
+
 ++++++++OUTPUT/INOPUT++++++
 import java.io.*; Es mejor que---> import java.util.Scanner; 
+
