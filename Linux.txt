@@ -1,3 +1,6 @@
+crear SUDO EN DEBIAN
+/usr/bin/usermod -aG sudo rus
+
 Bcrypt
 md5 hash
     1.Find exposed services (with nmap) and try to detect the hardware and software version with the        TCP signature

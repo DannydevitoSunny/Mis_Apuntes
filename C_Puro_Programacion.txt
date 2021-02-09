@@ -47,8 +47,110 @@ g++ -g miArchivo -o salida
 gdb ./salida --> lanza el debugger
 
 
+################ A PARTIR DE C++17 STRUCTURE BINDINGS ##########
 
-@@@@@@@@@@@@@@@@@@ alocar memoria en direccion determinada @@@@@@@@@@@@@@@@
+int main()
+{
+    int a [] = {1,2};
+    auto [c,d] = a;
+    cout<<"Structure bindings: "<< c ;
+
+    return 0;
+}
+
+################ C++ 20    MODULES #################
+//los archivos que sean modulos deben llevar extension IXX (ixx)
+
+//foo.ixx
+export module Foo;
+
+#define ANSWER 42
+
+namespace Bar
+{
+   int f_internal() {
+        return ANSWER;
+      }
+
+   export int f() {
+      return f_internal();
+   }
+}
+
+
+----------------------------
+import Foo;
+import std.core;
+
+using namespace std;
+
+int main()
+{
+   cout << "The result of f() is " << Bar::f() << endl; // 42
+   // int i = Bar::f_internal(); // C2039
+   // int j = ANSWER; //C2065
+}
+
+
+################# UNA ALMOHADILLA ##############
+
+
+#define what_is(x) std::cerr << #x << " is " << x << std::endl;
+
+void decirHola(std::string s){
+    what_is(s)
+    std::cout<<"Saludando a "<<s<<"\n";
+}
+    
+
+################# TOKEN PASTING ##   ##############
+El token pasting se usa para pegar juntas dos o mas macros 
+En este caso WORD3 produce una nombre WORD1WORD2 que tiene que referencia a algo, por ejemplo
+una funcion o una variable como se ve abajo
+
+#define WORD1 "HOLA";
+#define WORD2 " MUNDO";
+#define WORD3 WORD1##WORD2;  //
+
+std::string WORD1WORD2 = "soy el token pasting";
+
+cout<<WORD3;  // esto impirimirea "soy el token pastin"
+
+
+
+################## CLASS COMO TIPO DE VARIABLE EN EL HEADER ######
+
+Si tenemos una definicion en el header (.h) de una variable con una clase que esta 
+definida en la implementacion (cpp), para que el compilador no falle a la variable del header
+se le pone "class" delante de esa forma etiende que la implementacion llama a la libreria
+
+//archivo person.h , queremos crear una variable de tipo dog, pero el include esta el el person.cpp
+//con la palabra class es como cuando decimos "extern" o "::varible"
+class person{
+    
+    public:
+        class dog* dogOne;
+        person();
+        void getPet();
+};
+
+
+
+################### PUNTERO CON DATA CONSTANTE ##############
+const *int const p = &someVar; --->un puntero constante con data constante
+				   el primer const hace constante al punetero, el segundo a data
+
+
+
+##################### FUNCION ANONIMA PURA #################
+auto fux = [](int a)->int{return a;};
+
+la parte de {->int} arriba es opcionale, solo lo aplicamos cuando devolvemos un type
+sino auto fux = [](int a){}; esto da por hecho que la funcion devuelve void
+
+
+
+@@@@@@@@@@@@@@@@@@ ALOCAR MEMORIA DIRECCION DETERMINADA @@@@@@@@@@@@@@@@
 esto nos permite crear un objeto dentro de una direccion alocada anteriormente
 es decir, reusando una direccion y ahorrando nuevo alojamiento heap ejemplo:
 
@@ -347,7 +449,8 @@ using numero=int;
 
 
 typedef typename _MyBase::value_type  mi_nuevoNombre;  cambiamos tipo de nombre para el tipo de variable(para nombres largos)
-mi_nuevoNombre v;
+mi_nuevoNombre v; //ese typename se especifica para porque seguramente _MyBase es de tipo plantilla
+			y puede interpretarse mal, typename lo aclara para el compilador
 
 ejemplo real:
         typedef typename std::remove_cv<typename std::remove_pointer<T>::type>::type  ObjType;
