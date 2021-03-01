@@ -21,3 +21,20 @@
 	es decir, una vez el recurso ha sido llamado, se pone en estado ocupado, despues pasa el contro a wait,
 	este recoje la respuesta, y cambia el estado del recurso a libre de nuevo
 
+
+
+
+
+
+
+
+
+
+
+
+
+###################
+-let yuor mind wander
+-contagiuous and emotions induction (recalling memories)
+-less talk more control
+-baldness

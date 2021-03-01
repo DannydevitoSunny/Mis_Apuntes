@@ -1,0 +1,39 @@
+data---->segment----->packet------>frame
+RJ45 Solo es un cable de ethernet normal de cobre
+SFT  Es  un cable de ethernet de fibra optica y mas caro
+
+
+########## tipos fibra ############
+Los cables de fibra optica son de dos tipos
+single mode----> mas caro y soparta mas distancia, mas de 3km
+multiple mode---> mas angulaos dentro del cable, mas barat y menos distancia , 500m
+
+############## tipos cables 
+
+straight cable --> conecta dos dispositivos diferentes
+crossover --> conecta dos dispositivos iguales
+
+para dispositivos nuevos existe la tecnoglogia llamada auto mdi-x
+la cual detecta el tipo de conexion y la ajusta indepentientemente del cable
+
+############## router y swtitch CLI
+en | enable --> modo (sudo)
+dis | disable --> salir modo privilegiado
+? --> nos muestra la ayuda o opciones de un comando
+
+-----------Una vez estamos en el modo enable, podemos ejecutar el resto de comandos
+------- IMPORTATE: para configurar interfazes primero debemos de estar en el modo [conf t]
+
+do [algun comando] --> el do ejecuta comandos como si estuvieramos en otros modos (ejemplo modo config)
+no [algun comando] --> hace lo contrario al estado de un comando: ejemplo no shutdown, activa una intrefaz
+conf t | configure terminal ---> modo de configuracion
+sh run | show running-config ---> muestra al configuracion que estamos tocando ahora mismo
+sh start | show startup-config ---> muestra la configuracion de arranque
+wr | write memory | copy running-config startup-config ---> guardamos los cambios de la configuracion
+end --> nos saca del modo enable
+sh ip int br | ip show interfaces brief ---> muestra todas las interfaces y sus caracteristicas de forma abrevidada
+int [nombre intrefaz g01/0] | interface [nombre intrefaz g01/0] --> para entrar en la configuracion de una interfaz
+int range g0/5 -12 | interface range g0/5 -12 ---> configuramos varias interfaces a la misma vez
+do show interfaces status --> comando solo para switches
+
+

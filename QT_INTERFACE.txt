@@ -6,3 +6,16 @@ una vez credo miarchivo.ui
 debemos añadirlo como header en nuestra clase .cpp como ui_miarchivo.h 
 nuestra nueva ventana debe heredar de wiget y ademas debemos de cambiarle 
 el nombre segun la clase que creemos para esa ui en .cpp y .h 
+
+############## SLOTS
+
+connect(Object1, signal, Object2, slotObj2)
+
+
+####################
+
+    -m 0 designates the type of hash we are cracking (MD5)
+    -a 0 designates a dictionary attack
+    -o cracked.txt is the output file for the cracked passwords
+    target_hashes.txt is our input file of hashes
+    /usr/share/wordlists/rockyou.txt is the absolute path to the wordlist file for this dictionary attack

@@ -8,7 +8,7 @@ mientras que las propias se importan con #include"libreria"
 para declarar una varibale de tipo global entre dos ficheros se usa la palabra "extern int variable" 
 si queremos que una variable local actue como global debemos declararla como static (tambien en php)
 
-friend --> nos permite declarar la funcion fuera 
+friend --> nos permite declarar la funcion fuera de clase (si pasamos el objeto como paramtro,  puede acceder a privado y protected)
 explicit--> nos permite obligar la llamada del constructor de forma correcta
 static --> fuera del clase hace a la funcion a varibale invisible para el resto de archivos
 	en cambio dentro de una funcion hace que la variable mantenga al memoria despues del scope
@@ -46,6 +46,12 @@ tambien podemos usar -v para mas informacion sobre la compilacion
 g++ -g miArchivo -o salida
 gdb ./salida --> lanza el debugger
 
+
+############# en C++  existen parametros vacios #############
+
+void saludar(int a, int){
+}
+el segundo parametro no tiene nombre por lo tanto nunca se usa
 
 ################ A PARTIR DE C++17 STRUCTURE BINDINGS ##########
 
@@ -120,7 +126,7 @@ cout<<WORD3;  // esto impirimirea "soy el token pastin"
 
 ################## CLASS COMO TIPO DE VARIABLE EN EL HEADER ######
 
-Si tenemos una definicion en el header (.h) de una variable con una clase que esta 
+Si tenemos una definicion en el header (.h) de una variable con una clase (type no definido en el header sino en .cpp), que esta 
 definida en la implementacion (cpp), para que el compilador no falle a la variable del header
 se le pone "class" delante de esa forma etiende que la implementacion llama a la libreria
 
