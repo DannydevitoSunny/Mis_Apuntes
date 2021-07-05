@@ -55,7 +55,7 @@ pwd( muestra en que carpeta estamos)
 
 mv ( mover cortando un archivo y renombrarlo)
 
-rv( eliminar)
+rm( eliminar)
 
 nano(editor de texto)
 

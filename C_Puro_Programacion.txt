@@ -191,7 +191,7 @@ emplace----> sirve para pasar parametros de forma que van directos a la fuente e
 	struct datoCustom{
     		datoCustom(){}
     
-			tipo1* mi_funcion_emplace(int&& size){
+		tipo1* mi_funcion_emplace(int&& size){
 			tipo1 *a[] = new tipo1[std::forward<int>(size)];
 			return a;
 		}

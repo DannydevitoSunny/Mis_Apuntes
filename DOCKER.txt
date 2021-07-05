@@ -1,0 +1,61 @@
+Docker una vez instalado,
+docker pull nombre_imagen --> esto descarga solamente la imagen
+docker run nombre_imagen --> esto descarga y inicia la imagen
+
+@@@@ IMPORTANTE @@@@@
+DOCKER dispone principalmente de 3 tipos de arvhicos propias
+
+Dockerfile --> por asi decirlo es la configuracion de un solo contenedor
+	por ejmplo si quisieramos ejecutar python en desde un contenedor
+	buscariamos la configuracion para hacerlo para este archivo
+	EJECUCION: ---> docker build -t nombre_de_mi_containter .
+
+		# syntax=docker/dockerfile:1
+		FROM python:3.8-slim-buster
+		WORKDIR /app
+		COPY requirements.txt requirements.txt
+		RUN pip3 install -r requirements.txt
+		COPY . .
+		CMD [ "python3", "main_app.py" ]
+
+.dockerignore ---> lo mismo que el .gitignore
+
+
+docker-compose.yml--> este archivo es muy importante, cuando creamos diferentes contenedores
+	docker, estos estan en sus propias redes y son totalmente independientes unos de otros,
+	por lo tanto no se pueden ver, para ellos docker tiene una funcionalidad de crear redes
+	entre los contenedores, esas redes pueden ser creadas a mano por comandos, pero el 
+	ARCHIVO docker-compose.yml lo hace por nosostros, solo tenemos que definir los contenedores
+	y sus parametro, y el archivo se encargara de poner todos los containers bajos una misma red
+	EJECUCCION :----> docker-compose up -d
+
+	version: '3'
+	services:
+
+	  mysql_db:
+    		image: mysql:5.7
+    		environment:   # Set up mysql database name and password
+      			MYSQL_ROOT_PASSWORD: password
+      			MYSQL_DATABASE: employees
+      			MYSQL_USER: user
+      			MYSQL_PASSWORD: password
+    		networks:
+      			- app-tier
+
+	  python_app:
+    		build:
+      			context: .
+      			dockerfile: Dockerfile
+    		depends_on:
+      			- mysql_db
+    		networks:
+      			- app-tier	
+    		command:
+      			tail -f /dev/null
+
+
+	networks:
+  		app-tier:
+    			driver: bridge
+
+	

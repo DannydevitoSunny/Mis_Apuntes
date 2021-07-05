@@ -1,0 +1,38 @@
+################ D E V O P S   C O N C E P T S ######################
+Escalabilidad
+	vertical --> mas potencia de hardware
+	horizontal --> mas recursos en si (mas maquinas)
+Elastisidad 
+	Es la capacidad de escalar de forma automatica
+	por ejemplo cuando necesitamos mas computo en un dia festivo
+	por que hay mucho mas trafico, en vez de comprar mas hardware o equipos
+	podemos ajustar que el sistema crezca de forma automatica y luego se reduzca
+
+Agilidad
+	La capacidad de reubicar los recursos de forma rapida
+
+Tolerancia
+	Capacidad de respuesta en rapida a la hora de fallo en los servidores de la nube (cloud)
+
+
+@@@@@@@@@@@@@@@@@@@@@ formas de comprar el servicio de la nube @@@@@@@
+
+enPremises ejemplo: nosotros lo montamos todo
+	Yo me encargo de todo, es decir, alquilo todo el hardware (ram, storage, cpu, maquinas etc...) HARDWARE
+	yo me encargo de todas las configuraciones (redes, docker, OS, Middleware...) PLATAFORM
+	yo subu mi aplicaciones (la aplicacion en si) SOFTWARE
+
+IaaS (infrastructura como servicio)	
+	HARWARE --> se encargan los proveedores del servicio
+	PLATAFORM -> yo
+	SOFTWARE  -> yo
+
+PaaS (plataforma como servicio) ejemplo: cuando solo subimos nuestra aplicaciones y yasta
+	HARWARE --> se encargan los proveedores del servicio
+	PLATAFORM -> se encargan los proveedores del servicio
+	SOFTWARE  -> yo        
+
+SaaS (software como servicio) ejemplo: cuando usamos una aplicacion del proveedor : gmail, microsoft teams, skype ...
+	HARWARE --> se encargan los proveedores del servicio
+	PLATAFORM -> se encargan los proveedores del servicio
+	SOFTWARE  -> yo 

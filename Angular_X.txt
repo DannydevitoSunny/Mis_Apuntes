@@ -60,3 +60,11 @@ this.http.post<any>('https://jsonplaceholder.typicode.com/posts', body, { header
 
 a2ensite refrsecar la configuracion de sites-available
 
+
+############# ngfor y ngif
+<select #encagadosList class=" col browser-default custom-select form-control">
+              <option value="" selected disabled>Encargado</option>
+              <option #encargadoItem *ngFor="let empleado of lista_usuarios" [style.display]="empleado.code==dialogoAsignarVar.title?'none':'block'"   value="{{empleado.code}}">
+                {{empleado.code}}
+              </option>
+</select>
