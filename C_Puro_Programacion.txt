@@ -47,6 +47,28 @@ g++ -g miArchivo -o salida
 gdb ./salida --> lanza el debugger
 
 
+
+###################### DECLARAR VARIABLE EN MACRO Y FUNCION #################
+
+#define init private:string name = "sofia"; 
+#define init2() \
+void setName()\
+{\
+    this->name = "maria";\
+}
+
+class Test
+{
+    init
+    public:
+        
+        std::string getName(){
+            return this->name;
+        }
+        
+        init2()
+};
+
 ############# en C++  existen parametros vacios #############
 
 void saludar(int a, int){
