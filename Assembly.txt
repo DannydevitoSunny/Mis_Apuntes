@@ -1,0 +1,46 @@
+-------Operaciones basicas
+-push : mete la variable en la CIMA del stack
+-pop : elimina la variable de la Cima del stack
+el stack crea hacia arriba   	low address  1
+			   	^	     2
+			   	|            3
+			  	|            4
+			   	higth address
+			   
+los registros de tipo generales (eax, ebx, ecx, edx, esi,edi), son como nuestras variables globales, que
+podemos usar cuando necesitemos
+
+despues tenemos los 3 regitros reservados mas importantes
+	ebp esp eip   (base pointer, stack pointer, instruction pointer
+	
+las opreraciones add y substract
+
+operacionX  val1 val2   --> las operaciones suman o restan el val2 con val1 y guardan el valor en val1(IMPORTATE)
+
+----------
+CONDICIONALES
+
+las operaciones como compare:
+comapre val1 val2 ---> el resultado se almacena en FLAGS ejemoplo  2 y 5, si 2 es mayor(se compara con val1) FLAG = true
+jg direccion ---> jump es el que lee el flag y si el flag es true salta a la direccion
+
+
+-------- PUNTEROS ASSEMBLY
+
+lea var1 var2  --> var1 guarda la direccion de var2  (como la funcion &var en C)
+mov var1 [var2] ---> la var1 gurada el valor de var2 (como la funcion *var en C)
+
+------------FUNCIONES --------------
+
+Cada funcion en ensamblador se guarda en un frame por asi decirlo, todo fuera de ese frame en el momento se considera basura
+
+cafa FRAME esta delimitado por arriba y por abajo, los famos ESP(LIMITA ARRIBA) Y EBP (LIMITE ABAJO)
+
+ esp
+|'''''|
+|     |	
+|------>pointer de direccion actual EIP
+|     |
+|_____|
+ ebp
+ ret     ---> direccion de retorno ( cada frame tiene su direccion de retorno, asi el programa sabe por donde se ha quedado antes de entrar en el FRAME
