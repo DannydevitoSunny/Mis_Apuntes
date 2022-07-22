@@ -1,0 +1,116 @@
+############## binarios
+
+-----------------------------------	EN BASE DECIMA 10
+243 = (102 * 2) + (101 * 4) + (100 * 3) = 200 + 40 + 3.  =243
+
+->> podemos representar cualquier numero de esta forma, cada numero se multimplica por 10^(indice  en el que esta siendo el primero siempre 0)
+
+-----------------------------------	EN BASE DECIMA 7
+
+ 243(in base 7) = (72 * 2) + (71 * 4) + (70 * 3) = 98 + 28 + 3 = 129( EN BASE 7, 129 REPRESENTA 243)
+ 
+ 
+ 
+ -------------------------->REPRESENTATION
+Hexadecimal is represented with a prefix "0x" or suffix "h". Examples: 0x12 or 12h
+Binary is represented with a suffix "b" or with a padding of zeros at the start. Examples: 100101b or 00100101.
+ 
+ 
+XOR ->  funcion como el OR pero  solo evalue que uno de los dos des verdad, si true xor true = false
+
+ --------------------------> AQUITECTURA X64 DE BITS 
+ 
+MOV  RAX 0x0123456789ABCDEF
+SERIAL IGUAL A ESTO :
+	RAX = 0x0123456789ABCDEF
+	EAX = 89ABCDEF
+	AX = CDEF
+	AH = CD
+	AL = EF
+	
+RAX esta compuesto de estos registros, es como decir en C, int, int32, int16, int8, y los dos ultimos serian int de 4 
+	
+	
+----------------------------> TIPOS DE DATOS
+
+    Floating------------_> Point Values - Floats and Doubles.
+    Integer Values ------------> Integers, Booleans, Chars, Pointers, etc.
+
+
+///-------------------------- SECCIONES INTERNAS DE UN PROCESO
+
+    Stack - Holds non-static local variables. Discussed more in-depth soon.
+    Heap - Contains dynamically allocated data that can be uninitialized at first.
+    .data - Contains global and static data initialized to a non-zero value.
+    .bss - Contains global and static data that is uninitialized or initialized to zero.
+    .text - Contains the code of the program (don't blame me for the name, I didn't make it).
+
+
+############################################# GDB
+
+cuando compilamos un programa en c o c++, para activar el debugger hacemos lo siguente
+gcc -g programa.c - o programa --> -g permite que podamos ejecutar el gdb sobre el dicho programa
+
+gdb -q programa --> -q permite eliminar el banner de salida principal de gdb de copyrigth etc...
+
+o Display in octal.
+x Display in hexadecimal.
+u Display in unsigned, standard base-10 decimal.
+t Display in binary.
+
+
+b A single byte
+h A halfword, which is two bytes in size
+w A word, which is four bytes in size
+g A giant, which is eight bytes in size
+
+
+i instruction actual
+-----------------
+
+poner ruptura:
+------>break 1
+quitar ruptura
+d 1
+ver variable
+info varName
+
+
+ejemplo:
+
+(x/ se usa siempre para mostar por pantalla)
+
+(gdb) x/8xb $eip --> imprime en forma decimal  los 8 bits de bit en bit
+(gdb) x/4xb $eip --> imprime en forma decimal  los 4 bits de bit en bit
+
+(gdb) i r eip ---> imprime la instruccion actual
+
+
+(gdb) set disassembly intel ---> sintaxis intel
+
+(gdb) x/5i $eip ---> imprime las 5 siguientes instrucciones
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+
+################################# PATRON FABRICA CON TIPO GENERICO ########################
+namespace Rextester
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            FabricaLetras<letraB> fabrica = new FabricaLetras<letraB>();
+            Iletra nuevaletra = fabrica.getLetra();
+            nuevaletra.quieSoy();
+        }
+    }
+    
+    public class FabricaLetras<T> where T: new(){ //----------> sin esto la primera opcion de creacion en el constructro no funciona
+        
+        private T tipoLetra;
+        public FabricaLetras(){
+            this.tipoLetra = (T)new T(); // otra froma  this.tipoLetra = Activator.CreateInstance<T>();, con eso no hace falta el where de arriba
+        }
+        
+        public T getLetra(){
+            return this.tipoLetra;
+        }
+    }
+    
+    
+    public interface Iletra{
+        public void quieSoy();
+    }
+    
+    
+    public class letraA : Iletra{
+        public letraA(){
+        }
+        public void quieSoy(){
+            Console.WriteLine("Hola soy la letra A");
+        }
+    }
+    
+    public class letraB: Iletra{
+        public letraB(){
+            
+        }
+        public void quieSoy(){
+            Console.WriteLine("Hola soy la letra B");
+        }
+    }
+    
+}
