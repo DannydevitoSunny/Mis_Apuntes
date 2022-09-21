@@ -44,3 +44,33 @@ cafa FRAME esta delimitado por arriba y por abajo, los famos ESP(LIMITA ARRIBA) 
 |_____|
  ebp
  ret     ---> direccion de retorno ( cada frame tiene su direccion de retorno, asi el programa sabe por donde se ha quedado antes de entrar en el FRAME
+ 
+ 
+ @@@@@@@@@@@@@@@@@@@@@@@@ IMPORTANTE
+ 
+ 1  primero se meten los argumentos de la funcion
+ 2 despues se mete la direccion de retorno
+ 3 despues se mete ebp
+ 4 despues las variables locales
+ 
+ 
+ high address: | argument N     |
+              +----------------+
+              | argument N-1   |
+              +----------------+
+                     ...
+              +----------------+
+              | argument 1     |
+              +----------------+
+              | return addr    |
+              +----------------+
+              | prv frame addr | <---- %ebp
+              +----------------+
+              | local 1        |
+              +----------------+
+              | local 2        |
+              +----------------+
+                     ...
+              +----------------+
+ low address: | local N        | <---- %esp
+              +----------------+

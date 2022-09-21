@@ -77,7 +77,8 @@ info varName
 
 
 ejemplo:
-
+---------------->(en numero que vemos delante, es para imprimir los siguientes bytes, words, instructionts etc)
+			(ejemplo con letras:----> abcde  si ponemos x/3letras--> a b c )
 (x/ se usa siempre para mostar por pantalla)
 
 (gdb) x/8xb $eip --> imprime en forma decimal  los 8 bits de bit en bit
