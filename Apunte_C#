@@ -1,3 +1,10 @@
+@@@@@@@@@@@@@@@@@ CREAR CLASE GENERICA E INSTANCIARLA, Luego llamar un metodo gracias a la Interface @@@@@@@@@@@@@@@@@@@
+public static void Test<T>() where T : class, ITest, new()
+{
+    T a  = new T();
+    a.justDo();
+}
+
 
 ################################# PATRON FABRICA CON TIPO GENERICO ########################
 namespace Rextester
